@@ -1,0 +1,41 @@
+# Dependencies
+markdown:       kramdown
+highlighter:    rouge
+
+kramdown:
+  auto_ids:     true
+
+# Permalinks
+permalink:      pretty
+
+# Server
+source:         "."
+destination:    ./_site
+host:           0.0.0.0
+port:           9000
+baseurl:        ""
+url:            "https://valerymelou.com"
+encoding:       UTF-8
+exclude:
+  - .git/
+  - .github/
+  - .ruby-version
+  - assets/
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - README.md
+
+plugins:
+  - jekyll-sitemap
+
+# Social
+title:              Valery Melou
+description:        "Freelance web developer from Yaounde, Cameroon."
+twitter:            valerymelou
+social_image_path:  /static/images/brand/valery-social.png
+social_logo_path:   /static/images/brand/valery-social-logo.png
+
+# Custom variables
