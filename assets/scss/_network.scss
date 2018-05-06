@@ -1,0 +1,19 @@
+.social-Networks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    justify-content: flex-end;
+  }
+}
+
+.social-Networks_Link {
+  color: transparentize(#fff, .6);
+
+  &:focus,
+  &:hover {
+    color: #fff;
+  }
+}

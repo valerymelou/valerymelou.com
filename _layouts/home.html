@@ -4,8 +4,54 @@
       {% include head.html %}
   </head>
 
-  <body>
-    {{ content }}
+  <body class="is-loading">
+
+    <aside class="site-Sidebar">
+      <header class="site-Sidebar_Header">
+        <a href="" class="site-Brand">
+          <img src="{{ site.base_url }}/static/images/logo.png" class="site-Brand_Logo" alt="Valery Melou's Logo" width="36" height="36">
+          <div class="site-Brand_Meta">
+            <h1 class="site-Brand_Name">Valery Melou</h1>
+            <p class="site-Brand_Title">Full-stack web developer</p>
+          </div>
+        </a>
+        <button type="button" class="site-Nav_Toggler" aria-label="Toggle navigation">
+          {% include icons/menu.svg width=24 height=24 %}
+        </button>
+      </header>
+
+      <div class="site-Nav_Collapse site-Nav_Collapse-collapsed">
+        <nav class="site-Nav">
+          <a href="{{ site.base_url }}" class="site-Nav_Link site-Nav_Link-active">Home</a>
+          <a href="" class="site-Nav_Link">About</a>
+          <a href="" class="site-Nav_Link">Portfolio</a>
+          <a href="" class="site-Nav_Link">Contact</a>
+          <a href="" class="site-Nav_Link">Blog</a>
+        </nav>
+
+        <ul class="social-Networks">
+          <li class="social-Networks_Item">
+            <a href="https://github.com/valerymelou" class="social-Networks_Link" aria-label="See my work on GitHub" target="_blank">
+              {% include icons/github.svg width=36 height=24 %}
+            </a>
+          </li>
+          <li class="social-Networks_Item">
+            <a href="https://twitter.com/valerymelou" class="social-Networks_Link" aria-label="Follow me on Twitter" target="_blank">
+              {% include icons/twitter.svg width=36 height=24 %}
+            </a>
+          </li>
+          <li class="social-Networks_Item">
+            <a href="https://linkedin.com/in/valerymelou" class="social-Networks_Link" aria-label="Let's connect on LinkedIn" target="_blank">
+              {% include icons/linkedin.svg width=36 height=24 %}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="site-Main">
+      {{ content }}
+    </main>
 
     {% include scripts.html %}
   </body>

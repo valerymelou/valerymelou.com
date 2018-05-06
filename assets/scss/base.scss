@@ -1,2 +1,82 @@
 @import "variables";
 @import "reboot";
+@import "site";
+@import "structure";
+@import "form";
+@import "button";
+@import "network";
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  &.is-loading {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+a {
+  color: $link-color;
+  transition: color .3s ease-in;
+}
+
+@keyframes animateLinesX {
+  0% {
+    transform: translate(0, 0, 0);
+  }
+
+  50% {
+    transform: translate(100%, 0, 0);
+  }
+
+  100% {
+    transform: translate(0, 0, 0);
+  }
+}
+
+@keyframes animateLinesY {
+  0% {
+    transform: translate(0, 0, 0);
+  }
+
+  50% {
+    transform: translate(0, 20%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0, 0);
+  }
+}
+
+#hero-svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  line {
+    stroke: rgba(255,255,255,0.1);
+    stroke-width: 1px;
+    transform: translate(0, 0, 0);
+    will-change: transform;
+
+    .is-ready & {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        animation: animateLinesX 5s;
+        animation-delay: 100ms;
+      }
+    }
+  }
+}

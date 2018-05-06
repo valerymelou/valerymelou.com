@@ -1,0 +1,22 @@
+.btn-Button {
+  display: inline-block;
+  padding: 0 2rem;
+  height: 50px;
+  line-height: 50px;
+  background-color: $primary-color;
+  color: #fff;
+  border: 1px solid transparentize(#fff, .7);
+  border-radius: 25px;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all .3s ease;
+
+  &:focus,
+  &:hover {
+    background-color: darken($primary-color, 4);
+    color: #fff;
+    text-decoration: none;
+  }
+}

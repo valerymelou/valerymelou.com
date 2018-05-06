@@ -24,6 +24,7 @@ exclude:
   - node_modules/
   - Gemfile
   - Gemfile.lock
+  - gulpfile.js
   - package.json
   - package-lock.json
   - README.md
@@ -33,7 +34,7 @@ plugins:
 
 # Social
 title:              Valery Melou
-description:        "Freelance web developer from Yaounde, Cameroon."
+description:        "Full-stack web developer from Yaounde, Cameroon."
 twitter:            valerymelou
 social_image_path:  /static/images/brand/valery-social.png
 social_logo_path:   /static/images/brand/valery-social-logo.png

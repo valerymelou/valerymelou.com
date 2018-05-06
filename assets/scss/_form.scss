@@ -1,0 +1,20 @@
+.form-Group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-Control {
+  width: 100%;
+  padding: .5rem 1rem;
+  background-color: transparentize(#000, .7);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #fff;
+
+  &:focus {
+    border-color: $accent-color;
+    box-shadow: 0 0 5px $accent-color;
+    outline: none;
+  }
+}
