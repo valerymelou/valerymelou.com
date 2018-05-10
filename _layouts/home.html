@@ -25,7 +25,7 @@
           <a href="/" class="site-Nav_Link {% if page.url == '/' %}site-Nav_Link-active{% endif %}">Home</a>
           <a href="/about" class="site-Nav_Link {% if page.url == '/about/' %}site-Nav_Link-active{% endif %}">About</a>
           <a href="" class="site-Nav_Link">Portfolio</a>
-          <a href="" class="site-Nav_Link">Contact</a>
+          <a href="/contact" class="site-Nav_Link {% if page.url == '/contact/' %}site-Nav_Link-active{% endif %}">Contact</a>
           <a href="" class="site-Nav_Link">Blog</a>
         </nav>
 
@@ -52,11 +52,13 @@
     <main class="site-Main">
       {{ content }}
 
-      <div class="st-Footer">
-        <div class="st-Container">
-          <p class="st-Footer_Copyright">&copy; 2018 | Made with <span aria-label="Love">:heart:</span> by me | Proudly hosted on <a href="https://netlify.com" class="st-Footer_Link" target="_blank">Netlify</a>.</p>
+      {% if page.url != '/' %}
+        <div class="st-Footer">
+          <div class="st-Container">
+            <p class="st-Footer_Copyright">&copy; 2018 | Made with <span aria-label="Love">:heart:</span> by me | Proudly hosted on <a href="https://netlify.com" class="st-Footer_Link" target="_blank">Netlify</a>.</p>
+          </div>
         </div>
-      </div>
+      {% endif %}
     </main>
 
     {% include scripts.html %}

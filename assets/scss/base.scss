@@ -117,3 +117,18 @@ a {
   height: 100%;
   width: 100%;
 }
+
+.vm-Address {
+  color: $primary-color;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.vm-Address_Name {
+  font-weight: 700;
+}
+
+#map {
+  min-height: 350px;
+  margin-bottom: 1rem;
+}

@@ -23,6 +23,7 @@
    */
   var load = function() {
     // Remove the `is-loading` class on the body element after 100 milliseconds.
+    // Add the `is-ready` class right after that.
     setTimeout(function() {
       document.body.classList.remove('is-loading');
       document.body.classList.add('is-ready');

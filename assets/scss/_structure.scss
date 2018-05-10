@@ -7,13 +7,42 @@
   .st-Hero & {
     overflow: hidden;
     @media screen and (min-width: $media-breakpoint-md) {
-      max-width: 70%;
+      max-width: 80%;
       margin: 0;
     }
   }
 
   @media screen and (min-width: $media-breakpoint-md) {
     padding: 0 4rem;
+  }
+}
+
+.st-Row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+
+  @media screen and (min-width: $media-breakpoint-sm) {
+    flex-direction: row;
+  }
+}
+
+.st-Column {
+  position: relative;
+  padding: 0 1rem;
+}
+
+.st-Column-eight {
+  @media screen and (min-width: $media-breakpoint-sm) {
+    max-width: 8% * 100 / 12;
+  }
+}
+
+.st-Column-half {
+  @media screen and (min-width: $media-breakpoint-sm) {
+    width: 50%;
   }
 }
 
@@ -115,6 +144,7 @@
 
 .st-Footer {
   padding: 1.5rem 0;
+  margin-top: auto;
   background-color: $dark-color;
 }
 

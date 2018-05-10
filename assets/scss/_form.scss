@@ -6,15 +6,15 @@
 .form-Control {
   width: 100%;
   padding: .5rem 1rem;
-  background-color: transparentize(#000, .7);
-  border: 1px solid transparent;
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 3px;
   box-shadow: none;
-  color: #fff;
+  color: #333;
 
   &:focus {
-    border-color: $accent-color;
-    box-shadow: 0 0 5px $accent-color;
+    border-color: transparentize($primary-color, .3);;
+    box-shadow: 0 0 5px transparentize($primary-color, .3);
     outline: none;
   }
 }
