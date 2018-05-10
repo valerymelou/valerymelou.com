@@ -8,7 +8,7 @@
 
     <aside class="site-Sidebar">
       <header class="site-Sidebar_Header">
-        <a href="" class="site-Brand">
+        <a href="/" class="site-Brand">
           <img src="{{ site.base_url }}/static/images/logo.png" class="site-Brand_Logo" alt="Valery Melou's Logo" width="36" height="36">
           <div class="site-Brand_Meta">
             <h1 class="site-Brand_Name">Valery Melou</h1>
@@ -22,8 +22,8 @@
 
       <div class="site-Nav_Collapse site-Nav_Collapse-collapsed">
         <nav class="site-Nav">
-          <a href="{{ site.base_url }}" class="site-Nav_Link site-Nav_Link-active">Home</a>
-          <a href="" class="site-Nav_Link">About</a>
+          <a href="/" class="site-Nav_Link {% if page.url == '/' %}site-Nav_Link-active{% endif %}">Home</a>
+          <a href="/about" class="site-Nav_Link {% if page.url == '/about/' %}site-Nav_Link-active{% endif %}">About</a>
           <a href="" class="site-Nav_Link">Portfolio</a>
           <a href="" class="site-Nav_Link">Contact</a>
           <a href="" class="site-Nav_Link">Blog</a>

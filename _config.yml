@@ -31,6 +31,7 @@ exclude:
 
 plugins:
   - jekyll-sitemap
+  - jemoji
 
 # Social
 title:              Valery Melou

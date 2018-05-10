@@ -26,7 +26,7 @@ var pathsConfig = function () {
     app: this.app,
     scss: this.app + '/scss/**/*.scss',
     js: this.app + '/js/**/*.js',
-    templates: ['./index.html', './_config.yml', './_layouts/**/*.html', './_includes/**/*.html'],
+    templates: ['./*.html', './_config.yml', './_layouts/**/*.html', './_includes/**/*.html'],
     dist: './static'
   }
 };

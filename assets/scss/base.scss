@@ -14,6 +14,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  color: #333;
 
   &.is-loading {
     animation: none !important;
@@ -24,6 +25,11 @@ body {
 a {
   color: $link-color;
   transition: color .3s ease-in;
+
+  &:focus,
+  &:hover {
+    color: darken($link-color, 5);
+  }
 }
 
 @keyframes animateLinesX {
@@ -75,8 +81,38 @@ a {
       &:nth-child(5),
       &:nth-child(6) {
         animation: animateLinesX 5s;
-        animation-delay: 100ms;
+        animation-delay: 2s;
       }
     }
   }
+}
+
+.vm-Figure_Wrapper {
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: $media-breakpoint-xs) {
+    float: right;
+    margin-left: 1rem;
+  }
+}
+
+.vm-Figure {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 10px transparentize($primary-color, .6), 0 1px 2px transparentize($primary-color, .7);
+  }
+}
+
+.vm-Figure_Avatar {
+  display: inline-block;
+  max-width: 300px;
+  max-height: 300px;
+  height: 100%;
+  width: 100%;
 }
