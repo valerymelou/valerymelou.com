@@ -11,6 +11,7 @@
   border-radius: 3px;
   box-shadow: none;
   color: #333;
+  transition: all .3s ease;
 
   &:focus {
     border-color: transparentize($primary-color, .3);;
