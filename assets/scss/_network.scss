@@ -1,12 +1,18 @@
 .social-Networks {
   display: flex;
+  flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 1rem 0;
 
-  @media screen and (min-width: $media-breakpoint-md) {
+  @media screen and (min-width: $media-breakpoint-sm) {
+    flex-direction: row;
     justify-content: flex-end;
   }
+}
+
+.social-Networks_Item {
+  margin-bottom: .5rem;
 }
 
 .social-Networks_Link {
