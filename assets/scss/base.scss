@@ -89,16 +89,19 @@ a {
 }
 
 .vm-Figure_Wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 
   @media screen and (min-width: $media-breakpoint-xs) {
     float: right;
     margin-left: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
 .vm-Figure {
   position: relative;
+  max-width: 300px;
+  max-height: 300px;
 
   &:before {
     position: absolute;
@@ -123,7 +126,7 @@ a {
 .vm-Figure_Caption {
   position: absolute;
   width: 100%;
-  margin-top: .5rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
