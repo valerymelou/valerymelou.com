@@ -3,9 +3,9 @@
   padding: 0 2rem;
   height: 50px;
   line-height: 50px;
-  background-color: $primary-color;
+  background-color: $accent-color;
   color: #fff;
-  border: 1px solid transparentize(#fff, .7);
+  border: 1px solid transparentize(#000, .9);
   border-radius: 25px;
   cursor: pointer;
   font-size: .85rem;
@@ -16,7 +16,7 @@
 
   &:focus,
   &:hover {
-    background-color: darken($primary-color, 4);
+    background-color: darken($accent-color, 4);
     color: #fff;
     text-decoration: none;
   }
