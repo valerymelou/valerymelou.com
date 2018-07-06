@@ -38,6 +38,10 @@ img {
   max-width: 100%;
 }
 
+svg {
+  vertical-align: middle;
+}
+
 @keyframes animateLinesX {
   0% {
     transform: translate(0, 0, 0);
