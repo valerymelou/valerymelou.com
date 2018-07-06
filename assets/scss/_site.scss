@@ -2,22 +2,20 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  width: $sidebar-width-sm;
-  height: 100vh;
   top: 0;
   right: 0;
   left: 0;
-  padding: 0 .2rem;
+  padding: 0 1rem;
   background: $dark-color;
   color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-  overflow-x: hidden;
-  overflow-y: auto;
   z-index: 1000;
 
-  @media screen and (min-width: $media-breakpoint-sm) {
-    width: $sidebar-width-md;
+  @media screen and (min-width: $media-breakpoint-md) {
+    height: 100vh;
+    width: $sidebar-width;
     padding: 2.5rem 2.5rem 0.5rem 2.5rem;
+    overflow: hidden;
   }
 }
 
@@ -39,33 +37,29 @@
     text-decoration: none;
   }
 
-  @media screen and (min-width: $media-breakpoint-sm) {
+  @media screen and (min-width: $media-breakpoint-md) {
     height: auto;
   }
 }
 
 .site-Brand_Logo {
   transition: transform .4s;
-  margin-right: auto;
-  max-width: 100%;
+  margin-right: 1rem;
 
-  @media screen and (min-width: $media-breakpoint-sm) {
-    .is-loading & {
-      transform: translateX(-100%);
-    }
+  .is-loading & {
+    transform: translateX(-100%);
+  }
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    margin-right: auto;
   }
 }
 
 .site-Brand_Meta {
   transition: transform .4s;
-  display: none;
 
-  @media screen and (min-width: $media-breakpoint-sm) {
-    display: block;
-
-    .is-loading & {
-      transform: translateX(100%);
-    }
+  .is-loading & {
+    transform: translateX(100%);
   }
 }
 
@@ -75,7 +69,7 @@
   font-weight: 700;
   text-transform: uppercase;
 
-  @media screen and (min-width: $media-breakpoint-sm) {
+  @media screen and (min-width: $media-breakpoint-md) {
     text-align: right;
   }
 }
@@ -85,6 +79,42 @@
   font-size: .7rem;
   text-align: right;
   text-transform: uppercase;
+}
+
+.site-Nav_Toggler {
+  display: inline-block;
+  margin-left: auto;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    display: none;
+  }
+}
+
+.site-Nav_Collapse {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-height: 100vh;
+  overflow: hidden;
+  transition: max-height .7s;
+}
+
+.site-Nav_Collapse-collapsed {
+  max-height: 0;
+  transition: max-height .7s cubic-bezier(0, 1, 0.5, 1) !important;
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    max-height: 100vh;
+  }
 }
 
 .site-Nav {
@@ -102,21 +132,14 @@
   font-weight: 700;
   letter-spacing: 2px;
   opacity: 1;
-  text-align: center;
   text-transform: uppercase;
   transform: translateY(0);
   transition: opacity .15s ease, transform .75s ease;
 
-  svg {
-    display: inline;
-
-    @media screen and (min-width: $media-breakpoint-sm) {
-      display: none;
-    }
-  }
-
   & + .site-Nav_Link {
-    margin-top: 1rem;
+    @media screen and (min-width: $media-breakpoint-md) {
+      margin-top: 1rem;
+    }
   }
 
   &:focus,
@@ -147,22 +170,24 @@
     max-width: 0;
   }
 
-  .is-loading & {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-
-  // Set different transition delay times to each link
-  $transition-delays: .45 .65 .85 1.05 1.25;
-  @each $transition-delay in $transition-delays {
-    $index: index($transition-delays, $transition-delay);
-    &:nth-child(#{$index}) {
-      transition-delay: #{$transition-delay}s;
+  @media screen and (min-width: $media-breakpoint-md) {
+    .is-loading & {
+      opacity: 0;
+      transform: translateY(1rem);
     }
-  }
 
-  @media screen and (min-width: $media-breakpoint-sm) {
-    text-align: right;
+    // Set different transition delay times to each link
+    $transition-delays: .45 .65 .85 1.05 1.25;
+    @each $transition-delay in $transition-delays {
+      $index: index($transition-delays, $transition-delay);
+      &:nth-child(#{$index}) {
+        transition-delay: #{$transition-delay}s;
+      }
+    }
+
+    @media screen and (min-width: $media-breakpoint-md) {
+      text-align: right;
+    }
   }
 }
 
@@ -174,21 +199,12 @@
   }
 }
 
-.site-Nav_Link_Text {
-  display: none;
-
-  @media only screen and (min-width: $media-breakpoint-sm) {
-    display: block;
-  }
-}
-
 .site-Main {
   display: flex;
   flex-direction: column;
-  margin-left: $sidebar-width-sm;
   min-height: 100vh;
 
-  @media screen and (min-width: $media-breakpoint-sm) {
-    margin-left: $sidebar-width-md;
+  @media screen and (min-width: $media-breakpoint-md) {
+    margin-left: $sidebar-width;
   }
 }

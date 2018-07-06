@@ -15,48 +15,38 @@
             <p class="site-Brand_Title">Full-stack web developer</p>
           </div>
         </a>
+        <button type="button" class="site-Nav_Toggler" aria-label="Toggle navigation">
+          {% include icons/menu.svg width=24 height=24 %}
+        </button>
       </header>
 
-      <nav class="site-Nav">
-        <a href="/" class="site-Nav_Link {% if page.url == '/' %}site-Nav_Link-active{% endif %}" aria-label="Home">
-          {% include icons/home.svg width=24 height=24 %}
-          <span class="site-Nav_Link_Text">Home</span>
-        </a>
-        <a href="/about" class="site-Nav_Link {% if page.url == '/about/' %}site-Nav_Link-active{% endif %}" aria-label="About">
-          {% include icons/about.svg width=24 height=24 %}
-          <span class="site-Nav_Link_Text">About</span>
-        </a>
-        <a href="/portfolio" class="site-Nav_Link {% if page.url == '/portfolio/' %}site-Nav_Link-active{% endif %}" aria-label="Portfolio">
-          {% include icons/portfolio.svg width=24 height=24 %}
-          <span class="site-Nav_Link_Text">Portfolio</span>
-        </a>
-        <a href="/contact" class="site-Nav_Link {% if page.url == '/contact/' %}site-Nav_Link-active{% endif %}" aria-label="Contact">
-          {% include icons/contact.svg width=24 height=24 %}
-          <span class="site-Nav_Link_Text">Contact</span>
-        </a>
-        <a href="" class="site-Nav_Link" aria-label="Blog">
-          {% include icons/blog.svg width=24 height=24 %}
-          <span class="site-Nav_Link_Text">Blog</span>
-        </a>
-      </nav>
+      <div class="site-Nav_Collapse site-Nav_Collapse-collapsed">
+        <nav class="site-Nav">
+          <a href="/" class="site-Nav_Link {% if page.url == '/' %}site-Nav_Link-active{% endif %}">Home</a>
+          <a href="/about" class="site-Nav_Link {% if page.url == '/about/' %}site-Nav_Link-active{% endif %}">About</a>
+          <a href="/portfolio" class="site-Nav_Link {% if page.url == '/portfolio/'%}site-Nav_Link-active{% endif %}">Portfolio</a>
+          <a href="/contact" class="site-Nav_Link {% if page.url == '/contact/' %}site-Nav_Link-active{% endif %}">Contact</a>
+          <a href="" class="site-Nav_Link">Blog</a>
+        </nav>
 
-      <ul class="social-Networks">
-        <li class="social-Networks_Item">
-          <a href="https://github.com/valerymelou" class="social-Networks_Link" aria-label="See my work on GitHub" target="_blank">
-            {% include icons/github.svg width=36 height=24 %}
-          </a>
-        </li>
-        <li class="social-Networks_Item">
-          <a href="https://twitter.com/valerymelou" class="social-Networks_Link" aria-label="Follow me on Twitter" target="_blank">
-            {% include icons/twitter.svg width=36 height=24 %}
-          </a>
-        </li>
-        <li class="social-Networks_Item">
-          <a href="https://linkedin.com/in/valerymelou" class="social-Networks_Link" aria-label="Let's connect on LinkedIn" target="_blank">
-            {% include icons/linkedin.svg width=36 height=24 %}
-          </a>
-        </li>
-      </ul>
+        <ul class="social-Networks">
+          <li class="social-Networks_Item">
+            <a href="https://github.com/valerymelou" class="social-Networks_Link" aria-label="See my work on GitHub" target="_blank">
+              {% include icons/github.svg width=36 height=24 %}
+            </a>
+          </li>
+          <li class="social-Networks_Item">
+            <a href="https://twitter.com/valerymelou" class="social-Networks_Link" aria-label="Follow me on Twitter" target="_blank">
+              {% include icons/twitter.svg width=36 height=24 %}
+            </a>
+          </li>
+          <li class="social-Networks_Item">
+            <a href="https://linkedin.com/in/valerymelou" class="social-Networks_Link" aria-label="Let's connect on LinkedIn" target="_blank">
+              {% include icons/linkedin.svg width=36 height=24 %}
+            </a>
+          </li>
+        </ul>
+      </div>
     </aside>
 
     <main class="site-Main">
