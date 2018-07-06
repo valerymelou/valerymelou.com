@@ -6,6 +6,7 @@
 @import "form";
 @import "button";
 @import "network";
+@import "project";
 
 html,
 body {
@@ -31,6 +32,10 @@ a {
   &:hover {
     color: darken($link-color, 5);
   }
+}
+
+img {
+  max-width: 100%;
 }
 
 @keyframes animateLinesX {

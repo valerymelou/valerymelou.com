@@ -26,7 +26,7 @@
           {% include icons/about.svg width=24 height=24 %}
           <span class="site-Nav_Link_Text">About</span>
         </a>
-        <a href="" class="site-Nav_Link" aria-label="Portfolio">
+        <a href="/portfolio" class="site-Nav_Link {% if page.url == '/portfolio/' %}site-Nav_Link-active{% endif %}" aria-label="Portfolio">
           {% include icons/portfolio.svg width=24 height=24 %}
           <span class="site-Nav_Link_Text">Portfolio</span>
         </a>
