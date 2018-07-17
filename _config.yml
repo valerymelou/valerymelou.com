@@ -20,7 +20,7 @@ exclude:
   - .git/
   - .github/
   - .ruby-version
-  - assets/
+  - _assets/
   - node_modules/
   - Gemfile
   - Gemfile.lock

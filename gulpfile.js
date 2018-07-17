@@ -19,15 +19,15 @@ var gulp = require('gulp'),
 
 // Relative paths function
 var pathsConfig = function () {
-  this.app = './assets';
+  this.app = './_assets';
   var vendorsRoot = 'node_modules/';
 
   return {
     app: this.app,
     scss: this.app + '/scss/**/*.scss',
-    js: this.app + '/js/**/*.js',
+    scripts: this.app + '/scripts/**/*.js',
     templates: ['./*.html', './_config.yml', './_layouts/**/*.html', './_includes/**/*.html'],
-    dist: './static'
+    dist: './assets'
   }
 };
 
@@ -50,10 +50,10 @@ gulp.task('styles', function() {
 
 // Javascript minification
 gulp.task('scripts', function() {
-  return gulp.src(paths.js)
+  return gulp.src(paths.scripts)
     .pipe(plumber()) // Checks for errors
-    .pipe(uglify()) // Minifies the js
-    .pipe(gulp.dest(paths.dist + '/js'));
+    .pipe(uglify()) // Minifies the scripts
+    .pipe(gulp.dest(paths.dist + '/scripts'));
 });
 
 // Jekyll build
@@ -81,7 +81,7 @@ gulp.task('serve', ['jekyll-build'], function() {
 // Watch
 gulp.task('watch', function() {
   gulp.watch(paths.scss, ['styles', 'jekyll-rebuild']);
-  gulp.watch(paths.js, ['scripts', 'jekyll-rebuild']);
+  gulp.watch(paths.scripts, ['scripts', 'jekyll-rebuild']);
   gulp.watch(paths.templates, ['jekyll-rebuild']);
 });
 
