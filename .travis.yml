@@ -4,6 +4,10 @@ rvm:
 
 sudo: false
 
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
 install: gem install html-proofer
 
 before_script:
@@ -13,8 +17,8 @@ script:
   - bundle exec jekyll build
   - htmlproofer ./_site --check_favicon
 
-env:
-  global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-
 cache: bundler
+
+branches:
+  only:
+    - /feature(.*)
