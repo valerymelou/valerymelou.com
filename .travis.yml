@@ -6,7 +6,12 @@ sudo: false
 
 install: gem install html-proofer
 
-script: bundle exec jekyll build && htmlproofer ./_site --check_favicon
+before_script:
+  - bundle install
+
+script:
+  - bundle exec jekyll build
+  - htmlproofer ./_site --check_favicon
 
 env:
   global:
