@@ -4,9 +4,9 @@ rvm:
 
 sudo: false
 
-install: gem install jekyll html-proofer
+install: gem install html-proofer
 
-script: jekyll build && htmlproofer ./_site --check_favicon
+script: bundle exec jekyll build && htmlproofer ./_site --check_favicon
 
 env:
   global:
