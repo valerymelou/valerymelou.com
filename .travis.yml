@@ -15,6 +15,6 @@ before_script:
 
 script:
   - bundle exec jekyll build
-  - htmlproofer ./_site --check_favicon
+  - htmlproofer ./_site --check_favicon --url-ignore https://linkedin.com/in/valerymelou
 
 cache: bundler
