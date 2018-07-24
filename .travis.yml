@@ -18,7 +18,3 @@ script:
   - htmlproofer ./_site --check_favicon
 
 cache: bundler
-
-branches:
-  only:
-    - /feature(.*)
