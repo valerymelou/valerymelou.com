@@ -1,2 +1,30 @@
 @import "variables";
 @import "reboot";
+@import "structure";
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: $header-height;
+
+  @media screen and (min-width: $media-breakpoint-sm) {
+    padding-top: 0;
+  }
+}
+
+main {
+  flex: 1 auto;
+}
+
+a {
+  transition: color .3s ease-in-out;
+}
+
+svg {
+  vertical-align: middle;
+}
