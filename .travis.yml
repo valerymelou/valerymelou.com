@@ -18,3 +18,8 @@ script:
   - htmlproofer ./_site --check_favicon --url-ignore https://linkedin.com/in/valerymelou
 
 cache: bundler
+
+branches:
+  only:
+    - master
+    - /^feature.*$/
