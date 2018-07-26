@@ -26,9 +26,9 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
-    "autoprefixer": "^8.6.3",
+    "autoprefixer": "^9.0.1",
     "babelify": "^9.0.0",
-    "browser-sync": "^2.24.5",
+    "browser-sync": "^2.24.6",
     "browserify": "^16.2.2",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
