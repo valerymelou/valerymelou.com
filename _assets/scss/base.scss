@@ -1,6 +1,8 @@
 @import "variables";
 @import "reboot";
+@import "button";
 @import "structure";
+@import "home";
 
 html,
 body {
@@ -14,6 +16,10 @@ body {
 
   @media screen and (min-width: $media-breakpoint-sm) {
     padding-top: 0;
+  }
+
+  .noscroll {
+    overflow: hidden;
   }
 }
 

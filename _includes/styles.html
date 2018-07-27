@@ -1,0 +1,5 @@
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/base.css">
+
+{% for style in page.styles %}
+  <link rel="stylesheet" href="{{ style.href }}">
+{% endfor %}

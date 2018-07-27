@@ -16,7 +16,7 @@ function toggleMenu() {
   let asideMask = getElement('.st-AsideMask');
   let aside = getElement('.st-Aside');
 
-  document.body.classList.toggle('st-Body-noscroll');
+  document.body.classList.toggle('noscroll');
   asideMask.classList.toggle('st-AsideMask-visible');
   aside.classList.toggle('st-Aside-open');
 }
@@ -25,8 +25,9 @@ function toggleMenu() {
  * Runs when the page is fully loaded.
  */
 function load() {
-  // Remove the `st-Body-loading` class on the body element
-  document.body.classList.remove('st-Body-loading');
+  // Remove the `loading` class on the body element
+  document.body.classList.remove('loading');
+  document.body.classList.add('ready');
 }
 
 let menuToggler = getElement('.st-Header_MenuToggler');
