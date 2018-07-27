@@ -29,13 +29,13 @@
 }
 
 .home-Hero {
-  display: flex;
   position: relative;
+  display: flex;
   min-height: calc(100vh - #{$header-height});
   padding: ($spacer * 2) 0 $spacer;
-  background-color: $primary-color;
-  color: #fff;
   overflow-y: hidden;
+  color: #fff;
+  background-color: $primary-color;
 
   line {
     stroke: transparentize(#fff, .9);
@@ -82,9 +82,9 @@
   font-size: 2rem;
   font-weight: 700;
   opacity: 1;
-  transform: translateY(0);
   transition: transform .75s, opacity .3s;
   transition-delay: .45s;
+  transform: translateY(0);
 
   .loading & {
     opacity: 0;
@@ -100,9 +100,9 @@
   margin-bottom: $spacer * 2;
   font-size: 1.2rem;
   opacity: 1;
-  transform: translateY(0);
   transition: transform .75s, opacity .3s;
   transition-delay: .45s;
+  transform: translateY(0);
 
   .loading & {
     opacity: 0;

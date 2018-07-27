@@ -1,6 +1,3 @@
-# Ignore docs files
-_site
-
 # Ignore ruby files
 .bundle
 vendor/cache
@@ -37,3 +34,7 @@ Thumbs.db
 
 # Folders to ignore
 node_modules
+
+# Automatically generated folders
+_site
+assets

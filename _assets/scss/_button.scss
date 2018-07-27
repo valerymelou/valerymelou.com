@@ -1,25 +1,25 @@
 .btn-Button {
   position: relative;
   display: inline-block;
-  padding: 0 2rem;
   height: 50px;
-  line-height: 50px;
-  background-color: $accent-color;
-  color: #fff;
-  border: 1px solid transparentize(#000, .9);
-  border-radius: 25px;
-  cursor: pointer;
+  padding: 0 2rem;
   font-size: .85rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  line-height: 50px;
+  color: #fff;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  background-color: $accent-color;
+  border: 1px solid transparentize(#000, .9);
+  border-radius: 25px;
   transition: all .3s ease;
 
   &:focus,
   &:hover {
-    background-color: darken($accent-color, 4);
     color: #fff;
-    outline: 0;
     text-decoration: none;
+    background-color: darken($accent-color, 4);
+    outline: 0;
   }
 }

@@ -2,8 +2,8 @@
   position: relative;
   width: 100%;
   max-width: $container-max-width;
-  margin: 0;
   padding: 0 $spacer;
+  margin: 0;
 
   .st-Header & {
     display: flex;
@@ -28,10 +28,10 @@
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1000;
   height: $header-height;
   background-color: $dark-color;
-  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-  z-index: 1000;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
 
   @media screen and (min-width: $media-breakpoint-sm) {
     display: none;
@@ -72,10 +72,10 @@
 
 .st-Header_MenuToggler {
   padding: 0;
-  background-color: transparent;
   color: #fff;
-  border: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 
   &:focus {
     outline: 0;
@@ -88,15 +88,15 @@
 }
 
 .st-AsideMask {
-  background: #212121;
-  cursor: pointer;
-  display: none;
-  height: 100vh;
-  opacity: .5;
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 1000;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  cursor: pointer;
+  background: #212121;
+  opacity: .5;
 }
 
 .st-AsideMask-visible {
@@ -109,20 +109,20 @@
 
 .st-Aside {
   position: fixed;
+  top: 0;
+  left: -$sidebar-width;
+  z-index: 1001;
   display: flex;
   flex-direction: column;
-  left: -$sidebar-width;
-  max-width: $sidebar-width;
   width: calc(100% - 64px);
-  top: 0;
+  max-width: $sidebar-width;
   height: 100vh;
   padding: 0 ($spacer * 2) ($spacer * 2);
-  background-color: $dark-color;
-  box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: $dark-color;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
   transition: left .3s;
-  z-index: 1001;
 
   @media screen and (min-width: $media-breakpoint-sm) {
     left: 0;
@@ -137,9 +137,9 @@
 
 .st-Aside_Brand {
   @extend .st-Header_Brand;
-  margin: 0;
-  height: $header-height;
   width: 100%;
+  height: $header-height;
+  margin: 0;
 }
 
 .st-Aside_Brand_Logo {
@@ -162,8 +162,8 @@
 .st-Nav {
   display: flex;
   flex-direction: column;
-  margin: auto 0;
   padding: $spacer 0;
+  margin: auto 0;
 }
 
 .st-Nav_Link {
@@ -173,12 +173,12 @@
   font-weight: 700;
   line-height: $nav-link-height;
   color: transparentize(#fff, .4);
-  letter-spacing: 2px;
-  opacity: 1;
   text-align: right;
   text-transform: uppercase;
-  transform: translateY(0);
+  letter-spacing: 2px;
+  opacity: 1;
   transition: opacity .15s ease, transform .75s ease;
+  transform: translateY(0);
 
   & + .st-Nav_Link {
     margin-top: 1rem;
@@ -187,30 +187,30 @@
   &:focus,
   &:hover {
     color: transparentize(#fff, .6);
-    outline: 0;
     text-decoration: none;
+    outline: 0;
 
-    &:after {
+    &::after {
       max-width: 100%;
     }
   }
 
-  &:after,
-  &:before {
+  &::after,
+  &::before {
     position: absolute;
     right: 0;
     bottom: 0;
     width: 100%;
     height: 2.5px;
+    content: "";
     background-color: transparentize($primary-color, .7);
     border-radius: .2rem;
-    content: '';
   }
 
-  &:after {
-    background-image: linear-gradient(to right, $primary-color, $accent-color);
-    transition: max-width 0.2s ease;
+  &::after {
     max-width: 0;
+    background-image: linear-gradient(to right, $primary-color, $accent-color);
+    transition: max-width .2s ease;
   }
 
   @media screen and (min-width: $media-breakpoint-sm) {
@@ -233,7 +233,7 @@
 .st-Nav_Link-active {
   color: #fff;
 
-  &:after {
+  &::after {
     max-width: 100%;
   }
 }
@@ -241,9 +241,9 @@
 .st-SocialNav {
   display: flex;
   align-self: flex-end;
-  list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .st-SocialNav_Item {
@@ -259,8 +259,8 @@
   &:focus,
   &:hover {
     color: #fff;
-    outline: 0;
     text-decoration: none;
+    outline: 0;
   }
 }
 
