@@ -6,6 +6,8 @@ var cssnano = require('gulp-cssnano');
 var plumber = require( 'gulp-plumber' );
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
+var stylelint = require('gulp-stylelint');
+var imagemin = require('gulp-imagemin');
 var sourcemaps = require( 'gulp-sourcemaps' );
 var uglify = require('gulp-uglify');
 var autoprefixer = require('autoprefixer');
@@ -25,6 +27,7 @@ var getPathsConfig = function getPathsConfig() {
     app: this.app,
     scss: `${this.app}/scss`,
     scripts: `${this.app}/scripts`,
+    images: `${this.app}/images`,
     misc: [
       './*.html',
       './_config.yml',
@@ -39,7 +42,7 @@ var getPathsConfig = function getPathsConfig() {
 var paths = getPathsConfig();
 
 // Compiles SCSS to CSS
-gulp.task('scss', function() {
+gulp.task('scss', ['scss-lint'], function() {
   return gulp.src(`${paths.scss}/**/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -50,6 +53,16 @@ gulp.task('scss', function() {
       .pipe(cssnano())  // Minify the result
       .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${paths.dist}/css`));
+});
+
+// Lint SCSS
+gulp.task('scss-lint', function() {
+  return gulp.src([`${paths.scss}/**/*.scss`, `!${paths.scss}/_reboot.scss`])
+    .pipe(stylelint({
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }));
 });
 
 // JavaScript
@@ -68,12 +81,18 @@ gulp.task('scripts', function() {
     .pipe(uglify())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(`${paths.dist}/scripts`));;
+    .pipe(gulp.dest(`${paths.dist}/scripts`));
+});
+
+gulp.task('images', function() {
+  return gulp.src(paths.images + '/**/*')
+    .pipe(imagemin())  // Compresses PNG, JPEG, GIF and SVG images
+    .pipe(gulp.dest(`${paths.dist}/images`));
 });
 
 // Clean the dist folder
 gulp.task('clean', function(done) {
-  del([`${paths.dist}/css/**/*`, `${paths.dist}/scripts/*`]).then(function() {
+  del([`${paths.dist}/**/*`]).then(function() {
     done();
   });
 });
@@ -105,18 +124,20 @@ gulp.task('watch', function() {
   gulp.watch(`${paths.scss}/**/*.scss`, function() {
     runSequence('scss', ['jekyll-build']);
   });
+
   gulp.watch(`${paths.scripts}/**/*.js`, function() {
     runSequence('scripts', ['jekyll-build']);
   });
+
   gulp.watch(paths.misc, ['jekyll-build']);
 });
 
 // Build files
 gulp.task('build', function() {
-  runSequence('clean', ['scss', 'scripts'], ['jekyll-build']);
+  runSequence('clean', ['scss', 'scripts', 'images'], ['jekyll-build']);
 });
 
 // Default task
 gulp.task('default', function() {
-  runSequence('clean', ['scss', 'scripts'], ['jekyll-build'], ['serve', 'watch']);
+  runSequence('clean', ['scss', 'scripts', 'images'], ['jekyll-build'], ['serve', 'watch']);
 });
