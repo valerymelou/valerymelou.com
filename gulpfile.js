@@ -6,6 +6,7 @@ var cssnano = require('gulp-cssnano');
 var plumber = require( 'gulp-plumber' );
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
+var imagemin = require('gulp-imagemin');
 var sourcemaps = require( 'gulp-sourcemaps' );
 var uglify = require('gulp-uglify');
 var autoprefixer = require('autoprefixer');
@@ -25,6 +26,7 @@ var getPathsConfig = function getPathsConfig() {
     app: this.app,
     scss: `${this.app}/scss`,
     scripts: `${this.app}/scripts`,
+    images: `${this.app}/images`,
     misc: [
       './*.html',
       './_config.yml',
@@ -68,12 +70,18 @@ gulp.task('scripts', function() {
     .pipe(uglify())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(`${paths.dist}/scripts`));;
+    .pipe(gulp.dest(`${paths.dist}/scripts`));
+});
+
+gulp.task('images', function() {
+  return gulp.src(paths.images + '/**/*')
+    .pipe(imagemin())  // Compresses PNG, JPEG, GIF and SVG images
+    .pipe(gulp.dest(`${paths.dist}/images`));
 });
 
 // Clean the dist folder
 gulp.task('clean', function(done) {
-  del([`${paths.dist}/css/**/*`, `${paths.dist}/scripts/*`]).then(function() {
+  del([`${paths.dist}/**/*`]).then(function() {
     done();
   });
 });
@@ -105,18 +113,20 @@ gulp.task('watch', function() {
   gulp.watch(`${paths.scss}/**/*.scss`, function() {
     runSequence('scss', ['jekyll-build']);
   });
+
   gulp.watch(`${paths.scripts}/**/*.js`, function() {
     runSequence('scripts', ['jekyll-build']);
   });
+
   gulp.watch(paths.misc, ['jekyll-build']);
 });
 
 // Build files
 gulp.task('build', function() {
-  runSequence('clean', ['scss', 'scripts'], ['jekyll-build']);
+  runSequence('clean', ['scss', 'scripts', 'images'], ['jekyll-build']);
 });
 
 // Default task
 gulp.task('default', function() {
-  runSequence('clean', ['scss', 'scripts'], ['jekyll-build'], ['serve', 'watch']);
+  runSequence('clean', ['scss', 'scripts', 'images'], ['jekyll-build'], ['serve', 'watch']);
 });
