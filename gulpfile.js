@@ -6,6 +6,7 @@ var cssnano = require('gulp-cssnano');
 var plumber = require( 'gulp-plumber' );
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
+var stylelint = require('gulp-stylelint');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require( 'gulp-sourcemaps' );
 var uglify = require('gulp-uglify');
@@ -41,7 +42,7 @@ var getPathsConfig = function getPathsConfig() {
 var paths = getPathsConfig();
 
 // Compiles SCSS to CSS
-gulp.task('scss', function() {
+gulp.task('scss', ['lint-scss'], function() {
   return gulp.src(`${paths.scss}/**/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -52,6 +53,16 @@ gulp.task('scss', function() {
       .pipe(cssnano())  // Minify the result
       .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${paths.dist}/css`));
+});
+
+// Lint SCSS
+gulp.task('lint-scss', function() {
+  return gulp.src([`${paths.scss}/**/*.scss`, `!${paths.scss}/_reboot.scss`])
+    .pipe(stylelint({
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }));
 });
 
 // JavaScript
