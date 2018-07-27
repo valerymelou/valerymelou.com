@@ -42,7 +42,7 @@ var getPathsConfig = function getPathsConfig() {
 var paths = getPathsConfig();
 
 // Compiles SCSS to CSS
-gulp.task('scss', ['lint-scss'], function() {
+gulp.task('scss', ['scss-lint'], function() {
   return gulp.src(`${paths.scss}/**/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -56,7 +56,7 @@ gulp.task('scss', ['lint-scss'], function() {
 });
 
 // Lint SCSS
-gulp.task('lint-scss', function() {
+gulp.task('scss-lint', function() {
   return gulp.src([`${paths.scss}/**/*.scss`, `!${paths.scss}/_reboot.scss`])
     .pipe(stylelint({
       reporters: [
