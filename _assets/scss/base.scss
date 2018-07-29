@@ -2,7 +2,9 @@
 @import "reboot";
 @import "button";
 @import "structure";
+@import "typography";
 @import "home";
+@import "vm";
 
 html,
 body {
@@ -13,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   padding-top: $header-height;
+  color: #444;
 
   @media screen and (min-width: $media-breakpoint-sm) {
     padding-top: 0;
@@ -29,6 +32,11 @@ main {
 
 a {
   transition: color .3s ease-in-out;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 svg {
