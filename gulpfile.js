@@ -42,7 +42,7 @@ var getPathsConfig = function getPathsConfig() {
 var paths = getPathsConfig();
 
 // Compiles SCSS to CSS
-gulp.task('scss', ['scss-lint'], function() {
+gulp.task('scss', function() {
   return gulp.src(`${paths.scss}/**/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
