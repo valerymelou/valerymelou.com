@@ -5,6 +5,7 @@
 @import "typography";
 @import "home";
 @import "vm";
+@import "projects";
 
 html,
 body {
@@ -31,10 +32,12 @@ main {
 }
 
 a {
+  color: $accent-color;
   transition: color .3s ease-in-out;
 
   &:focus,
   &:hover {
+    color: darken($accent-color, 10);
     text-decoration: none;
   }
 }
