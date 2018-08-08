@@ -29,10 +29,9 @@ var getPathsConfig = function getPathsConfig() {
     scripts: `${this.app}/scripts`,
     images: `${this.app}/images`,
     misc: [
-      './*.html',
       './_config.yml',
-      './_layouts/**/*.html',
-      './_includes/**/*.html'
+      './**/*.html',
+      '!./_site/**/*'
     ],
     dist: './assets',
     dest: './_site'
