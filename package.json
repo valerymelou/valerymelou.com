@@ -45,7 +45,7 @@
     "stylelint": "^9.4.0",
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^0.8.1",
+    "stylelint-order": "^1.0.0",
     "stylelint-scss": "^3.2.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
