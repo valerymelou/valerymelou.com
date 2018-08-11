@@ -1,3 +1,5 @@
+import { initMap } from './map';
+
 /**
  * Returns the first element matching the given selector or a dummy element.
  *
@@ -36,3 +38,7 @@ let asideMask = getElement('.st-AsideMask');
 asideMask.addEventListener('click', toggleMenu);
 menuToggler.addEventListener('click', toggleMenu);
 window.onload = load;
+
+if (document.getElementById('map')) {
+  window.initMap = initMap;
+}

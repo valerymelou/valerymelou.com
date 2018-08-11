@@ -1,0 +1,21 @@
+.form-Group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-Control {
+  width: 100%;
+  padding: .5rem 1rem;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: none;
+  transition: all .3s ease;
+
+  &:focus {
+    border-color: transparentize($primary-color, .3);
+    outline: none;
+    box-shadow: 0 0 5px transparentize($primary-color, .3);
+  }
+}
