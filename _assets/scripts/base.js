@@ -20,7 +20,7 @@ const sidebarMask = getElement('.sidebar-mask');
 function toggleMenu() {
   const sidebar = getElement('.sidebar');
 
-  document.body.classList.toggle('noscroll');
+  document.body.classList.toggle('no-scroll');
   sidebarMask.classList.toggle('visible');
   sidebar.classList.toggle('open');
 }
