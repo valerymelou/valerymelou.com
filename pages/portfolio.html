@@ -5,49 +5,48 @@ description: Here is a short list of the latest projects that I've built or been
 permalink: /portfolio/
 ---
 
-<section class="st-Section">
-  <div class="st-Container">
-    <h2 class="st-Section_Title">Portfolio</h2>
-    <div class="st-Section_Intro">I've worked with several larger as well as smaller brands. Here is a short list of the latest projects that I have built or been part of.</div>
-    <div class="po-Project">
-      <div class="po-Project_Timeline">
-        <span class="po-Project_Timeline_Date">Currently</span>
+<section>
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="section-intro">
+      <p>I've worked with several larger as well as smaller brands. Here is a short list of the latest projects that I have built or been part of.</p>
+    </div>
+    <div class="project">
+      <div class="project-timeline">
+        <span class="project-timeline-date">Currently</span>
       </div>
-      <div class="po-Project_Content">
+      <div class="project-content">
           <p>I am currently working fulltime as a web developer for a local tech company where I build solutions for businesses. But I still have time to commit to other projects by night.</p>
           <p>So, feel free to <a href="">contact me</a> if you have a project that I can help with.</p>
-          <hr class="po-Project_Divider">
+          <hr class="project-divider">
       </div>
     </div>
     {% for project in site.data.projects %}
-      <div class="po-Project">
-        <div class="po-Project_Timeline">
-          <time class="po-Project_Timeline_Date">{{ project.date }}</time>
+      <div class="project">
+        <div class="project-timeline">
+          <time class="project-timeline-date">{{ project.date }}</time>
         </div>
-        <div class="po-Project_Content">
-          {% if project.url %}
-            <a href="{{ project.url }}" class="po-Project_TitleLink">
-              <h3 class="po-Project_Title">{{ project.name }}</h3>
-            </a>
-          {% else %}
-            <h3 class="po-Project_Title">{{ project.name }}</h3>
-          {% endif %}
-          <div class="po-Project_Abstract">
+        <div class="project-content">
+          <h3 class="project-title">{{ project.name }}</h3>
+          <div class="project-abstract">
             {{ project.abstract }}
           </div>
           <picture>
-            <img src="{{ base.url }}/assets/images/projects/{{ project.screenshot }}" alt="{{ project.name }}" class="po-Project_Screenshot">
+            <img src="{{ base.url }}/assets/images/projects/{{ project.screenshot }}" alt="{{ project.name }}" class="project-screenshot">
           </picture>
-          <div class="po-Project_Description">
+          {% if project.url %}
+            <a href="{{ project.url }}" class="button">View online</a>
+          {% endif %}
+          <div class="project-description">
             {{ project.description|markdownify }}
           </div>
-          <div class="po-Project_Techs">
+          <div>
             <h4>Technologies</h4>
             {% for tech in project.technologies %}
-              <span class="po-Project_Tech">{{ tech }}</span>
+              <span class="project-tech">{{ tech }}</span>
             {% endfor %}
           </div>
-          <hr class="po-Project_Divider">
+          <hr class="project-divider">
         </div>
       </div>
     {% endfor %}
