@@ -21,10 +21,6 @@ body {
   @media screen and (min-width: $media-breakpoint-sm) {
     padding-top: 0;
   }
-
-  .noscroll {
-    overflow: hidden;
-  }
 }
 
 header {
@@ -128,4 +124,8 @@ a {
 
 svg {
   vertical-align: middle;
+}
+
+.ready.no-scroll {
+  overflow: hidden;
 }
