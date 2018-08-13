@@ -11,16 +11,18 @@ function getElement(selector) {
   return document.querySelector(selector) || document.createElement('_');
 }
 
+const menuToggler = getElement('.menu-toggler');
+const sidebarMask = getElement('.sidebar-mask');
+
 /**
  * Toggles the menu
  */
 function toggleMenu() {
-  let asideMask = getElement('.st-AsideMask');
-  let aside = getElement('.st-Aside');
+  const sidebar = getElement('.sidebar');
 
   document.body.classList.toggle('noscroll');
-  asideMask.classList.toggle('st-AsideMask-visible');
-  aside.classList.toggle('st-Aside-open');
+  sidebarMask.classList.toggle('visible');
+  sidebar.classList.toggle('open');
 }
 
 /**
@@ -32,10 +34,7 @@ function load() {
   document.body.classList.add('ready');
 }
 
-let menuToggler = getElement('.st-Header_MenuToggler');
-let asideMask = getElement('.st-AsideMask');
-
-asideMask.addEventListener('click', toggleMenu);
+sidebarMask.addEventListener('click', toggleMenu);
 menuToggler.addEventListener('click', toggleMenu);
 window.onload = load;
 

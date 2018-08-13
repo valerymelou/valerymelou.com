@@ -1,9 +1,37 @@
-.form-Group {
+.button {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  padding: 0 2rem;
+  font-size: 14px;
+  line-height: 50px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  cursor: pointer;
+  background-color: $accent-color;
+  border: none;
+  border-radius: 3px;
+  outline: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
+  transition: background-color .2s ease-out;
+
+  &:focus,
+  &:hover {
+    color: #fff;
+    background-color: lighten($accent-color, 2);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .14), 0 1px 7px 0 rgba(0, 0, 0, .12), 0 3px 1px -1px rgba(0, 0, 0, .2);
+  }
+}
+
+.form-group {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.form-Control {
+.form-control {
   width: 100%;
   padding: .5rem 1rem;
   color: #333;
