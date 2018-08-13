@@ -1,4 +1,4 @@
-.po-Project {
+.project {
   display: flex;
   flex-direction: column;
 
@@ -7,7 +7,7 @@
   }
 }
 
-.po-Project_Timeline {
+.project-timeline {
   position: relative;
   min-width: 130px;
   max-width: 130px;
@@ -30,7 +30,7 @@
   }
 }
 
-.po-Project_Timeline_Date {
+.project-timeline-date {
   font-style: italic;
   color: $primary-color;
 
@@ -39,7 +39,7 @@
   }
 }
 
-.po-Project_Content {
+.project-content {
   position: relative;
   padding: 0;
 
@@ -48,22 +48,22 @@
   }
 }
 
-.po-Project_Title {
+.project-title {
   font-size: 2rem;
   font-weight: 400;
 }
 
-.po-Project_Screenshot {
+.project-screenshot {
   display: block;
   max-width: 100%;
   margin: 1rem 0;
 }
 
-.po-Project_Description {
+.project-description {
   padding: 2rem 0 1rem;
 }
 
-.po-Project_Tech {
+.project-tech {
   display: inline-block;
   padding: .1rem .3rem;
   margin-bottom: .5rem;
@@ -73,7 +73,7 @@
   border-radius: 3px;
 }
 
-.po-Project_Divider {
+.project-divider {
   height: 1px;
   margin-top: 2rem;
   background-color: #ddd;
