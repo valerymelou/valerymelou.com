@@ -6,70 +6,16 @@
 
   <body class="loading">
 
-    <header>
-      <div class="container">
-        <a href="/" class="brand">
-          <img src="{{ site.baseurl }}/assets/images/logo.png" class="brand-logo" alt="Valery Melou" width="32" height="32">
-          <div>
-            <h1 class="brand-name">Valery Melou</h1>
-            <p class="brand-title">Full stack web developer</p>
-          </div>
-        </a>
-        <button class="menu-toggler" aria-label="Toggle navigation">
-          {% include icons/burger.svg width="24" height="24" %}
-        </button>
-      </div>
-    </header>
+    {% include header.html %}
 
-    <div class="sidebar-mask"></div>
-
-    <aside class="sidebar">
-      <a href="/" class="brand">
-        <img src="{{ site.baseurl }}/assets/images/logo.png" class="brand-ogo" alt="Valery Melou" width="32" height="32">
-        <div class="brand-description">
-          <h1 class="brand-name">Valery Melou</h1>
-          <p class="brand-title">Full stack web developer</p>
-        </div>
-      </a>
-
-      <nav class="nav">
-        <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a>
-        <a href="/about" class="nav-link {% if page.url == '/about/' %}active{% endif %}">About</a>
-        <a href="/portfolio" class="nav-link {% if page.url == '/portfolio/' %}active{% endif %}">Portfolio</a>
-        <a href="/contact" class="nav-link {% if page.url == '/contact/' %}active{% endif %}">Contact</a>
-        <a href="" class="nav-link">Blog</a>
-      </nav>
-
-      <ul class="social">
-        <li class="social-item">
-          <a href="https://github.com/valerymelou" class="social-link" target="_blank" rel="noopener" aria-label="See my work on GitHub" title="See my work on GitHub">
-            {% include icons/github.svg width="24" height="24" %}
-          </a>
-        </li>
-        <li class="social-item">
-          <a href="https://twitter.com/valerymelou" class="social-link" target="_blank" rel="noopener" aria-label="Follow me on Twitter" title="Follow me on Twitter">
-            {% include icons/twitter.svg width="24" height="24" %}
-          </a>
-        </li>
-        <li class="social-item">
-          <a href="https://linkedin.com/in/valerymelou" class="social-link" target="_blank" rel="noopener" aria-label="Let's connect on LinkedIn" title="Let's connect on LinkedIn">
-            {% include icons/linkedin.svg width="24" height="24" %}
-          </a>
-        </li>
-      </ul>
-    </aside>
+    {% include sidebar.html %}
 
     <main>
       {{ content }}
     </main>
 
     {% if page.url != '/' %}
-      <footer>
-        <div class="container">
-          <p><a href="https://github.com/valerymelou/valerymelou" target="_blank" rel="noopener">Edit this site on GitHub</a></p>
-          <p>&copy; 2018 | Made with <span aria-label="love"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 32 32" width="20" height="20" aria-hidden="true"><defs><clipPath id="_clipPath_gqMxkxCtZV3YByifF6qVGtZrXSP4bOcS"><rect width="32" height="32"/></clipPath></defs><g clip-path="url(#_clipPath_gqMxkxCtZV3YByifF6qVGtZrXSP4bOcS)"><path d=" M 16 30.017 L 15.555 29.649 C 14.71 28.942 13.565 28.175 12.239 27.29 C 7.073 23.83 0 19.097 0 11.026 C 0 6.04 4.057 1.983 9.043 1.983 C 11.734 1.981 14.285 3.18 16 5.252 C 17.715 3.18 20.266 1.981 22.957 1.983 C 27.943 1.983 32 6.04 32 11.026 C 32 19.097 24.927 23.83 19.761 27.29 C 18.435 28.175 17.291 28.942 16.446 29.648 L 16 30.017 Z " fill="#e72f2f"/></g></svg></span> by me | Proudly hosted on <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a>.</p>
-        </div>
-      </footer>
+      {% include footer.html %}
     {% endif %}
 
     {% include scripts.html %}
