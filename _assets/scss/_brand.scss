@@ -4,13 +4,14 @@
   margin-right: auto;
   color: #fff;
   outline: 0;
+  border: 1px solid transparent;
 
   &:active,
   &:focus,
   &:hover {
     color: #ddd;
     text-decoration: none;
-    border: 1px solid $accent-color;
+    border-color: $accent-color;
   }
 
   .sidebar & {
