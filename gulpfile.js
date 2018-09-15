@@ -1,59 +1,113 @@
+// Load Gulp, its plugins and other NodeJS utilities
 
-////////////////////////////////
-		//Setup//
-////////////////////////////////
+var gulp = require('gulp');
 
-// Plugins
-var gulp = require('gulp'),
-      sass = require('gulp-sass'),
-      autoprefixer = require('gulp-autoprefixer'),
-      cssnano = require('gulp-cssnano'),
-      plumber = require('gulp-plumber'),
-      pixrem = require('gulp-pixrem'),
-      uglify = require('gulp-uglify'),
-      spawn = require('child_process').spawn,
-      runSequence = require('run-sequence'),
-      browserSync = require('browser-sync').create(),
-      reload = browserSync.reload;
+var cssnano = require('gulp-cssnano');
+var plumber = require( 'gulp-plumber' );
+var postcss = require('gulp-postcss');
+var sass = require('gulp-sass');
+var stylelint = require('gulp-stylelint');
+var imagemin = require('gulp-imagemin');
+var sourcemaps = require( 'gulp-sourcemaps' );
+var uglify = require('gulp-uglify');
+var autoprefixer = require('autoprefixer');
+var babelify = require( 'babelify' );
+var browserify = require( 'browserify' );
+var source = require( 'vinyl-source-stream' );
+var buffer = require( 'vinyl-buffer' );
+var browserSync = require( 'browser-sync' ).create();
+var del = require('del');
+var spawn = require('child_process').spawn;
+var runSequence = require('run-sequence');
 
-
-// Relative paths function
-var pathsConfig = function () {
+var getPathsConfig = function getPathsConfig() {
   this.app = './_assets';
-  var vendorsRoot = 'node_modules/';
 
   return {
     app: this.app,
-    scss: this.app + '/scss/**/*.scss',
-    scripts: this.app + '/scripts/**/*.js',
-    templates: ['./*.html', './_config.yml', './_layouts/**/*.html', './_includes/**/*.html'],
-    dist: './assets'
+    scss: `${this.app}/scss`,
+    scripts: `${this.app}/scripts`,
+    images: `${this.app}/images`,
+    misc: [
+      './_config.yml',
+      './**/*.html',
+      '!./_site/**/*'
+    ],
+    dist: './assets',
+    dest: './_site'
   }
 };
 
-var paths = pathsConfig();
+var paths = getPathsConfig();
 
-////////////////////////////////
-		//Tasks//
-////////////////////////////////
-
-// Styles autoprefixing and minification
-gulp.task('styles', function() {
-  return gulp.src(paths.scss)
+// Compiles SCSS to CSS
+gulp.task('scss', function() {
+  return gulp.src(`${paths.scss}/**/*.scss`)
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(plumber()) // Checks for errors
-    .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
-    .pipe(pixrem())  // add fallbacks for rem units
-    .pipe(cssnano()) // Minifies the result
-    .pipe(gulp.dest(paths.dist + '/css'));
+      .pipe(plumber())  // Check for errors
+      .pipe(postcss([
+          autoprefixer,
+      ]))
+      .pipe(cssnano())  // Minify the result
+      .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(`${paths.dist}/css`));
 });
 
-// Javascript minification
+// Lint SCSS
+gulp.task('scss-lint', function() {
+  return gulp.src([`${paths.scss}/**/*.scss`, `!${paths.scss}/_reboot.scss`])
+    .pipe(stylelint({
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }));
+});
+
+// JavaScript
 gulp.task('scripts', function() {
-  return gulp.src(paths.scripts)
-    .pipe(plumber()) // Checks for errors
-    .pipe(uglify()) // Minifies the scripts
-    .pipe(gulp.dest(paths.dist + '/scripts'));
+  var bundler = browserify(`${paths.scripts}/base.js`, {
+    debug: true,
+  }).transform(babelify, {presets: ["@babel/preset-env"]})
+
+  return bundler.bundle()
+    .on('error', function(error) {
+      console.log(error.message);
+      this.emit('end');
+    })
+    .pipe(source('base.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(`${paths.dist}/scripts`));
+});
+
+gulp.task('images', function() {
+  return gulp.src(paths.images + '/**/*')
+    .pipe(imagemin())  // Compresses PNG, JPEG, GIF and SVG images
+    .pipe(gulp.dest(`${paths.dist}/images`));
+});
+
+// Clean the dist folder
+gulp.task('clean', function(done) {
+  del([`${paths.dist}/**/*`]).then(function() {
+    done();
+  });
+});
+
+// Serve files
+gulp.task('serve', function() {
+  browserSync.init({
+    files: [
+      `${paths.dest}/**/*.css`,
+      `${paths.dest}/**/*.js`,
+      `${paths.dest}/**/*.html`
+    ],
+    server: {
+      baseDir: paths.dest
+    }
+  });
 });
 
 // Jekyll build
@@ -64,28 +118,25 @@ gulp.task('jekyll-build', function(done) {
   });
 });
 
-// Jekyll rebuild & page reload
-gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
-  reload();
-});
-
-// Serve
-gulp.task('serve', ['jekyll-build'], function() {
-  browserSync.init({
-    server: {
-      baseDir: '_site'
-    }
-  });
-});
-
-// Watch
+// Watch files for changes
 gulp.task('watch', function() {
-  gulp.watch(paths.scss, ['styles', 'jekyll-rebuild']);
-  gulp.watch(paths.scripts, ['scripts', 'jekyll-rebuild']);
-  gulp.watch(paths.templates, ['jekyll-rebuild']);
+  gulp.watch(`${paths.scss}/**/*.scss`, function() {
+    runSequence('scss', ['jekyll-build']);
+  });
+
+  gulp.watch(`${paths.scripts}/**/*.js`, function() {
+    runSequence('scripts', ['jekyll-build']);
+  });
+
+  gulp.watch(paths.misc, ['jekyll-build']);
+});
+
+// Build files
+gulp.task('build', function() {
+  runSequence('clean', ['scss', 'scripts', 'images'], ['jekyll-build']);
 });
 
 // Default task
 gulp.task('default', function() {
-    runSequence('styles', ['scripts'], ['serve'], ['watch']);
+  runSequence('clean', ['scss', 'scripts', 'images'], ['jekyll-build'], ['serve', 'watch']);
 });

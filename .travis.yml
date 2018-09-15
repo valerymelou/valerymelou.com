@@ -1,0 +1,34 @@
+language: ruby
+rvm:
+  - 2.5.0
+
+sudo: false
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+install:
+  - gem install html-proofer
+  - bundle install
+  - npm install -g gulp
+  - npm install
+
+before_script:
+  - npm run build
+
+script:
+  - htmlproofer ./_site --check_favicon --check_html --url-ignore https://linkedin.com/in/valerymelou
+  - npm run lint
+
+cache:
+  directories:
+    - ".bundle"
+    - "node_modules"
+
+branches:
+  only:
+    - master
+    - /^feature.*$/
+    - /^greenkeeper/.*$/
+    - /^dependabot/.*$/
