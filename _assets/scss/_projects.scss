@@ -1,0 +1,81 @@
+.project {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    flex-direction: row;
+  }
+}
+
+.project-timeline {
+  position: relative;
+  min-width: 130px;
+  max-width: 130px;
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    padding: .8rem;
+    border-right: 1px solid #ddd;
+
+    &::before {
+      position: absolute;
+      top: 20px;
+      right: -5px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      content: "";
+      background-color: $primary-color;
+      border-radius: 50%;
+    }
+  }
+}
+
+.project-timeline-date {
+  font-style: italic;
+  color: $primary-color;
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    color: #666;
+  }
+}
+
+.project-content {
+  position: relative;
+  padding: 0;
+
+  @media screen and (min-width: $media-breakpoint-md) {
+    padding: 0 1.5rem 2rem;
+  }
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.project-screenshot {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.project-description {
+  padding: 2rem 0 1rem;
+}
+
+.project-tech {
+  display: inline-block;
+  padding: .1rem .3rem;
+  margin-bottom: .5rem;
+  font-size: .9rem;
+  color: #333;
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+.project-divider {
+  height: 1px;
+  margin-top: 2rem;
+  background-color: #ddd;
+  border: none;
+}

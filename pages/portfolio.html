@@ -1,0 +1,54 @@
+---
+layout: home
+title: Portfolio
+description: Here is a short list of the latest projects that I've built or been part of.
+permalink: /portfolio/
+---
+
+<section>
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="section-intro">
+      <p>I've worked with several larger as well as smaller brands. Here is a short list of the latest projects that I have built or been part of.</p>
+    </div>
+    <div class="project">
+      <div class="project-timeline">
+        <span class="project-timeline-date">Currently</span>
+      </div>
+      <div class="project-content">
+          <p>I am currently working as a web developer for a local tech company where I build solutions for businesses. In my free time, I work on my personal projects and I do some freelance jobs.</p>
+          <p>So, feel free to <a href="/contact">contact me</a> if you have a project that I can help with.</p>
+          <hr class="project-divider">
+      </div>
+    </div>
+    {% for project in site.data.projects %}
+      <div class="project">
+        <div class="project-timeline">
+          <time class="project-timeline-date">{{ project.date }}</time>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">{{ project.name }}</h3>
+          <div class="project-abstract">
+            {{ project.abstract }}
+          </div>
+          <picture>
+            <img src="{{ base.url }}/assets/images/projects/{{ project.screenshot }}" alt="{{ project.name }}" class="project-screenshot">
+          </picture>
+          {% if project.url %}
+            <a href="{{ project.url }}" class="button" target="_blank">View online</a>
+          {% endif %}
+          <div class="project-description">
+            {{ project.description|markdownify }}
+          </div>
+          <div>
+            <h4>Technologies</h4>
+            {% for tech in project.technologies %}
+              <span class="project-tech">{{ tech }}</span>
+            {% endfor %}
+          </div>
+          <hr class="project-divider">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

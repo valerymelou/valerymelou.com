@@ -1,0 +1,70 @@
+# -
+#  name: Project Name
+#  abstract: Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+#  description: >
+#    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam culpa id enim eveniet sequi consequuntur aspernatur dolorem placeat cumque labore aliquam, perferendis ut, tempore tempora, explicabo laboriosam voluptates? Ut, deleniti!
+#  date: Project Date
+#  screenshot: screenshot.png
+#  url: project.url
+#  technologies:
+#    - Tech 1
+#    - Tech 2
+-
+  name: Currency Converter
+  abstract: This is a progressive web app that I built as part of my training with the Google Africa Scholarship Mobile Web Specialist Course.
+  description: >
+    This currency converter lets you easily convert currencies online an even when you are offline. It fetches the conversion rates from an external API and save them locally, so that you can perform conversions while offline. It's a fully functional progressive web application (WPA) which you can install on your phone and use as a native app.
+
+  date: July 2018
+  screenshot: currency-converter.png
+  url: https://valerymelou.github.io/currency-converter
+  technologies:
+    - JavaScript
+    - PWA
+
+-
+  name: Omega 1 Entertainment
+  abstract: Website of a production studio based in Limbe, Cameroon.
+  description: "A fully responsive website including:\n
+    * Home and about us pages\n
+    * TV Shows and movies list and detail pages\n
+    * A blog\n
+    * A contact form\n
+    * A newsletter form\n
+    * A simple and intuitive admin panel to edit content\n"
+  date: March 2018
+  screenshot: omega-1-entertainment.png
+  url: http://omega1entertainment.com
+  technologies:
+    - Symfony 3.4
+    - Bootstrap 4
+
+-
+  name: Lemage Consulting SARL
+  abstract: Landing page for a Yaounde based consulting agency.
+  description: "A simple landing page to quickly introduce the consulting agency and its services. There is also a contact form and a Google Maps to localize their offices."
+  date: January 2018
+  screenshot: lemage-consulting-sarl.png
+  url: https://lemageconsultingsa.com
+  technologies:
+    - Jekyll
+    - Bootstrap 4
+
+-
+  name: Tempest Beauty Training Center
+  abstract: Website of a school and beauty institute based in Yaounde, Cameroon.
+  description: "A fully responsive website to promote the school and the beauty institute. It features:\n
+    * A landing page with and overview of the whole site\n
+    * About us page\n
+    * Trainings pages\n
+    * Contact page\n
+    * A blog\n
+    * A newsletter module\n
+    * A gallery\n
+    * An intuitive admin panel to edit all of that"
+  date: May 2015
+  screenshot: tempest-beauty.png
+  url: http://tempestbeauty.net
+  technologies:
+    - Symfony 3.4
+    - Bootstrap 4
