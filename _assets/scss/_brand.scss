@@ -58,7 +58,6 @@
 .brand-figure {
   position: relative;
   max-width: 300px;
-  max-height: 300px;
 
   &::before {
     position: absolute;
@@ -76,7 +75,6 @@
   width: 100%;
   max-width: 300px;
   height: 100%;
-  max-height: 300px;
   border-radius: 5px;
 }
 
