@@ -3,14 +3,17 @@
   align-items: center;
   margin-right: auto;
   color: #fff;
+  border: 1px solid transparent;
   outline: 0;
 
-  &:active,
   &:focus,
   &:hover {
-    color: #ddd;
+    color: $accent-color;
     text-decoration: none;
-    border: 1px solid $accent-color;
+  }
+
+  &:focus {
+    border-color: $accent-color;
   }
 
   .sidebar & {
