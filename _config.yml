@@ -37,7 +37,7 @@ plugins:
 title:              Valery Melou
 description:        "Full-stack web developer from Yaounde, Cameroon."
 twitter:            valerymelou
-social_image_path:  /static/images/brand/valery-social.png
-social_logo_path:   /static/images/brand/valery-social-logo.png
+social_image_path:  /assets/images/brand/valery-social.png
+social_logo_path:   /assets/images/brand/valery-social-logo.png
 
 # Custom variables
