@@ -12,43 +12,7 @@
 
     {% include header.html %}
 
-    <div class="sidebar-mask"></div>
-
-    <aside class="sidebar">
-      <a href="/" class="brand">
-        <img src="{{ site.baseurl }}/assets/images/logo.png" class="brand-ogo" alt="Valery Melou" width="32" height="32">
-        <div class="brand-description">
-          <h1 class="brand-name">Valery Melou</h1>
-          <p class="brand-title">Full stack web developer</p>
-        </div>
-      </a>
-
-      <nav class="nav">
-        <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a>
-        <a href="/about" class="nav-link {% if page.url == '/about/' %}active{% endif %}">About</a>
-        <a href="/portfolio" class="nav-link {% if page.url == '/portfolio/' %}active{% endif %}">Portfolio</a>
-        <a href="/contact" class="nav-link {% if page.url == '/contact/' %}active{% endif %}">Contact</a>
-        <!-- <a href="" class="nav-link">Blog</a> -->
-      </nav>
-
-      <ul class="social">
-        <li class="social-item">
-          <a href="https://github.com/valerymelou" class="social-link" target="_blank" rel="noopener" aria-label="See my work on GitHub" title="See my work on GitHub">
-            {% include icons/github.svg width="24" height="24" %}
-          </a>
-        </li>
-        <li class="social-item">
-          <a href="https://twitter.com/valerymelou" class="social-link" target="_blank" rel="noopener" aria-label="Follow me on Twitter" title="Follow me on Twitter">
-            {% include icons/twitter.svg width="24" height="24" %}
-          </a>
-        </li>
-        <li class="social-item">
-          <a href="https://linkedin.com/in/valerymelou" class="social-link" target="_blank" rel="noopener" aria-label="Let's connect on LinkedIn" title="Let's connect on LinkedIn">
-            {% include icons/linkedin.svg width="24" height="24" %}
-          </a>
-        </li>
-      </ul>
-    </aside>
+    {% include sidebar.html %}
 
     <main>
       {{ content }}
