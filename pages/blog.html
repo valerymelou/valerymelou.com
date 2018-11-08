@@ -1,0 +1,70 @@
+---
+layout: blog
+name: blog
+title: Blog
+description: "Welcome to my blog, where I write about Django, Angular, Symfony, Vue.js and everything else that matters to me."
+permalink: /blog/
+pagination:
+  enabled: true
+---
+
+<section>
+  <div class="container blog">
+    <h2>Blog</h2>
+    <p class="section-intro">Welcome to my blog, where I write about <strong>Django</strong>, <strong>Angular</strong>, <strong>Symfony</strong>, <strong>Vue.js</strong> and everything else that matters to me. Here are some of my writings.</p>
+    <div class="posts-list">
+      {% for post in paginator.posts %}
+        <div class="post-feature">
+          <h3 class="post-feature-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <div class="post-feature-meta">
+            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+              {% assign d = post.date | date: "%-d"  %}
+              {{ post.date | date: "%B" }}
+              {% case d %}
+                {% when '1' or '21' or '31' %}{{ d }}st
+                {% when '2' or '22' %}{{ d }}nd
+                {% when '3' or '23' %}{{ d }}rd
+                {% else %}{{ d }}th
+                {% endcase %},
+              {{ post.date | date: "%Y" }}
+            </time> | <a href="/about">Valery Melou</a>
+          </div>
+          {% if post.image %}
+            <a href="{{ post.url }}">
+              <img src="{{ base.url }}/assets/images/posts/{{ post.image }}" class="post-feature-image" alt="{{ post.title }}">
+            </a>
+          {% endif %}
+          <div class="post-feature-excerpt">
+            {{ post.excerpt }}
+          </div>
+          <a href="{{ post.url }}" class="button">Read more</a>
+        </div>
+      {% else %}
+        <p>Sorry, I haven't posted yet! Please come back later.</p>
+      {% endfor %}
+    </div>
+    {% if paginator.total_pages > 1 %}
+      <ul class="paginator">
+        <li class="paginator-item {% unless paginator.previous_page %}disabled{% endunless %}">
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="paginator-link">Previous</a>
+        </li>
+        {% for page in (paginator.first_page..paginator.last_page) %}
+          {% if page == 1 %}
+            <li class="paginator-item {% if page == paginator.page %}active{% endif %}">
+              <a href="/blog" class="paginator-link">1</a>
+            </li>
+          {% else %}
+            <li class="paginator-item {% if page == paginator.page %}active{% endif %}">
+              <a href="/blog/page/{{ page }}" class="paginator-link">
+                {{ page }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        <li class="paginator-item {% unless paginator.next_page %}disabled{% endunless %}">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="paginator-link">Next</a>
+        </li>
+      </ul>
+    {% endif %}
+  </div>
+</section>
