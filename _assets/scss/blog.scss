@@ -2,6 +2,27 @@
 @import "monokai";
 @import "paginator";
 
+.all-posts-link {
+  margin-left: auto;
+}
+
+.blog {
+  p {
+    line-height: 1.5;
+  }
+
+  figcaption {
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .container {
   &.blog {
     max-width: 768px;
@@ -52,17 +73,8 @@
   color: #666;
 }
 
-.post-controls {
-  display: flex;
-  margin-top: 5rem;
-}
-
-.post-control-previous {
-  margin-right: auto;
-}
-
-.post-control-next {
-  margin-left: auto;
+.post-comments {
+  margin-top: 2rem;
 }
 
 .highlight {
@@ -82,7 +94,13 @@
   }
 
   .gutter {
-    padding: .5rem .2rem;
-    border-right: 1px solid #666;
+    padding: .5rem 1rem;
   }
+}
+
+.highlighter-rouge {
+  padding: 0 4px;
+  margin: 0 2px;
+  font-size: 16px;
+  background-color: #dce0e5;
 }

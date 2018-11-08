@@ -6,6 +6,8 @@ description: "Welcome to my blog, where I write about Django, Angular, Symfony, 
 permalink: /blog/
 pagination:
   enabled: true
+scripts:
+  - { src: "//https-valerymelou-com.disqus.com/count.js", async: true, id: "dsq-count-scr" }
 ---
 
 <section>
@@ -27,7 +29,7 @@ pagination:
                 {% else %}{{ d }}th
                 {% endcase %},
               {{ post.date | date: "%Y" }}
-            </time> | <a href="/about">Valery Melou</a>
+            </time> | <a href="/about">Valery Melou</a> | <a href="{{ post.url }}#disqus_thread">Comments</a>
           </div>
           {% if post.image %}
             <a href="{{ post.url }}">
