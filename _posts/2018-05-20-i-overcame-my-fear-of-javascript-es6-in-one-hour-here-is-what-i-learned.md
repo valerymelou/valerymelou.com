@@ -3,6 +3,7 @@ layout: post
 title: "I overcame my fear of JavaScript ES6 in one hour. Here is what I learned"
 description: "I learned the syntax improvements made in ES6 in about an hour through the Google Africa Challenge Scholarship program on Udacity. In this post, I’m going to share a summary of what I learned with you."
 image: "/assets/images/posts/beautiful-code.jpeg"
+comments: true
 ---
 
 I learned the syntax improvements made in ES6 in about an hour through the <a href="https://admissions.udacity.com/apply/google-africa-scholarships" target="_blank">Google Africa Challenge Scholarship</a> program on <a href="https://udacity.com" target="_blank">Udacity</a>. In this post, I’m going to share a summary of what I learned with you.

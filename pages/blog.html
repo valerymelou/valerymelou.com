@@ -29,7 +29,7 @@ scripts:
                 {% else %}{{ d }}th
                 {% endcase %},
               {{ post.date | date: "%Y" }}
-            </time> | <a href="/about">Valery Melou</a> | <a href="{{ post.url }}#disqus_thread">Comments</a>
+            </time> | <a href="/about">Valery Melou</a> | <a href="{{ post.url | absolute_url }}#disqus_thread">Comments</a>
           </div>
           {% if post.image %}
             <a href="{{ post.url }}">

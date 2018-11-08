@@ -17,6 +17,10 @@ pagination:
   permalink: /page/:num/
   title: ':title - page :num'
 
+# Disqus
+disqus:
+  shortname: https-valerymelou-com
+
 # Server
 source:         "."
 destination:    ./_site
