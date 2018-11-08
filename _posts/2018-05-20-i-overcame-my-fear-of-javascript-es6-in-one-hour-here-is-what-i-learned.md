@@ -8,7 +8,7 @@ image: "/assets/images/posts/beautiful-code.jpeg"
 I learned the syntax improvements made in ES6 in about an hour through the <a href="https://admissions.udacity.com/apply/google-africa-scholarships" target="_blank">Google Africa Challenge Scholarship</a> program on <a href="https://udacity.com" target="_blank">Udacity</a>. In this post, I’m going to share a summary of what I learned with you.
 
 <figure>
-  <img src="/assets/images/posts/beautiful-code.jpeg" alt="">
+  <img src="/assets/images/posts/beautiful-code.jpeg" alt="Artistic photo of code">
   <figcaption>Photo by <a href="https://unsplash.com/@boshkov" rel="photo-creator noopener nofollow noopener" target="_blank">Ilija Boshkov</a> on <a href="https://unsplash.com" rel="photo-source noopener nofollow noopener" target="_blank">Unsplash</a></figcaption>
 </figure>
 
