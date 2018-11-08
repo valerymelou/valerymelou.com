@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% include head.html %}
+      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/blog.css">
+  </head>
+
+  <body class="loading">
+    <div class="loader" aria-hidden="true">
+      <p class="loader-text"><strong>loading</strong></p>
+      <div class="loading-animation"><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    {% include header.html %}
+
+    {% include sidebar.html %}
+
+    <main>
+      <section>
+        <div class="container blog">
+          <h2>Blog</h2>
+          <div class="post">
+            <h3 class="post-title">{{ page.title }}</h3>
+            <div class="post-feature-meta">
+              <span>Posted on</span>
+              <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+                {% assign d = page.date | date: "%-d"  %}
+                {{ page.date | date: "%B" }}
+                {% case d %}
+                  {% when '1' or '21' or '31' %}{{ d }}st
+                  {% when '2' or '22' %}{{ d }}nd
+                  {% when '3' or '23' %}{{ d }}rd
+                  {% else %}{{ d }}th
+                  {% endcase %},
+                {{ page.date | date: "%Y" }}
+              </time> by <a href="/about">Valery Melou</a>
+            </div>
+            {{ content }}
+          </div>
+          <div class="post-controls">
+            {% if page.previous %}
+              <a href="{{ page.previous.url }}" class="button post-control-previous">Previous post</a>
+            {% endif %}
+
+            {% if page.next %}
+              <a href="{{ page.next.url }}" class="button post-control-next">Next post</a>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {% include footer.html %}
+
+    {% include scripts.html %}
+  </body>
+</html>
