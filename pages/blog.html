@@ -33,7 +33,7 @@ scripts:
           </div>
           {% if post.image %}
             <a href="{{ post.url }}">
-              <img src="{{ base.url }}/assets/images/posts/{{ post.image }}" class="post-feature-image" alt="{{ post.title }}">
+              <img src="{{ base.url }}{{ post.image }}" class="post-feature-image" alt="{{ post.title }}">
             </a>
           {% endif %}
           <div class="post-feature-excerpt">
