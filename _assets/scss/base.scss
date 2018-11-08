@@ -16,14 +16,10 @@ body {
   display: flex;
   flex-direction: column;
   padding-top: $header-height;
-  color: #444;
+  color: $body-color;
 
   @media screen and (min-width: $media-breakpoint-sm) {
     padding-top: 0;
-  }
-
-  .noscroll {
-    overflow: hidden;
   }
 }
 
@@ -79,6 +75,14 @@ section {
   padding: ($spacer * 2) 0;
 }
 
+img {
+  max-width: 100%;
+}
+
+strong {
+  font-weight: 500;
+}
+
 .section-intro {
   margin-bottom: $spacer;
   font-size: 1.2rem;
@@ -109,7 +113,7 @@ h2:not(.hero-title) {
   }
 }
 
-h3:not(.project-title) {
+h3 {
   font-size: 1.5rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -128,4 +132,8 @@ a {
 
 svg {
   vertical-align: middle;
+}
+
+.ready.no-scroll {
+  overflow: hidden;
 }

@@ -6,7 +6,16 @@ kramdown:
   auto_ids:     true
 
 # Permalinks
-permalink:      pretty
+permalink:      /blog/:year/:month/:day/:title/
+
+# Pagination
+pagination:
+  enabled: true
+  debug: false
+  collection: posts
+  per_page: 8
+  permalink: /page/:num/
+  title: ':title - page :num'
 
 # Server
 source:         "."
@@ -32,6 +41,8 @@ exclude:
 
 plugins:
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-paginate-v2
 
 # Social
 title:              Valery Melou
