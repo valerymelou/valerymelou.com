@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% include head.html %}
+      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/blog.css">
+  </head>
+
+  <body class="loading">
+    <div class="loader" aria-hidden="true">
+      <p class="loader-text"><strong>loading</strong></p>
+      <div class="loading-animation"><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    {% include header.html %}
+
+    {% include sidebar.html %}
+
+    <main>
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    {% include scripts.html %}
+  </body>
+</html>
