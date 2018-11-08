@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
       {% include head.html %}
+      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/blog.css">
   </head>
 
   <body class="loading">
@@ -15,9 +16,7 @@
       {{ content }}
     </main>
 
-    {% if page.url != '/' %}
-      {% include footer.html %}
-    {% endif %}
+    {% include footer.html %}
 
     {% include scripts.html %}
   </body>
