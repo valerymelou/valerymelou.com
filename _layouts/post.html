@@ -6,10 +6,7 @@
   </head>
 
   <body class="loading">
-    <div class="loader" aria-hidden="true">
-      <p class="loader-text"><strong>loading</strong></p>
-      <div class="loading-animation"><div></div><div></div><div></div><div></div></div>
-    </div>
+    {% include loader.html %}
 
     {% include header.html %}
 
@@ -18,7 +15,10 @@
     <main>
       <section>
         <div class="container blog">
-          <h2>Blog</h2>
+          <div class="header">
+            <h2>Blog</h2>
+            <a href="/blog" class="all-posts-link">« Back to all posts</a>
+          </div>
           <div class="post">
             <h3 class="post-title">{{ page.title }}</h3>
             <div class="post-feature-meta">
@@ -37,14 +37,21 @@
             </div>
             {{ content }}
           </div>
-          <div class="post-controls">
-            {% if page.previous %}
-              <a href="{{ page.previous.url }}" class="button post-control-previous">Previous post</a>
-            {% endif %}
-
-            {% if page.next %}
-              <a href="{{ page.next.url }}" class="button post-control-next">Next post</a>
-            {% endif %}
+          <div class="post-comments">
+            <div id="disqus_thread"></div>
+            <script>
+              var disqus_config = function () {
+                this.page.url = "{{ 'site.url' | prepend: page.url }}";
+                this.page.identifier = "{{ page.url }}"
+              };
+              (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://https-valerymelou-com.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
           </div>
         </div>
       </section>
