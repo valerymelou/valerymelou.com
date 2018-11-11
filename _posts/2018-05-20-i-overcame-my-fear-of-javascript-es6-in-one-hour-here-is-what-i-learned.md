@@ -38,10 +38,10 @@ function smile(isHappy) {
   }
 }
 
-simle(false);
+smile(false);
 {% endhighlight %}
 
-One might expect it to throw a `ReferenceError`: smiling is not defined. But it doesn’t. This is actually due to variable hoisting which is a result of how JavaScript is interpreted by your browser. In fact at run-time all variables declared with `var` are hoisted, means, they are raised to the top of the scope of the function in which they were declared, like this:
+One might expect it to throw a `ReferenceError`: smiling is not defined. But it doesn’t throw an error. This is actually due to variable hoisting which is a result of how JavaScript is interpreted by your browser. In fact at run-time all variables declared with `var` are hoisted, means, they are raised to the top of the scope of the function in which they were declared, like this:
 
 {% highlight javascript linenos %}
 function smile(isHappy) {
@@ -330,7 +330,7 @@ for (var index in digits) {
 
 We used to walk around this by using the `.hasOwnProperty` method of the object in JavaScript.
 
-The **for…of loop** is the solution to all those problems. It can loop over any type of iterable (object that you can iterate over it). Let’s see how with this example:
+The **for…of loop** is the solution to all those problems. It can loop over any type of iterable (object that you can iterate over it). Let’s see how to use it with this example:
 
 {% highlight javascript linenos %}
 const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -451,4 +451,4 @@ console.log(sum(20, 20));  // 40
 {% endhighlight %}
 
 ### Conclusion
-That’s a summary of what I learned in one hour about these new features of ES6. I don’t fear to learn them anymore and I’m actually continuing with the lessons about that in the Google Africa Challenge Scholarship, learning about improvements made to functions, built-ins and more. In fact I might write about it all as well one of this days. But for now, I hope you enjoyed this one and that, if you was afraid of trying those features before like me, you are not anymore. Go out that there and write some ES6. #happycoding.
+That’s a summary of what I learned in one hour about these new features of ES6. I don’t fear to learn them anymore and I’m actually continuing with the lessons about that in the Google Africa Challenge Scholarship, learning about improvements made to functions, built-ins and more. In fact I might write about it all as well one of this days. But for now, I hope you enjoyed this one and that, if you were afraid of trying those features like I did before, hope you aren't anymore. Go out that there and write some ES6. #happycoding.
