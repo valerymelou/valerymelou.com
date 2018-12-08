@@ -10,6 +10,18 @@
 #    - Tech 1
 #    - Tech 2
 -
+  name: Tiky Technologies
+  abstract: A classic WordPress site but with a custom theme made by me.
+  description: >
+    Tiky Technologie is an organization that is working to positively influence the access to education and health care. They approached me for their website and gave me very short delays to complete it. That's why I decided to use WordPress for the job. I just had to find a good theme that will be easy to customize and the job will be done. After looking online I didn't find anything that will be easy for me to customize since I don't have a very good experience with WordPress and theme customization. But I'm pretty good at creating websites from scratch. That's why I decided to built a custom theme for Tiky. And I managed to do it in the delays that were given to me. The website if online and running. This was a great experience for me. I can now create a custom WordPress theme to match any design. Now I'm learning how to customize a theme so that I can adapt it to a specific design.
+  date: October 2018
+  screenshot: tiky-technologies.png
+  url: http://tikytechnologies.org/
+  technologies:
+    - WordPress
+    - Bootstrap 4
+
+-
   name: Currency Converter
   abstract: This is a progressive web app that I built as part of my training with the Google Africa Scholarship Mobile Web Specialist Course.
   description: >
