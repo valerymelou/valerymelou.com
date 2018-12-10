@@ -18,7 +18,7 @@ before_script:
   - npm run build
 
 script:
-  - htmlproofer ./_site --check_favicon --check_html --url-ignore https://linkedin.com/in/valerymelou
+  - htmlproofer ./_site --check_favicon --check_html --disable-external
   - npm run lint
 
 cache:

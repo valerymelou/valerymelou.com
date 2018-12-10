@@ -3,7 +3,7 @@
   width: 100%;
   max-width: $container-max-width;
   padding: 0 $spacer;
-  margin: 0;
+  margin: 0 auto;
 
   main & {
     @media screen and (min-width: $media-breakpoint-md) {
@@ -39,6 +39,12 @@
   position: relative;
   width: 100%;
   padding: 0 1rem;
+}
+
+.column-half {
+  @media screen and (min-width: $media-breakpoint-md) {
+    max-width: 50%;
+  }
 }
 
 .column-eight {
