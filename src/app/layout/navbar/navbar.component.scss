@@ -1,0 +1,85 @@
+@import "src/theme/utils";
+
+.navbar {
+  min-height: $navbar-height;
+  background-color: $default;
+}
+
+.navbar-brand {
+  img {
+    margin-right: 1rem;
+  }
+
+  span {
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+}
+
+.navbar-toggler {
+  outline: none;
+
+  &:focus,
+  &:hover {
+    color: $white;
+  }
+}
+
+.navbar-collapse {
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  @include media-breakpoint-down(sm) {
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    bottom: 0;;
+    background-color: $default;
+
+    .navbar-nav {
+      margin-left: 0;
+    }
+
+    .nav-text {
+      margin-left: 2rem;
+    }
+
+    &.show {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+  }
+}
+
+.nav-text {
+  margin-left: .5rem;
+}
+
+.social-nav {
+  display: flex;
+  margin-left: -1rem;
+  margin-top: auto;
+
+  .nav-link {
+    color: $navbar-dark-color;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .social-nav {
+    display: none;
+  }
+}
