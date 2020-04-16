@@ -19,3 +19,22 @@
 a {
   transition: all .3s ease-in-out;
 }
+
+.social-nav {
+  display: flex;
+  margin-left: -1rem;
+  margin-top: auto;
+
+  .nav-link {
+    color: $navbar-dark-color;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+}

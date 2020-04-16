@@ -2,7 +2,7 @@
 
 .navbar {
   min-height: $navbar-height;
-  background-color: $default;
+  background-color: transparent;
 }
 
 .navbar-brand {
@@ -11,8 +11,8 @@
   }
 
   span {
-    font-weight: 700;
     letter-spacing: 2px;
+    font-size: .9rem;
   }
 }
 
@@ -57,25 +57,6 @@
 
 .nav-text {
   margin-left: .5rem;
-}
-
-.social-nav {
-  display: flex;
-  margin-left: -1rem;
-  margin-top: auto;
-
-  .nav-link {
-    color: $navbar-dark-color;
-
-    &:hover,
-    &:focus {
-      color: $white;
-    }
-  }
-
-  .icon {
-    font-size: 24px;
-  }
 }
 
 @include media-breakpoint-up(md) {

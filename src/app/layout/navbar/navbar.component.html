@@ -11,7 +11,7 @@
     <div class="navbar-collapse collapse" [class.show]="!collapsed" id="navigation">
       <ul class="navbar-nav">
         <li class="nav-item" *ngFor="let link of navbarLinks">
-          <a [routerLink]="link.route" class="nav-link">
+          <a [routerLink]="link.route" class="nav-link" routerLinkActive="active">
             <span [class]="link.icon"></span>
             <span class="nav-text">{{ link.label }}</span>
           </a>
