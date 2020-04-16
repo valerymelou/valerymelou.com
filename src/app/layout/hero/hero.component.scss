@@ -1,0 +1,103 @@
+@import "src/theme/utils";
+
+@keyframes path-move {
+  0% {
+    max-width: 65%;
+  }
+
+  25% {
+    max-width: 80%;
+  }
+
+  50% {
+    max-width: 65%;
+  }
+
+  75% {
+    max-width: 50%;
+  }
+
+  100% {
+    max-width: 65%;
+  }
+}
+
+.hero {
+  background-color: $default;
+  color: $white;
+
+  &.full {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+  }
+}
+
+.wrapper {
+  background-image: url('/assets/images/dots.png');
+  background-size: contain;
+
+  &.full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .path {
+    max-width: 65%;
+    right: 0;
+    top: $navbar-height;
+  }
+
+  .triangle {
+    top: 35%;
+    left: 5%;
+    max-height: 200px;
+  }
+}
+
+.path {
+  position: absolute;
+  opacity: .02;
+  animation-name: path-move;
+  animation-duration: 4s;
+  animation-delay: 1s;
+}
+
+.shapes {
+  position: absolute;
+  opacity: .02;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: $navbar-height 1rem;
+  justify-content: center;
+}
+
+.hero-actions {
+  margin: 2rem 0;
+
+  .btn {
+    text-transform: uppercase;
+  }
+}
+
+.hero-title {
+  font-weight: 400;
+  margin: 2rem 0;
+}
+
+.hero-strap {
+  font-weight: 300;
+}
