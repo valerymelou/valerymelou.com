@@ -1,0 +1,40 @@
+// Import our custom Bootstrap
+@import "bootstrap";
+
+// Import fonts
+@import "fonts";
+
+@include media-breakpoint-up(sm) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+a {
+  transition: all .3s ease-in-out;
+}
+
+.social-nav {
+  display: flex;
+  margin-left: -1rem;
+  margin-top: auto;
+
+  .nav-link {
+    color: $navbar-dark-color;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+}
