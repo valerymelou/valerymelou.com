@@ -8,13 +8,7 @@
           <img src="assets/images/me.jpeg" alt="Valery Melou" class="card-img-top">
           <div class="card-body">
             <p class="card-subtitle text-muted mb-3">That's me! Let's connect...</p>
-            <ul class="nav social-nav mt-auto mb-0">
-              <li class="nav-item" *ngFor="let link of socialLinks">
-                <a [href]="link.route" class="nav-link" target="_blank" rel="noopener" [attr.aria-label]="link.label" [title]="link.label">
-                  <span [class]="'icon ' + link.icon"></span>
-                </a>
-              </li>
-            </ul>
+            <app-social-links scheme="dark"></app-social-links>
           </div>
         </div>
       </div>
