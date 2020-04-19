@@ -29,4 +29,9 @@
 
 a {
   transition: all .3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
