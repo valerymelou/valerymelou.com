@@ -2,33 +2,39 @@ export interface Link {
   route: string;
   label?: string;
   icon?: string;
+  exactMatch?: boolean;
 }
 
 export const NAVBAR_LINKS: Link[] = [
   {
     route: '/',
     label: 'Home',
-    icon: 'icon-landmark'
+    icon: 'icon-landmark',
+    exactMatch: true
   },
   {
-    route: '/',
+    route: '/about',
     label: 'About',
-    icon: 'icon-person'
+    icon: 'icon-person',
+    exactMatch: true,
   },
   {
     route: '/',
     label: 'Portfolio',
-    icon: 'icon-project'
+    icon: 'icon-project',
+    exactMatch: true
   },
   {
     route: '/',
     label: 'Blog',
     icon: 'icon-paper',
+    exactMatch: true
   },
   {
     route: '/',
     label: 'Contact',
-    icon: 'icon-email'
+    icon: 'icon-email',
+    exactMatch: true
   }
 ];
 
