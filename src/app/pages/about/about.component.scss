@@ -1,0 +1,10 @@
+@import "src/theme/utils";
+
+.nav-link {
+  color: $primary;
+
+  &:hover,
+  &:focus {
+    color: $dark;
+  }
+}

@@ -16,6 +16,17 @@
   }
 }
 
+.content {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+  }
+}
+
 a {
   transition: all .3s ease-in-out;
 }
