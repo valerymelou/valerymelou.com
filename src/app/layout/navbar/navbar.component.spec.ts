@@ -5,6 +5,8 @@ import { NavbarComponent } from './navbar.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import { MockSocialLinksComponent } from 'src/testing/mock-social-links.component';
+
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
@@ -13,7 +15,7 @@ describe('NavbarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule ],
-      declarations: [ NavbarComponent ]
+      declarations: [ NavbarComponent, MockSocialLinksComponent ]
     })
     .compileComponents();
   }));

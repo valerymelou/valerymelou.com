@@ -1,17 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MockHeroComponent } from 'src/testing/mock-hero.component';
 import { HomeComponent } from './home.component';
-import { Component, Input } from '@angular/core';
 
-@Component({
-  selector: 'app-hero',
-  template: 'hero'
-})
-class MockHeroComponent {
-  @Input() full = true;
-  @Input() title = 'Home';
-  @Input() strap = 'This is the Home';
-}
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
