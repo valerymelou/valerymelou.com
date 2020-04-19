@@ -1,7 +1,7 @@
-import { TestBed, async } from '@angular/core/testing';
+import { Component, DebugElement } from '@angular/core';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +10,10 @@ import { Component } from '@angular/core';
 class MockNavbarComponent {}
 
 describe('AppComponent', () => {
+  let app: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let debugElement: DebugElement;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -20,11 +24,13 @@ describe('AppComponent', () => {
         MockNavbarComponent
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+    debugElement = fixture.debugElement;
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 });
