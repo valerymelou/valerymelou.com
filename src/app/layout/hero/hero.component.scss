@@ -38,6 +38,7 @@
 .wrapper {
   background-image: url('/assets/images/dots.png');
   background-size: contain;
+  clear: both;
 
   &.full {
     display: flex;
@@ -49,9 +50,14 @@
     right: 0;
     min-height: 100vh;
     overflow: hidden;
+
+    .path {
+      max-height: 100%;
+    }
   }
 
   .path {
+    max-height: 300px;
     max-width: 65%;
     right: 0;
     top: $navbar-height;

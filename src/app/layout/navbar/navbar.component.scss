@@ -60,7 +60,7 @@
 }
 
 @include media-breakpoint-up(md) {
-  .social-nav {
+  app-social-links {
     display: none;
   }
 }
