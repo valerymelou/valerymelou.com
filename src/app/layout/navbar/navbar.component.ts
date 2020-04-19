@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { Link } from 'src/app/core/link';
 
@@ -45,7 +45,16 @@ export class NavbarComponent {
   // Used to toggle the navbar on small devices
   collapsed = true;
 
+  // ControlS navbar background
+  transparent = true;
+
   constructor() { }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    const verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.transparent = verticalOffset < 60;
+  }
 
   toggle() {
     this.collapsed = !this.collapsed;
