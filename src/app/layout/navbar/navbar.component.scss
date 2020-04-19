@@ -2,7 +2,12 @@
 
 .navbar {
   min-height: $navbar-height;
-  background-color: transparent;
+  background-color: $primary;
+  transition: all 1s ease-in-out;
+
+  &.transparent {
+    background-color: transparent;
+  }
 }
 
 .navbar-brand {

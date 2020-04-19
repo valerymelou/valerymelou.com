@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MockHeroComponent } from 'src/testing/mock-hero.component';
+import { MockSocialLinksComponent } from 'src/testing/mock-social-links.component';
 import { AboutComponent } from './about.component';
 
 describe('AboutComponent', () => {
@@ -8,7 +10,7 @@ describe('AboutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AboutComponent ]
+      declarations: [ AboutComponent, MockHeroComponent, MockSocialLinksComponent ]
     })
     .compileComponents();
   }));

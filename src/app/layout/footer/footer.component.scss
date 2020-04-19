@@ -1,0 +1,35 @@
+@import "src/theme/utils";
+
+footer {
+  padding: 2rem 0;
+  background: $primary;
+  font-size: .9rem;
+
+  a {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: #ffffff99;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    color: #ffffff99;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @include media-breakpoint-up(sm) {
+    flex-direction: row;
+  }
+}
+
+.icon-heart {
+  color: red;
+}
