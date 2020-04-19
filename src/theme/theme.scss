@@ -16,25 +16,17 @@
   }
 }
 
-a {
-  transition: all .3s ease-in-out;
+.content {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+  }
 }
 
-.social-nav {
-  display: flex;
-  margin-left: -1rem;
-  margin-top: auto;
-
-  .nav-link {
-    color: $navbar-dark-color;
-
-    &:hover,
-    &:focus {
-      color: $white;
-    }
-  }
-
-  .icon {
-    font-size: 24px;
-  }
+a {
+  transition: all .3s ease-in-out;
 }
