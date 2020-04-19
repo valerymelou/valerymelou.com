@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Link, NAVBAR_LINKS, SOCIAL_LINKS } from 'src/app/core/links';
+
+import { Link } from 'src/app/core/link';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,38 @@ import { Link, NAVBAR_LINKS, SOCIAL_LINKS } from 'src/app/core/links';
 })
 export class NavbarComponent {
   // Navigation links
-  navbarLinks: Link[] = NAVBAR_LINKS;
-
-  // Social links
-  socialLinks: Link[] = SOCIAL_LINKS;
+  navbarLinks: Link[] = [
+    {
+      route: '/',
+      label: 'Home',
+      icon: 'icon-landmark',
+      exactMatch: true
+    },
+    {
+      route: '/about',
+      label: 'About',
+      icon: 'icon-person',
+      exactMatch: true,
+    },
+    {
+      route: '/',
+      label: 'Portfolio',
+      icon: 'icon-project',
+      exactMatch: true
+    },
+    {
+      route: '/',
+      label: 'Blog',
+      icon: 'icon-paper',
+      exactMatch: true
+    },
+    {
+      route: '/',
+      label: 'Contact',
+      icon: 'icon-email',
+      exactMatch: true
+    }
+  ];
 
   // Used to toggle the navbar on small devices
   collapsed = true;

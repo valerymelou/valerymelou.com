@@ -19,13 +19,7 @@
         </li>
       </ul>
 
-      <ul class="nav social-nav">
-        <li class="nav-item" *ngFor="let link of socialLinks">
-          <a [href]="link.route" class="nav-link" target="_blank" rel="noopener" [title]="link.label">
-            <span [class]="'icon ' + link.icon"></span>
-          </a>
-        </li>
-      </ul>
+      <app-social-links scheme="light" class="mt-auto"></app-social-links>
     </div>
   </div>
 </nav>

@@ -14,13 +14,7 @@
           </div>
         </div>
       </div>
-      <ul class="nav social-nav mt-auto" *ngIf="full">
-        <li class="nav-item" *ngFor="let link of socialLinks">
-          <a [href]="link.route" class="nav-link" target="_blank" rel="noopener" [attr.aria-label]="link.label" [title]="link.label">
-            <span [class]="'icon ' + link.icon"></span>
-          </a>
-        </li>
-      </ul>
+      <app-social-links scheme="light" *ngIf="full" class="mt-auto"></app-social-links>
     </div>
   </div>
 </div>
