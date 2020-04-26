@@ -23,7 +23,7 @@ export class NavbarComponent {
       exactMatch: true,
     },
     {
-      route: '/',
+      route: '/portfolio',
       label: 'Portfolio',
       icon: 'icon-project',
       exactMatch: true
