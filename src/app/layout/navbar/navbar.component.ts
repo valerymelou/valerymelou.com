@@ -35,7 +35,7 @@ export class NavbarComponent {
       exactMatch: true
     },
     {
-      route: '/',
+      route: '/contact',
       label: 'Contact',
       icon: 'icon-email',
       exactMatch: true
