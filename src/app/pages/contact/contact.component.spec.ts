@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { LazyLoadImageDirective } from 'ng-lazyload-image';
 
 import { MockHeroComponent } from 'src/testing/mock-hero.component';
-import { PortfolioComponent } from './portfolio.component';
+import { MockContactCardComponent } from 'src/testing/mock-contact-card.component';
+import { ContactComponent } from './contact.component';
 
-describe('PortfolioComponent', () => {
-  let component: PortfolioComponent;
-  let fixture: ComponentFixture<PortfolioComponent>;
+describe('ContactComponent', () => {
+  let component: ContactComponent;
+  let fixture: ComponentFixture<ContactComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PortfolioComponent, LazyLoadImageDirective, MockHeroComponent ]
+      declarations: [ ContactComponent, MockHeroComponent, MockContactCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PortfolioComponent);
+    fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
