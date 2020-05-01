@@ -3,7 +3,9 @@
 .navbar {
   min-height: $navbar-height;
   background-color: $primary;
-  transition: all 1s ease-in-out;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all .5s ease-in-out;
 
   &.transparent {
     background-color: transparent;
@@ -46,6 +48,7 @@
 
     .navbar-nav {
       margin-left: 0;
+      width: 100%;
     }
 
     .nav-text {
@@ -59,6 +62,13 @@
       padding: 1rem;
     }
   }
+}
+
+.nav-link {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: .9rem;
+  letter-spacing: 3px;
 }
 
 .nav-text {

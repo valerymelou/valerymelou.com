@@ -1,27 +1,5 @@
 @import "src/theme/utils";
 
-@keyframes path-move {
-  0% {
-    max-width: 65%;
-  }
-
-  25% {
-    max-width: 80%;
-  }
-
-  50% {
-    max-width: 65%;
-  }
-
-  75% {
-    max-width: 50%;
-  }
-
-  100% {
-    max-width: 65%;
-  }
-}
-
 .hero {
   background-color: $default;
   color: $white;
@@ -38,7 +16,6 @@
 .wrapper {
   background-image: url('/assets/images/dots.png');
   background-size: contain;
-  clear: both;
 
   &.full {
     display: flex;
@@ -49,38 +26,7 @@
     left: 0;
     right: 0;
     min-height: 100vh;
-    overflow: hidden;
-
-    .path {
-      max-height: 100%;
-    }
   }
-
-  .path {
-    max-height: 300px;
-    max-width: 65%;
-    right: 0;
-    top: $navbar-height;
-  }
-
-  .triangle {
-    top: 35%;
-    left: 5%;
-    max-height: 200px;
-  }
-}
-
-.path {
-  position: absolute;
-  opacity: .02;
-  animation-name: path-move;
-  animation-duration: 4s;
-  animation-delay: 1s;
-}
-
-.shapes {
-  position: absolute;
-  opacity: .02;
 }
 
 .container {

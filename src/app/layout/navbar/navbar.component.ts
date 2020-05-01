@@ -22,12 +22,12 @@ export class NavbarComponent {
       icon: 'icon-person',
       exactMatch: true,
     },
-    {
-      route: '/portfolio',
-      label: 'Portfolio',
-      icon: 'icon-project',
-      exactMatch: true
-    },
+    // {
+    //   route: '/portfolio',
+    //   label: 'Portfolio',
+    //   icon: 'icon-project',
+    //   exactMatch: true
+    // },
     {
       route: '/',
       label: 'Blog',
