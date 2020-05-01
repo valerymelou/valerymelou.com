@@ -8,7 +8,7 @@
       <span class="icon-menu icon" *ngIf="collapsed"></span>
       <span class="icon-close icon" *ngIf="!collapsed"></span>
     </button>
-    <div class="navbar-collapse collapse" [class.show]="!collapsed" id="navigation">
+    <div class="navbar-collapse collapse" [class.show]="!collapsed" id="navigation" (click)="toggle()">
       <ul class="navbar-nav">
         <li class="nav-item" *ngFor="let link of navbarLinks">
           <a [routerLink]="link.route" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:

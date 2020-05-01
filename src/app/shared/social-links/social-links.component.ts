@@ -16,11 +16,6 @@ export class SocialLinksComponent {
       icon: 'icon-github'
     },
     {
-      route: 'https://gitlab.com/valerymelou',
-      label: 'See my work on GitLab',
-      icon: 'icon-gitlab'
-    },
-    {
       route: 'https://twitter.com/valerymelou',
       label: 'Follow me on Twitter',
       icon: 'icon-twitter'
