@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  domain: 'https://valerymelou.com',
+  siteName: 'Valery Melou'
 };
