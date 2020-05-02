@@ -4,6 +4,11 @@
 // Import fonts
 @import "fonts";
 
+// Include code highlight styles
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/plugins/line-numbers/prism-line-numbers.css';
+@import '~prismjs/themes/prism-tomorrow';
+
 @include media-breakpoint-up(sm) {
   .container {
     max-width: 100%;
@@ -34,4 +39,18 @@ a {
   &:focus {
     text-decoration: none;
   }
+}
+
+.vertical-separator {
+  display: inline-block;
+  margin: 0 .5rem;
+}
+
+.side-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.code-toolbar {
+  font-size: 1rem;
 }
