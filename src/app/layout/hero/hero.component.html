@@ -2,11 +2,11 @@
   <div class="wrapper" [class.full]="full">
     <div class="container">
       <div class="row mt-auto">
-        <div class="col-md-6">
+        <div class="col-md-7">
           <h1 class="hero-title" *ngIf="title">{{ title }}</h1>
           <p class="hero-strap" *ngIf="strap">{{ strap }}</p>
           <div class="hero-actions" *ngIf="full">
-            <a href="/contact" class="btn btn-primary">Get in touch</a>
+            <a routerLink="/contact" class="btn btn-primary">Get in touch</a>
           </div>
         </div>
       </div>
