@@ -1,0 +1,50 @@
+h1 {
+  margin: 1rem 0 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.content {
+  max-width: 750px;
+  margin: auto;
+}
+
+.scully {
+  font-size: 1.25rem;
+
+  img {
+    max-width: 100%;
+  }
+
+  figcaption {
+    font-size: .9rem;
+    font-style: italic;
+    color: rgba(0, 0, 0, .54);
+  }
+
+  p {
+    margin: 1.5rem 0;
+  }
+
+  h2,
+  h3 {
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+.meta {
+  display: flex;
+  color: rgba(0, 0, 0, .54);
+}
