@@ -1,35 +1,20 @@
 dist: trusty
-language: ruby
-rvm:
-  - 2.5.0
-
 sudo: false
 
-env:
-  global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+language: node_js
+node_js:
+  - '12'
 
-install:
-  - gem install html-proofer
-  - bundle install
-  - npm install -g gulp@3.9.1
-  - npm install
-
-before_script:
-  - npm run build
-
-script:
-  - htmlproofer ./_site --check_favicon --check_html --disable-external
-  - npm run lint
+addons:
+  chrome: stable
 
 cache:
   directories:
-    - ".bundle"
-    - "node_modules"
+    - ./node_modules
 
-branches:
-  only:
-    - master
-    - /^feature.*$/
-    - /^greenkeeper/.*$/
-    - /^dependabot/.*$/
+install:
+  - npm install
+
+script:
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm run lint
