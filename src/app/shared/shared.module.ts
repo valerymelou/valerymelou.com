@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LazyLoadImageModule, scrollPreset } from 'ng-lazyload-image';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { ContactCardComponent } from './contact-card/contact-card.component';
-import { TruncateWordsPipe } from './truncate-words.pipe';
+import { TruncateWordsPipe } from './pipes/truncate-words.pipe';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
 

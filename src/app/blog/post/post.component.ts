@@ -29,17 +29,19 @@ export class PostComponent implements AfterViewChecked {
       map(([slug, routes]) => routes.find(route => route.route.indexOf(slug) !== -1)
       )
     ).subscribe((result) => {
-      this.post = {
-        title: result.title,
-        description: result.description,
-        image: result.image,
-        route: result.route,
-        published: result.published,
-        date: result.date,
-        topics: result.topics,
-      };
+      if (result) {
+        this.post = {
+          title: result.title,
+          description: result.description,
+          image: result.image,
+          route: result.route,
+          published: result.published,
+          date: result.date,
+          topics: result.topics,
+        };
 
-      this.seoService.setSocialMediaTags(this.post.route, this.post.title, this.post.description, this.post.image);
+        this.seoService.setSocialMediaTags(this.post.route, this.post.title, this.post.description, this.post.image);
+      }
     });
   }
 
