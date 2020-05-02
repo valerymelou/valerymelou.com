@@ -29,10 +29,10 @@ export class NavbarComponent {
     //   exactMatch: true
     // },
     {
-      route: '/',
+      route: '/blog',
       label: 'Blog',
       icon: 'icon-paper',
-      exactMatch: true
+      exactMatch: false
     },
     {
       route: '/contact',
