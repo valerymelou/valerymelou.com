@@ -1,6 +1,6 @@
 # valerymelou.com
 
-[![Build Status](https://travis-ci.org/valerymelou/valerymelou.svg?branch=develop)](https://travis-ci.org/valerymelou/valerymelou) [![Greenkeeper badge](https://badges.greenkeeper.io/valerymelou/valerymelou.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/valerymelou/valerymelou.svg?branch=develop)](https://travis-ci.org/valerymelou/valerymelou)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
