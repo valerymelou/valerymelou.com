@@ -1,0 +1,28 @@
+@import "src/theme/utils";
+
+.social-nav {
+  display: flex;
+  margin-left: -1rem;
+}
+
+.nav-link-light {
+  color: $navbar-dark-color;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+.nav-link.dark {
+  color: $primary;
+
+  &:hover,
+  &:focus {
+    color: $dark;
+  }
+}
+
+.icon {
+  font-size: 32px;
+}
