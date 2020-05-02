@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     CoreModule,
     LayoutModule,
-    PagesModule
+    PagesModule,
+    ScullyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

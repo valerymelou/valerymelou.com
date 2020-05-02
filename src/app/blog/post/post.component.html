@@ -1,0 +1,23 @@
+<div class="blog">
+  <app-hero></app-hero>
+
+  <div class="container content">
+    <div *ngIf="post">
+      <div class="meta">
+        <p class="m-0">By <a routerLink="/about">Valery Melou</a> on <span>{{ post.date | date }}</span></p>
+        <div class="d-flex" *ngIf="post.topics">
+          <span class="vertical-separator">|</span>
+          <div *ngFor="let topic of post.topics">
+            <a [routerLink]="'/blog/topics/' + topic | slugify">{{ topic }}</a>
+            <span class="vertical-separator" *ngIf="post.topics.indexOf(topic) != post.topics.length - 1">|</span>
+          </div>
+        </div>
+      </div>
+      <h1>{{ post.title }}</h1>
+    </div>
+
+    <div class="scully">
+      <scully-content></scully-content>
+    </div>
+  </div>
+</div>

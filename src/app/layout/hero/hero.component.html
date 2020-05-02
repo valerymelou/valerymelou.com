@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row mt-auto">
         <div class="col-md-6">
-          <h1 class="hero-title">{{ title }}</h1>
-          <p class="hero-strap">{{ strap }}</p>
+          <h1 class="hero-title" *ngIf="title">{{ title }}</h1>
+          <p class="hero-strap" *ngIf="strap">{{ strap }}</p>
           <div class="hero-actions" *ngIf="full">
             <a href="/contact" class="btn btn-primary">Get in touch</a>
           </div>

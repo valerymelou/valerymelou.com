@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "scully": "scully",
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {
@@ -19,8 +21,12 @@
     "@angular/platform-browser": "~9.1.1",
     "@angular/platform-browser-dynamic": "~9.1.1",
     "@angular/router": "~9.1.1",
+    "@scullyio/init": "0.0.26",
+    "@scullyio/ng-lib": "latest",
+    "@scullyio/scully": "latest",
     "bootstrap": "^4.4.1",
     "ng-lazyload-image": "^7.1.0",
+    "prismjs": "^1.20.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

@@ -1,0 +1,29 @@
+@import "src/theme/utils";
+
+.post {
+  margin: 3rem 0;
+
+  .title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, .84);
+  }
+
+  .description {
+    color: rgba(0, 0, 0, .54);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: row;
+    color: rgba(0, 0, 0, .54);
+  }
+
+  &:hover {
+    .title {
+      text-decoration: underline;
+    }
+  }
+}
