@@ -8,7 +8,7 @@ import { MetaTag } from './meta-tag';
   providedIn: 'root'
 })
 export class SeoService {
-  private defaultImage = 'brand/social-image.png';
+  private defaultImage = '/brand/social-image.png';
   private ogUrlMeta = 'og:url';
   private ogTitleMeta = 'og:title';
   private ogDescriptionMeta = 'og:description';
@@ -24,7 +24,7 @@ export class SeoService {
   public setSocialMediaTags(path: string, title: string, description: string, image?: string) {
     path = `${environment.domain}${path}`;
     image = image ? image : this.defaultImage;
-    const imageUrl = `${environment.domain}/assets/images/${image}`;
+    const imageUrl = `${environment.domain}/assets/images${image}`;
     const metaTags: MetaTag[] = [
       new MetaTag(this.ogUrlMeta, path, true),
       new MetaTag(this.ogTitleMeta, title, true),
