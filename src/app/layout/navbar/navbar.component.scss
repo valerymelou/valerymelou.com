@@ -1,0 +1,82 @@
+@import "src/theme/utils";
+
+.navbar {
+  min-height: $navbar-height;
+  background-color: $primary;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all .5s ease-in-out;
+
+  &.transparent {
+    background-color: transparent;
+  }
+}
+
+.navbar-brand {
+  img {
+    margin-right: 1rem;
+  }
+
+  span {
+    letter-spacing: 2px;
+    font-size: .9rem;
+  }
+}
+
+.navbar-toggler {
+  outline: none;
+  padding: 0;
+
+  &:focus,
+  &:hover {
+    color: $white;
+  }
+}
+
+.navbar-collapse {
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  @include media-breakpoint-down(sm) {
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    bottom: 0;;
+    background-color: $default;
+
+    .navbar-nav {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .nav-text {
+      margin-left: 2rem;
+    }
+
+    &.show {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+  }
+}
+
+.nav-link {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: .9rem;
+  letter-spacing: 3px;
+}
+
+.nav-text {
+  margin-left: .5rem;
+}
+
+@include media-breakpoint-up(md) {
+  app-social-links {
+    display: none;
+  }
+}
