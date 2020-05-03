@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "scully": "scully",
     "scully:serve": "scully serve",
-    "coveralls": "./node_modules/.bin/coveralls < coverage/lcov.info"
+    "coveralls": "./node_modules/.bin/coveralls < ./coverage/lcov.info"
   },
   "private": true,
   "dependencies": {
