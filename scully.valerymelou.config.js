@@ -29,7 +29,7 @@ exports.config = {
     },
     '/blog/topics/:topic': {
       type: 'topics',
-      topics: ['django', 'python', 'javascript']
+      topics: ['django', 'python', 'javascript', 'operating-systems']
     }
   }
 };
