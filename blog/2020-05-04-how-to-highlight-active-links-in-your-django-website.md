@@ -1,7 +1,7 @@
 ---
 title: How to Highlight Active Links in your Django Website
 description: Here is how you can quickly highlight active links in your Django powered website.
-date: 2020-05-01
+date: 2020-05-04
 published: true
 topics: ['Django', 'Python']
 ---
