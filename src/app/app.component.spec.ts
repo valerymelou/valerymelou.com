@@ -3,6 +3,8 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { Router } from '@angular/router';
+import { Observable, observable, of } from 'rxjs';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-footer',
@@ -27,8 +29,13 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let debugElement: DebugElement;
   let router: Router;
+  let swUpdate;
 
   beforeEach(async(() => {
+    swUpdate = {
+      available: of(true)
+    };
+
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([{ path: 'about', component: AboutComponent }])
@@ -38,6 +45,12 @@ describe('AppComponent', () => {
         MockFooterComponent,
         MockNavbarComponent
       ],
+      providers: [
+        {
+          provide: SwUpdate,
+          useValue: swUpdate
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
