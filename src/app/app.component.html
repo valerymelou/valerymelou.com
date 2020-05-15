@@ -5,5 +5,12 @@
     <router-outlet></router-outlet>
   </div>
 
+  <div class="alert-wrapper" *ngIf="updatesAvailable">
+    <div class="alert alert-primary" role="alert">
+      <h5>Updates available</h5>
+      <p>A new version of my website is available.</p>
+      <button type="button" class="btn btn-secondary" (click)="refreshApp()">Update</button>
+    </div>
+  </div>
   <app-footer *ngIf="showFooter"></app-footer>
 </div>
