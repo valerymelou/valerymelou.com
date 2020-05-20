@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
     CoreModule,
     LayoutModule,
     PagesModule,
-    ScullyLibModule
+    ScullyLibModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
