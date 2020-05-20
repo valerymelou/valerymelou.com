@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { Router } from '@angular/router';
 import { Observable, observable, of } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
+import { By } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -29,11 +30,12 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let debugElement: DebugElement;
   let router: Router;
-  let swUpdate;
+  let swUpdates;
 
   beforeEach(async(() => {
-    swUpdate = {
-      available: of(true)
+    swUpdates = {
+      available: of(true),
+      activateUpdate: () => new Promise(() => true)
     };
 
     TestBed.configureTestingModule({
@@ -48,7 +50,7 @@ describe('AppComponent', () => {
       providers: [
         {
           provide: SwUpdate,
-          useValue: swUpdate
+          useValue: swUpdates
         }
       ]
     }).compileComponents();
@@ -56,6 +58,7 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     debugElement = fixture.debugElement;
+    fixture.detectChanges();
     router = TestBed.inject(Router);
   }));
 
@@ -69,8 +72,10 @@ describe('AppComponent', () => {
       app.router.navigate(['/about']);
     });
 
-    fixture.detectChanges();
-
     expect(app.showFooter).toBeTrue();
   }));
+
+  it('should have updatesAvailable set to true', () => {
+    expect(app.updatesAvailable).toBeTrue();
+  });
 });

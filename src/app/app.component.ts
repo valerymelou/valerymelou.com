@@ -23,6 +23,6 @@ export class AppComponent {
   }
 
   refreshApp() {
-    this.updates.activateUpdate().then(() => document.location.reload());
+    this.updates.activateUpdate().then(() => window.location.reload());
   }
 }

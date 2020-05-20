@@ -42,4 +42,9 @@ describe('NavbarComponent', () => {
 
     expect(component.collapsed).toBeFalse();
   });
+
+  it('should have transparent set to false', () => {
+    component.onScroll();
+    expect(component.transparent).toBeTrue();
+  });
 });
