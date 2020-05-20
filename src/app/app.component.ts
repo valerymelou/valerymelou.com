@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,20 @@ import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   showFooter = true;
+  updatesAvailable = false;
 
-  constructor(public router: Router) {
-    this.router.events.subscribe((event: RouterEvent) => {
+  constructor(private updates: SwUpdate, public router: Router) {
+    this.updates.available.subscribe(() => {
+      this.updatesAvailable = true;
+    });
+    router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
         this.showFooter = event.url !== '/';
       }
     });
+  }
+
+  refreshApp() {
+    this.updates.activateUpdate().then(() => document.location.reload());
   }
 }
