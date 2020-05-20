@@ -32,7 +32,7 @@ export class BlogComponent implements OnInit {
     private slugify: SlugifyPipe
   ) {
     seoService.setSocialMediaTags('/blog', 'Blog', this.strap);
-    activatedRoute.paramMap.subscribe((paramMap) => {
+    activatedRoute.paramMap.subscribe(() => {
       this.blogPosts = [];
     });
 
