@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { Router, RouterEvent, NavigationEnd } from '@angular/router';
+import { Router, RouterEvent, NavigationEnd, RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
+import { slideInAnimation } from './shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class AppComponent {
   showFooter = true;
@@ -15,14 +19,13 @@ export class AppComponent {
     this.updates.available.subscribe(() => {
       this.updatesAvailable = true;
     });
-    router.events.subscribe((event: RouterEvent) => {
-      if (event instanceof NavigationEnd) {
-        this.showFooter = event.url !== '/';
-      }
-    });
   }
 
   refreshApp() {
     this.updates.activateUpdate().then(() => document.location.reload());
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

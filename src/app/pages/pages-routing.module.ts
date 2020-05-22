@@ -10,10 +10,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: {
+      animation: 'HomePage'
+    }
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    data: {
+      animation: 'AboutPage'
+    }
   },
   // {
   //   path: 'portfolio',
@@ -21,7 +27,10 @@ const routes: Routes = [
   // },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    data: {
+      animation: 'ContactPage'
+    }
   }
 ];
 

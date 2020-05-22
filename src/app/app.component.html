@@ -1,8 +1,8 @@
 <div class="app">
   <app-navbar></app-navbar>
 
-  <div class="main">
-    <router-outlet></router-outlet>
+  <div class="main" [@routeAnimations]="prepareRoute(outlet)" style="background-color: white;">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 
   <div class="alert-wrapper" *ngIf="updatesAvailable">
