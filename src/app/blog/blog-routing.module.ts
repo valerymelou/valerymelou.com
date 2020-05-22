@@ -8,18 +8,30 @@ const routes: Routes = [
   {
     path: '',
     component: BlogComponent,
+    data: {
+      animation: 'BlogPage'
+    }
   },
   {
     path: 'topics/:topic',
-    component: BlogComponent
+    component: BlogComponent,
+    data: {
+      animation: 'BlogPage'
+    }
   },
   {
     path: ':slug',
     component: PostComponent,
+    data: {
+      animation: 'BlogPage'
+    }
   },
   {
     path: '**',
     component: BlogComponent,
+    data: {
+      animation: 'BlogPage'
+    }
   }
 ];
 
