@@ -1,11 +1,11 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { Router } from '@angular/router';
-import { Observable, observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
-import { By } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -40,6 +40,7 @@ describe('AppComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
+        BrowserAnimationsModule,
         RouterTestingModule.withRoutes([{ path: 'about', component: AboutComponent }])
       ],
       declarations: [
