@@ -1,29 +1,6 @@
 @import "src/theme/utils";
 
-@keyframes bounce {
-  0% {
-    top: -150px;
-  }
-
-  50% {
-    top: -100px;
-  }
-
-  100% {
-    top: -150px
-  }
-}
-
 .card {
   box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
   max-width: 330px;
-
-  @include media-breakpoint-up(md) {
-    position: absolute;
-    top: -150px;
-    animation-name: bounce;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
 }
