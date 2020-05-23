@@ -30,6 +30,7 @@
     "@scullyio/scully": "latest",
     "bootstrap": "^4.4.1",
     "ng-lazyload-image": "^7.1.0",
+    "ngx-disqus": "^2.4.3",
     "prismjs": "^1.20.0",
     "rxjs": "~6.5.4",
     "snyk": "^1.316.2",

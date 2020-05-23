@@ -18,5 +18,9 @@
     <div class="scully">
       <scully-content></scully-content>
     </div>
+
+    <div *ngIf="post && post.allowComments" class="mt-5">
+      <disqus [identifier]="getPageId()" [url]="getCanonicalUrl()" [category]="post.topics.length > 0 ? post.topics[0] : ''" [language]="'en'"></disqus>
+    </div>
   </div>
 </div>
