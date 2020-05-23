@@ -5,6 +5,7 @@ image: "/assets/images/posts/beautiful-code.jpeg"
 date: 2018-05-20
 topics: ["JavaScript"]
 published: true
+allowComments: true
 ---
 
 I learned the syntax improvements made in ES6 in about an hour through the <a href="https://admissions.udacity.com/apply/google-africa-scholarships" target="_blank">Google Africa Challenge Scholarship</a> program on <a href="https://udacity.com" target="_blank">Udacity</a>. In this post, I’m going to share a summary of what I learned with you.

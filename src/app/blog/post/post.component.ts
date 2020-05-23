@@ -38,6 +38,7 @@ export class PostComponent implements AfterViewChecked {
           published: result.published,
           date: result.date,
           topics: result.topics,
+          allowComments: result.allowComments
         };
 
         this.seoService.setSocialMediaTags(this.post.route, this.post.title, this.post.description, this.post.image);
@@ -47,5 +48,13 @@ export class PostComponent implements AfterViewChecked {
 
   ngAfterViewChecked() {
     this.codeHighlightService.highlightAll();
+  }
+
+  getPageId() {
+    return window.location.pathname;
+  }
+
+  getCanonicalUrl() {
+    return window.location.href;
   }
 }

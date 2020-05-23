@@ -4,6 +4,7 @@ description: Here is how you can quickly highlight active links in your Django p
 date: 2020-05-04
 published: true
 topics: ['Django', 'Python']
+allowComments: true
 ---
 
 # How to Highlight Active Links in your Django Website

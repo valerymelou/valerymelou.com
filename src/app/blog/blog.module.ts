@@ -7,6 +7,7 @@ import { BlogComponent } from './blog.component';
 import { LayoutModule } from '../layout/layout.module';
 import { SharedModule } from '../shared/shared.module';
 import { PostComponent } from './post/post.component';
+import { DisqusModule } from 'ngx-disqus';
 
 @NgModule({
   declarations: [BlogComponent, PostComponent],
@@ -15,7 +16,8 @@ import { PostComponent } from './post/post.component';
     BlogRoutingModule,
     ScullyLibModule,
     LayoutModule,
-    SharedModule
+    SharedModule,
+    DisqusModule
   ],
 })
 export class BlogModule {}

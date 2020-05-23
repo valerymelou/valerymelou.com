@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   domain: 'http://localhost:4200',
-  siteName: 'Valery Melou'
+  siteName: 'Valery Melou',
+  disqusShortName: 'https-valerymelou-com'
 };
 
 /*
