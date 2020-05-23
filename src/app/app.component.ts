@@ -19,6 +19,12 @@ export class AppComponent {
     this.updates.available.subscribe(() => {
       this.updatesAvailable = true;
     });
+
+    router.events.subscribe((event: RouterEvent) => {
+      if (event instanceof NavigationEnd) {
+        this.showFooter = event.url !== '/';
+      }
+    });
   }
 
   refreshApp() {
