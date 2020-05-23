@@ -12,7 +12,8 @@
     "scully:serve": "scully serve",
     "coveralls": "./node_modules/.bin/coveralls < ./coverage/lcov.info",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "pwa:regenerate": "./node_modules/.bin/ngsw-config dist/static ./ngsw-config.json"
   },
   "private": true,
   "dependencies": {
