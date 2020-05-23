@@ -17,14 +17,14 @@ function topicsPlugin(route, config = {}) {
 registerPlugin('router', 'topics', topicsPlugin);
 
 exports.config = {
-  projectRoot: "./src",
-  projectName: "valerymelou",
+  projectRoot: './src',
+  projectName: 'valerymelou',
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: "./blog"
+        folder: './blog'
       }
     },
     '/blog/topics/:topic': {
