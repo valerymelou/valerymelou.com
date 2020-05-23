@@ -9,7 +9,7 @@ import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { DisqusModule } from "ngx-disqus";
+import { DisqusModule } from 'ngx-disqus';
 
 import { environment } from '../environments/environment';
 
