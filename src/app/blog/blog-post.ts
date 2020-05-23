@@ -6,4 +6,5 @@ export interface BlogPost {
   published: boolean;
   image?: string;
   topics?: string[];
+  allowComments?: boolean;
 }

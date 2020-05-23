@@ -9,6 +9,8 @@ import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { DisqusModule } from "ngx-disqus";
+
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -22,7 +24,8 @@ import { environment } from '../environments/environment';
     LayoutModule,
     PagesModule,
     ScullyLibModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    DisqusModule.forRoot(environment.disqusShortName)
   ],
   providers: [],
   bootstrap: [AppComponent]
