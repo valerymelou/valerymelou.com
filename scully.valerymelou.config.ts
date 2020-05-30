@@ -1,4 +1,6 @@
 const {registerPlugin, logError, routeSplit} = require('@scullyio/scully');
+import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
 
 function topicsPlugin(route, config = {}) {
   const routes = [];
@@ -16,7 +18,16 @@ function topicsPlugin(route, config = {}) {
 
 registerPlugin('router', 'topics', topicsPlugin);
 
-exports.config = {
+const SitemapPlugin = getSitemapPlugin();
+setPluginConfig(SitemapPlugin, {
+    urlPrefix: 'https://valerymelou.com',
+    sitemapFilename: 'sitemap.xml',
+    changeFreq: 'monthly',
+    priority: ['1.0', '0.9', '0.8', '0.7', '0.6', '0.5', '0.4', '0.3', '0.2', '0.1', '0.0'],
+    ignoredRoutes: ['/404']
+});
+
+export const config: ScullyConfig = {
   projectRoot: './src',
   projectName: 'valerymelou',
   outDir: './dist/static',
