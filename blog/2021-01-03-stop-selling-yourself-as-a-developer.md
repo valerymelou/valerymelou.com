@@ -1,7 +1,7 @@
 ---
 title: 'Stop selling yourself as a developer'
 description: 'To all my fellow developers, especially the freelancers, stop selling yourselves as developers. You are consultants! That''s it.'
-image: "/assets/images/posts/i-am-a-consultant.png"
+image: "/assets/images/posts/i-am-a-consultant-1.png"
 date: 2021-01-03T00:00:00.000Z
 published: true
 topics: ["Development"]
@@ -12,7 +12,7 @@ allowComments: true
 
 Two years ago, I met with my current employer, a long time freelancer who has been building solutions for clients around the world. He noticed that I was always presenting myself as a developer and made me understand that it is not how I should introduce myself to people, and that things I was able to do didn't just involve developing applications. Here is exactly what I understood that day and that made me stop selling myself as a developer.
 
-![Home navbar](/assets/images/posts/i-am-a-consultant.png)
+![Home navbar](/assets/images/posts/i-am-a-consultant-1.png)
 
 ## We are not just developers
 
