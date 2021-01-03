@@ -1,6 +1,7 @@
 ---
 title: 'Stop selling yourself as a developer'
 description: 'To all my fellow developers, especially the freelancers, stop selling yourselves as developers. You are consultants! That''s it.'
+image: "/assets/images/posts/i-am-a-consultant.png"
 date: 2021-01-03T00:00:00.000Z
 published: true
 topics: ["Development"]
