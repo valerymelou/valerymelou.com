@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "valerymelou"
+    }
+  },
+  "defaultProject": "valerymelou",
+  "cli": {
+    "analytics": "6032e1df-ac05-4cef-a2be-6e844da10afd"
+  }
 }
