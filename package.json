@@ -28,7 +28,7 @@
     "@angular/service-worker": "~9.1.1",
     "@scullyio/init": "0.0.26",
     "@scullyio/ng-lib": "latest",
-    "@scullyio/scully": "0.0.94",
+    "@scullyio/scully": "1.0.9",
     "bootstrap": "^4.4.1",
     "ng-lazyload-image": "^7.1.0",
     "ngx-disqus": "^2.4.3",
