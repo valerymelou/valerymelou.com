@@ -6,8 +6,8 @@
       <div class="col-md-8 col-sm-12">
         <div>
           <h2 class="mt-0">Send me a message</h2>
-          <form action="/contact/success" method="post" netlify data-netlify-recaptcha="true">
-            <input type='hidden' name='form-name' value='form 1' />
+          <form action="/contact/success" name="contact" method="POST" netlify netlify-honeypot="username">
+            <input type="text" name="username" class="hidden">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
