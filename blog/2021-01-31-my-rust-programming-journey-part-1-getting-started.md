@@ -1,7 +1,7 @@
 ---
 title: "My Rust Programming Journey: Part 1 - Getting started"
 description: "A week ago I started learning the Rust Programming Language."
-image: "/assets/images/posts/beautiful-code.jpeg"
+image: "/assets/images/posts/cuddlyferris-large.png"
 date: 2021-01-31
 topics: ["Rust"]
 published: true
@@ -15,7 +15,7 @@ A week ago, I started learning the Rust Programming Language. I was just explori
 In the first part of the series, I will just go through the installation of Rust and the creation of a new Rust project. No prior experience in programming is required to follow along.
 
 <figure>
-  <img src="/assets/images/posts/cuddlyferris.png" alt="Ferris">
+  <img src="/assets/images/posts/cuddlyferris-large.png" alt="Ferris">
   <figcaption>Meet <a href="https://rustacean.net/" target="_blank" rel="noopener nofollow">Ferris</a>, the unofficial mascot of Rust</figcaption>
 </figure>
 
