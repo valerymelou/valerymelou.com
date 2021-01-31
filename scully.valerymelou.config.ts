@@ -40,7 +40,7 @@ export const config: ScullyConfig = {
     },
     '/blog/topics/:topic': {
       type: 'topics',
-      topics: ['django', 'python', 'javascript', 'operating-systems']
+      topics: ['django', 'python', 'javascript', 'operating-systems', 'rust', 'development']
     }
   }
 };
