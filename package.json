@@ -11,7 +11,7 @@
     "scully": "scully",
     "scully:serve": "scully serve",
     "coveralls": "./node_modules/.bin/coveralls < ./coverage/lcov.info",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepare": "npm run snyk-protect",
     "pwa:regenerate": "./node_modules/.bin/ngsw-config dist/static ./ngsw-config.json"
   },
@@ -34,9 +34,9 @@
     "ngx-disqus": "^2.4.3",
     "prismjs": "^1.23.0",
     "rxjs": "~6.5.4",
-    "snyk": "^1.667.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
