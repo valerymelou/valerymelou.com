@@ -56,3 +56,44 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
+
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Node ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Package application
+        uses: papeloto/action-zip@v1
+        with:
+          files: ./dist/static
+          recursive: false
+          dest: site.zip
+
+      - name: Deploy
+        uses: wei/curl@v1
+        env:
+            HOST_ME_KEY: ${{ secrets.HOST_ME_KEY }}
+        with:
+          args: '-v -X POST -H "Accept: application/json" -H "Authorization: Bearer $HOST_ME_KEY" -F "file=@./site.zip" https://hostme.space/api/websites/valerymelou/deploy_on_push'
+
+      - name: Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: current-deployed
+          path: ${{ github.workspace }}/site.zip
+
