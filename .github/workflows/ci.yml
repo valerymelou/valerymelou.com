@@ -13,6 +13,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
+      fail-fast: true
       matrix:
         node-version: [14.x]
 
@@ -78,14 +80,14 @@ jobs:
         run: npm run build
 
       - name: Package application
-        uses: papeloto/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
           files: ./dist/static
           recursive: false
           dest: site.zip
 
       - name: Deploy
-        uses: wei/curl@v1
+        uses: wei/curl@v1.1.1
         env:
             HOST_ME_KEY: ${{ secrets.HOST_ME_KEY }}
         with:
