@@ -76,8 +76,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Angular build
         run: npm run build
+
+      - name: Scully build
+        run: npm run scully
 
       - name: Package application
         uses: vimtor/action-zip@v1
@@ -88,9 +91,9 @@ jobs:
 
       - name: Deploy
         run: |
-            curl -v -X POST -H "Accept: application/json" -H "Authorization: Bearer $host_me_key" -F "file=@./site.zip" https://hostme.space/api/websites/valerymelou/deploy_on_push
+            curl -v -X POST -H "Accept: application/json" -H "Authorization: Bearer $HOST_ME_KEY" -F "file=@./site.zip" https://hostme.space/api/websites/valerymelou/deploy_on_push
         env:
-          host_me_key: ${{ secrets.HOST_ME_KEY }}
+          HOST_ME_KEY: ${{ secrets.HOST_ME_KEY }}
 
       - name: Artifact
         uses: actions/upload-artifact@v1
