@@ -87,10 +87,8 @@ jobs:
           dest: site.zip
 
       - name: Deploy
-        uses: wei/curl@v1.1.1
-        with:
-          args: |
-            -v -X POST -H "Accept: application/json" -H "Authorization: Bearer $host_me_key" -F "file=@./site.zip" https://hostme.space/api/websites/valerymelou/deploy_on_push
+        run: |
+            curl -v -X POST -H "Accept: application/json" -H "Authorization: Bearer $host_me_key" -F "file=@./site.zip" https://hostme.space/api/websites/valerymelou/deploy_on_push
         env:
           host_me_key: ${{ secrets.HOST_ME_KEY }}
 
