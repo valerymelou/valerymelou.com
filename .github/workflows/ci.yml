@@ -85,8 +85,8 @@ jobs:
       - name: Package application
         uses: vimtor/action-zip@v1
         with:
-          files: ./dist/static
-          recursive: false
+          files: dist/static
+          recursive: true
           dest: site.zip
 
       - name: Deploy
