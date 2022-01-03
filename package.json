@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch --no-progress --code-coverage",
     "lint": "ng lint",
-    "deploy": "ng build --configuration production"
+    "deploy": "ng build --configuration production",
+    "scully": "npx scully --",
+    "scully:serve": "npx scully serve --"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +22,10 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@scullyio/init": "^2.0.5",
+    "@scullyio/ng-lib": "^2.0.2",
+    "@scullyio/scully": "^2.0.3",
+    "@scullyio/scully-plugin-puppeteer": "^2.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
