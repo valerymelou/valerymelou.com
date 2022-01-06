@@ -1,0 +1,15 @@
+<header class="sticky top-0 flex px-10 py-4 items-center bg-primary">
+  <a href="/" class="inline-block mr-auto">
+    <img src="/assets/images/brand/logo.png" alt="Valery MELOU" width="48px">
+  </a>
+  <button class="ml-auto md:hidden text-accent" (click)="toggleCollapsed()" aria-label="Navbar Toggle">
+    <ng-icon name="hero-menu-alt-2" size="32" *ngIf="collapsed"></ng-icon>
+    <ng-icon name="hero-x" size="32" *ngIf="!collapsed"></ng-icon>
+  </button>
+  <nav class="fixed md:relative top-16 md:top-0 bottom-0 left-0 right-0 items-center md:flex flex-col md:flex-row bg-primary" [ngClass]="{'hidden': collapsed, 'flex content-center': !collapsed}">
+    <a [routerLink]="link.path" routerLinkActive="text-accent" *ngFor="let link of links" class="inline-flex items-center mr-1 my-3 md:my-0 px-5 py-2 font-medium text-sm transition-colors hover:text-accent focus:text-accent" [ngClass]="{'border-2 border-accent text-accent hover:text-slate-200 hover:border-slate-200 focus:text-slate-200 focus:border-slate-200 rounded': link.isExtra}">
+      <ng-icon [name]="link.icon" size="16" class="text-accent"></ng-icon>
+      <span class="ml-2">{{ link.title }}</span>
+    </a>
+  </nav>
+</header>
