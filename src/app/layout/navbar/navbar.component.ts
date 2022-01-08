@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { NavbarLink } from './navbar-link';
+
+import { Link } from '../../core/link';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
-  links: NavbarLink[] = [
+  links: Link[] = [
     {
       title: 'Home',
       icon: 'hero-home',
