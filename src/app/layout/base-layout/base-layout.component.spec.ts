@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NavbarStubComponent } from '../testing';
+import { NavbarStubComponent, SocialStubComponent } from '../testing';
 
 import { BaseLayoutComponent } from './base-layout.component';
 
@@ -10,7 +10,7 @@ describe('BaseLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BaseLayoutComponent, NavbarStubComponent ],
+      declarations: [ BaseLayoutComponent, NavbarStubComponent, SocialStubComponent ],
       imports: [ RouterTestingModule ]
     })
     .compileComponents();
