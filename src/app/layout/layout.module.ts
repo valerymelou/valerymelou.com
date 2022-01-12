@@ -6,6 +6,7 @@ import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { SocialComponent } from './social/social.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SocialComponent } from './social/social.component';
     BlogLayoutComponent,
     BaseLayoutComponent,
     NavbarComponent,
-    SocialComponent
+    SocialComponent,
+    FooterComponent
   ],
   exports: [
     NavbarComponent,

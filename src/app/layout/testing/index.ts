@@ -12,3 +12,10 @@ export class NavbarStubComponent {}
   template: ''
 })
 export class SocialStubComponent {}
+
+
+@Component({
+  selector: 'app-footer',
+  template: ''
+})
+export class FooterStubComponent {}
