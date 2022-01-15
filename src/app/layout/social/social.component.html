@@ -1,5 +1,5 @@
-<nav class="fixed flex flex-col items-center bottom-0 left-2 md:left-10 after:block after:border after:border-slate-100 after:h-24 transition-all" [ngClass]="{'translate-y-60 opacity-0': !loaded, 'translate-x-0 opacity-100': loaded}">
-  <a [href]="link.path" *ngFor="let link of links" target="blank" class="hover:text-accent transition-colors pb-4">
-    <ng-icon [name]="link.icon" [attr.aria-label]="link.title" size="24"></ng-icon>
+<nav class="hidden fixed md:flex flex-col items-center bottom-0 left-2 md:left-5 lg:left-10 after:block after:border after:border-slate-100 after:h-16 md:after:h-24 transition-all" [ngClass]="{'translate-y-60 opacity-0': !loaded, 'translate-x-0 opacity-100': loaded}">
+  <a [href]="link.path" *ngFor="let link of links" target="blank" class="hover:text-accent transition-colors pb-2 md:pb-4" [attr.aria-label]="link.title">
+    <ng-icon [name]="link.icon" size="24"></ng-icon>
   </a>
 </nav>
