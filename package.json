@@ -32,7 +32,7 @@
     "bootstrap": "^4.4.1",
     "ng-lazyload-image": "^7.1.0",
     "ngx-disqus": "^2.4.3",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.27.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2",
