@@ -8,7 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch --no-progress --code-coverage",
     "lint": "ng lint",
-    "deploy": "ng build --configuration production"
+    "deploy": "ng build --configuration production",
+    "dev:ssr": "ng run valerymelou:serve-ssr",
+    "serve:ssr": "node dist/valerymelou/server/main.js",
+    "build:ssr": "ng build && ng run valerymelou:server",
+    "prerender": "ng run valerymelou:prerender"
   },
   "private": true,
   "dependencies": {
@@ -19,10 +23,13 @@
     "@angular/forms": "~13.2.0",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
+    "@angular/platform-server": "~13.2.0",
     "@angular/router": "~13.2.0",
     "@ng-icons/core": "^13.2.0",
-    "@ng-icons/heroicons": "^13.2.0",
     "@ng-icons/feather-icons": "^13.2.0",
+    "@ng-icons/heroicons": "^13.2.0",
+    "@nguniversal/express-engine": "^13.0.2",
+    "express": "^4.15.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -36,6 +43,8 @@
     "@angular-eslint/template-parser": "13.1.0",
     "@angular/cli": "~13.2.4",
     "@angular/compiler-cli": "~13.2.0",
+    "@nguniversal/builders": "^13.0.2",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.11.0",
