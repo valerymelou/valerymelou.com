@@ -29,6 +29,7 @@
     "@ng-icons/feather-icons": "^13.2.0",
     "@ng-icons/heroicons": "^13.2.0",
     "@nguniversal/express-engine": "^13.0.2",
+    "contentful": "^9.1.10",
     "express": "^4.15.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
