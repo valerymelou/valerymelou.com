@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Django Active Link",
+    "description": "A Django app that provides a simple way to add active class to links.",
+    "github": "https://github.com/valerymelou/django-active-link",
+    "live": null,
+    "tags": [
+      "Django"
+    ],
+    "image": "projects/django-active-link.png"
+  },
+  {
+    "name": "Open Timesheet",
+    "description": "A web app for tracking time spent on projects.",
+    "github": "https://github.com/valerymelou/opentimesheet-frontend",
+    "live": null,
+    "tags": [
+      "Django",
+      "Angular",
+      "Tailwind CSS"
+    ],
+    "image": "projects/opentimesheet.png"
+  }
+]

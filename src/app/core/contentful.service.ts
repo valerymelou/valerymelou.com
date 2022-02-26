@@ -32,13 +32,7 @@ export class ContentfulService {
         };
         if (entries && entries.items.length) {
           entries.items.forEach((entry: any) => {
-            const project: Project = {
-              name: entry.fields.name,
-              description: entry.fields.description,
-              repository: entry.fields.repository,
-              demo: entry.fields.demo,
-              preview: 'https:' + entry.fields.preview.fields.file.url
-            };
+            const project = new Project(entry);
             results.items.push(project);
           })
         }
