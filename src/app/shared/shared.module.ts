@@ -9,6 +9,7 @@ import {
 import {
   HeroAtSymbol,
   HeroBriefcase,
+  HeroExternalLink,
   HeroHome,
   HeroNewspaper,
   HeroMenuAlt2,
@@ -29,6 +30,7 @@ import {
       HeroHome,
       HeroUser,
       HeroBriefcase,
+      HeroExternalLink,
       HeroAtSymbol,
       HeroNewspaper,
       HeroMenuAlt2,
