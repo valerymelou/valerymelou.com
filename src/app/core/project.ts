@@ -1,14 +1,11 @@
-/**
- * Project class to hold project data
- *
- * Can construct a new Project instance from Contentful entry entry.
- */
+import { Image } from "./image";
+
 export class Project {
   public name: string;
   public description: string;
   public repository?: string;
   public demo?: string;
-  public preview: string;
+  public preview: Image;
   public tags: string[];
 
   constructor(entry: any) {
@@ -23,7 +20,7 @@ export class Project {
     this.description = entry.fields.description;
     this.repository = entry.fields.repository;
     this.demo = entry.fields.demo;
-    this.preview = 'https:' + entry.fields.preview.fields.file.url + '?w=580&h=360&fit=scale';
+    this.preview = new Image(entry.fields.preview);
     this.tags = tags;
   }
 }
