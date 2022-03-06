@@ -10,7 +10,7 @@ export class Project {
 
   constructor(entry: any) {
     const tags: string[] = [];
-    if (entry.metadata.tags) {
+    if (entry.metadata?.tags) {
       entry.metadata.tags.forEach((tag: any) => {
         tags.push(tag.sys.id);
       });
