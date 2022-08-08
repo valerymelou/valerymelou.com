@@ -26,4 +26,4 @@ jobs:
           BUILD_FLAGS: --drafts
 
       - name: Generate styles
-        run: npm run build:styles
+        run: sudo npm run build:styles
