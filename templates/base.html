@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Valery Melou{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="{% block meta_description %}Software engineer from Yaounde, Cameroon. I develop highly, testable, maintainable and scalable applications with Python, JavaScript and Rust.{% endblock %}">
+  <meta name="author" content="Valery Melou">
+  <meta name="generator" content="Zola">
+  <meta name="theme-color" content="#5e42a6">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/assets/images/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@valerymelou">
+  <meta name="twitter:creator" content="@valerymelou">
+  <meta name="twitter:title" content="{% block twitter_title %}Web developer from Yaounde, Cameroon{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Software engineer from Yaounde, Cameroon. I develop highly, testable, maintainable and scalable applications with Python, JavaScript and Rust.{% endblock %}">
+  <meta name="twitter:image" content="https://valerymelou.com/assets/images/brand/social-image.png">
+
+  <!-- Facebook -->
+  <meta property="og:url" content="{% block og_url %}https://valerymelou.com{% endblock %}">
+  <meta property="og:title" content="Web developer from Yaounde, Cameroon">
+  <meta property="og:description" content="{% block og_description %}Software engineer from Yaounde, Cameroon. I develop highly, testable, maintainable and scalable applications with Python, JavaScript and Rust.{% endblock %}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://valerymelou.com/assets/images/brand/social-image.png">
+  <meta property="og:image:secure_url" content="https://valerymelou.com/assets/images/brand/social-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Google Tag Manager -->
+  <!-- <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MHPG8CC"></script><script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-MHPG8CC');</script> -->
+  <!-- End Google Tag Manager -->
+
+  <link href="/css/style.min.css" rel="stylesheet">
+</head>
+<body>
+  {% block content %}{% endblock %}
+</body>
+</html>
