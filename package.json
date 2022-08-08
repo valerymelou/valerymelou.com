@@ -1,0 +1,19 @@
+{
+  "name": "valerymelou.com",
+  "version": "3.0.0",
+  "description": "Code behind my personal website.",
+  "scripts": {
+    "serve:content": "zola serve",
+    "serve:styles": "npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --watch",
+    "build": "zola build && npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valerymelou/valerymelou.com"
+  },
+  "author": "Valery Melou",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
