@@ -5,8 +5,7 @@
   "scripts": {
     "serve:content": "zola serve",
     "serve:styles": "npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --watch",
-    "build": "zola build && npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --minify",
-    "build:styles": "npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --minify"
+    "build": "zola build && npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --minify"
   },
   "repository": {
     "type": "git",
