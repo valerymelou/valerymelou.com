@@ -1,19 +1,15 @@
 {
-  "name": "valerymelou.com",
-  "version": "3.0.0",
-  "description": "Code behind my personal website.",
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "serve:content": "zola serve",
-    "serve:styles": "npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --watch",
-    "build": "zola build && npx tailwindcss -i ./sass/style.scss -o ./public/css/style.min.css --minify"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/valerymelou/valerymelou.com"
-  },
-  "author": "Valery Melou",
-  "license": "MIT",
-  "devDependencies": {
-    "tailwindcss": "^3.1.8"
+  "dependencies": {
+    "astro": "^1.1.5"
   }
 }
