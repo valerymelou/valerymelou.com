@@ -6,11 +6,9 @@ env:
 
 on:
   push:
-    branches: [ "master", "develop" ]
-    paths-ignore: [ "docs/**" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "master", "develop" ]
-    paths-ignore: [ "docs/**" ]
+    branches: [ "develop" ]
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -34,14 +32,35 @@ jobs:
         uses: GabrielBB/xvfb-action@v1
         with:
           run: |
-            npx nx run-many --target=lint --parallel=3 --all
-            npx nx run-many --target=test --parallel=3 --all --code-coverage
-            ls -a
-            ls -a coverage
+            npx nx affected --target=lint --parallel=3
+            npx nx affected --target=test --parallel=3 --code-coverage
 
       - name: Code Coverage
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/apps/portfolio/lcov.info
-          fail_ci_if_error: true
+          fail_ci_if_error: false  # Coverage files can be missing due to `affected`
+
+    deploy:
+      needs: tests
+      runs-on: ubuntu-latest
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_TEST_SITE_ID: ${{ secrets.NETLIFY_TEST_SITE_ID }}
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+
+        - uses: nrwl/nx-set-shas@v2
+          with:
+            main-branch-name: develop
+
+        - run: yarn install
+
+        - name: Deploy
+          with:
+            run: |
+              npx nx affected --target=prerender --parallel=3 routes-file=apps/portfolio/routes.txt
+              netlify deploy --dir=dist/apps/portfolio/browser --prod
