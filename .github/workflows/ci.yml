@@ -3,35 +3,39 @@ name: CI
 on:
   push:
     branches: [ "master", "develop" ]
+    paths-ignore: [ "docs/**" ]
   pull_request:
     branches: [ "master", "develop" ]
+    paths-ignore: [ "docs/**" ]
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
-  main:
-    name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
-    with:
-      number-of-agents: 3
-      init-commands: |
-        yarn nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
-      parallel-commands: |
-        yarn nx-cloud record -- yarn nx workspace-lint
-        yarn nx-cloud record -- yarn nx format:check
-      parallel-commands-on-agents: |
-        yarn nx affected --target=lint --parallel=3
-        yarn nx affected --target=test --parallel=3 --ci --code-coverage
-        yarn nx affected --target=build --parallel=3
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-  coverage:
-    name: Code Coverage
-    uses: codecov/codecov-action@v2
-    with:
-      token: ${{ secrets.CODECOV_TOKEN }}
-      files: ./coverage/apps/portfolio/lcov.info
-      fail_ci_if_error: true
+      - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: develop
 
-  agents:
-    name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.6
-    with:
-      number-of-agents: 3
+      - run: yarn install
+
+      - name: Test
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: |
+            npx nx run-many --target=lint --parallel=3 --all
+            npx nx run-many --target=test --parallel=3 --all --code-coverage
+
+      - name: Code Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/apps/portfolio/lcov.info
+          fail_ci_if_error: true
