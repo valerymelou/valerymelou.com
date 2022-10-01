@@ -36,6 +36,7 @@ jobs:
           run: |
             npx nx run-many --target=lint --parallel=3 --all
             npx nx run-many --target=test --parallel=3 --all --code-coverage
+            ls
 
       - name: Code Coverage
         uses: codecov/codecov-action@v2
