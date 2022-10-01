@@ -25,10 +25,10 @@ jobs:
   coverage:
     name: Code Coverage
     uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/apps/portfolio/lcov.info
-          fail_ci_if_error: true
+    with:
+      token: ${{ secrets.CODECOV_TOKEN }}
+      files: ./coverage/apps/portfolio/lcov.info
+      fail_ci_if_error: true
 
   agents:
     name: Nx Cloud - Agents
