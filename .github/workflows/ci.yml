@@ -69,7 +69,9 @@ jobs:
 
       - run: yarn install
 
+      - name: Pre Render
+        run: npx nx affected --target=prerender --parallel=3 --routes-file=apps/portfolio/routes.txt
+
       - name: Deploy
-        run: |
-            npx nx affected --target=prerender --parallel=3 --routes-file=apps/portfolio/routes.txt
-            netlify deploy --dir=dist/apps/portfolio/browser --prod
+        run: netlify deploy --dir=dist/apps/portfolio/browser --prod --message=${{ github.event.head_commit.message }}
+
