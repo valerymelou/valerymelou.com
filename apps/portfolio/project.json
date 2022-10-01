@@ -23,7 +23,8 @@
         "styles": [
           "apps/portfolio/src/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "deleteOutputPath": false
       },
       "configurations": {
         "production": {
