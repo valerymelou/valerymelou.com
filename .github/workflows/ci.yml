@@ -60,7 +60,6 @@ jobs:
       - run: yarn install
 
       - name: Deploy
-        with:
-          run: |
+        run: |
             npx nx affected --target=prerender --parallel=3 routes-file=apps/portfolio/routes.txt
             netlify deploy --dir=dist/apps/portfolio/browser --prod
