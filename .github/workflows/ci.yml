@@ -73,5 +73,5 @@ jobs:
         run: npx nx affected --target=prerender --parallel=3 --routes-file=apps/portfolio/routes.txt
 
       - name: Deploy
-        run: netlify deploy --dir=dist/apps/portfolio/browser --prod --message=${{ github.event.head_commit.message }}
+        run: netlify deploy --dir=dist/apps/portfolio/browser --prod --message='${{ github.event.head_commit.message }}'
 
