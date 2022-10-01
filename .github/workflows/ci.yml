@@ -1,5 +1,9 @@
 name: CI
 
+env:
+  DOCKER_BUILDKIT: 1
+  COMPOSE_DOCKER_CLI_BUILD: 1
+
 on:
   push:
     branches: [ "master", "develop" ]
