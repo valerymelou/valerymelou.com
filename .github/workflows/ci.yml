@@ -26,6 +26,11 @@ jobs:
         with:
           main-branch-name: develop
 
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - run: yarn install
 
       - name: Test
@@ -57,9 +62,14 @@ jobs:
         with:
           main-branch-name: develop
 
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - run: yarn install
 
       - name: Deploy
         run: |
-            npx nx affected --target=prerender --parallel=3 routes-file=apps/portfolio/routes.txt
+            npx nx affected --target=prerender --parallel=3 --routes-file=apps/portfolio/routes.txt
             netlify deploy --dir=dist/apps/portfolio/browser --prod
