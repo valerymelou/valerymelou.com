@@ -6,9 +6,11 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/apps/portfolio",
+        "outputPath": "dist/apps/portfolio/browser",
         "index": "apps/portfolio/src/index.html",
         "main": "apps/portfolio/src/main.ts",
         "polyfills": "apps/portfolio/src/polyfills.ts",
@@ -18,7 +20,9 @@
           "apps/portfolio/src/favicon.ico",
           "apps/portfolio/src/assets"
         ],
-        "styles": ["apps/portfolio/src/styles.scss"],
+        "styles": [
+          "apps/portfolio/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -92,6 +96,51 @@
         "scripts": [],
         "assets": []
       }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/apps/portfolio/server",
+        "main": "apps/portfolio/server.ts",
+        "tsConfig": "apps/portfolio/tsconfig.server.json",
+        "inlineStyleLanguage": "scss"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio/src/environments/environment.ts",
+              "with": "apps/portfolio/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "prerender": {
+      "builder": "@nguniversal/builders:prerender",
+      "options": {
+        "routes": [
+          "/"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "portfolio:build:production",
+          "serverTarget": "portfolio:server:production"
+        },
+        "development": {
+          "browserTarget": "portfolio:build:development",
+          "serverTarget": "portfolio:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "tags": []
