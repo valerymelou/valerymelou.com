@@ -42,25 +42,25 @@ jobs:
           files: ./coverage/apps/portfolio/lcov.info
           fail_ci_if_error: false  # Coverage files can be missing due to `affected`
 
-    deploy:
-      needs: tests
-      runs-on: ubuntu-latest
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_TEST_SITE_ID: ${{ secrets.NETLIFY_TEST_SITE_ID }}
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            fetch-depth: 0
+  deploy:
+    needs: tests
+    runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_TEST_SITE_ID: ${{ secrets.NETLIFY_TEST_SITE_ID }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-        - uses: nrwl/nx-set-shas@v2
-          with:
-            main-branch-name: develop
+      - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: develop
 
-        - run: yarn install
+      - run: yarn install
 
-        - name: Deploy
-          with:
-            run: |
-              npx nx affected --target=prerender --parallel=3 routes-file=apps/portfolio/routes.txt
-              netlify deploy --dir=dist/apps/portfolio/browser --prod
+      - name: Deploy
+        with:
+          run: |
+            npx nx affected --target=prerender --parallel=3 routes-file=apps/portfolio/routes.txt
+            netlify deploy --dir=dist/apps/portfolio/browser --prod
