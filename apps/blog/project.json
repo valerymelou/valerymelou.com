@@ -7,7 +7,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/blog",
@@ -17,7 +17,10 @@
         "tsConfig": "apps/blog/tsconfig.app.json",
         "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
         "styles": ["apps/blog/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/blog/webpack.config.js"
+        }
       },
       "configurations": {
         "production": {
@@ -47,7 +50,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "blog:build:production"
