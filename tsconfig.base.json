@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@vmelou/contentful/client": ["libs/contentful/client/src/index.ts"]
+      "@vmelou/blog/layout": ["libs/blog/layout/src/index.ts"],
+      "@vmelou/common/interfaces": ["libs/common/interfaces/src/index.ts"],
+      "@vmelou/contentful/client": ["libs/contentful/client/src/index.ts"],
+      "@vmelou/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

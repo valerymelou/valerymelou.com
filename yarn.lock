@@ -2047,6 +2047,27 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@ng-icons/core@^25.1.0":
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/core/-/core-25.1.0.tgz#71f02c042492b30d322a933f8514fea725128620"
+  integrity sha512-odZhHaIv/AtZBpkQI3RHgZwpPAfUD55bDche4fADfQmUbF8vWUCHJp81G4wk7pi57IajJTm095a1xjn4CFK6yw==
+  dependencies:
+    tslib "^2.2.0"
+
+"@ng-icons/feather-icons@^25.1.0":
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/feather-icons/-/feather-icons-25.1.0.tgz#b6599f1210ce77f74063354b24d1048cfd187365"
+  integrity sha512-beCMglZuvFErwGeM2chQF7H1xYK+Y1TnMJyMGUPnWLz+1A2gQkxmK5rlczX5saLNfZF+DlN2oGjauiH9Nc66/A==
+  dependencies:
+    tslib "^2.2.0"
+
+"@ng-icons/heroicons@^25.1.0":
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/heroicons/-/heroicons-25.1.0.tgz#61945f080b1ee42743d409ee84e7052a16fd7816"
+  integrity sha512-m4lFu44MbNx8yEy3EUuOTUH0X3e+SJF/6Qt3b3gMz43sDEihZCGMQJxynDWxM8lpaaGjA0dU0lyMwZdEAsU2Ww==
+  dependencies:
+    tslib "^2.2.0"
+
 "@ngtools/webpack@16.1.4":
   version "16.1.4"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-16.1.4.tgz#2e29bdf590c8b5505ffd744f12075b14ed972fc8"
@@ -8574,6 +8595,11 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
+prettier-plugin-tailwindcss@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.4.0.tgz#b3bd20e28514607c584d4ce515ed09b76cc16dd2"
+  integrity sha512-Rna0sDPETA0KNhMHlN8wxKNgfSa8mTl2hPPAGxnbv6tUcHT6J4RQmQ8TLXyhB7Dm5Von4iHloBxTyClYM6wT0A==
+
 prettier@^2.6.2:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
@@ -9891,7 +9917,7 @@ tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0:
+tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0, tslib@^2.4.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.0.tgz#b295854684dbda164e181d259a22cd779dcd7bc3"
   integrity sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==
