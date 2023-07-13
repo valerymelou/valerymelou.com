@@ -2,7 +2,9 @@
   "name": "@vmelou/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "merge-lcov": "node tools/merge-lcov-files.js"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.1.0",
