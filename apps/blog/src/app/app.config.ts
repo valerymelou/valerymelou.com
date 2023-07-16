@@ -5,8 +5,9 @@ import {
 } from '@angular/router';
 import {
   CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE,
-} from '@vmelou/contentful/client';
+} from '@vmelou/cms/contentful';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -19,6 +20,10 @@ export const appConfig: ApplicationConfig = {
     {
       provide: CONTENTFUL_ACCESS_TOKEN,
       useValue: process.env['NX_CONTENTFUL_ACCESS_TOKEN'],
+    },
+    {
+      provide: CONTENTFUL_ENVIRONMENT,
+      useValue: process.env['NX_CONTENTFUL_ENVIRONMENT'],
     },
   ],
 };

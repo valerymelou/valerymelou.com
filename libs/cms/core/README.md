@@ -1,7 +1,7 @@
-# contentful-client
+# cms-core
 
 This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
-Run `nx test contentful-client` to execute the unit tests.
+Run `nx test cms-core` to execute the unit tests.

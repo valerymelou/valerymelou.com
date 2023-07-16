@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@vmelou/blog/data-access": ["libs/blog/data-access/src/index.ts"],
       "@vmelou/blog/layout": ["libs/blog/layout/src/index.ts"],
+      "@vmelou/cms/contentful": ["libs/cms/contentful/src/index.ts"],
+      "@vmelou/cms/core": ["libs/cms/core/src/index.ts"],
       "@vmelou/common/interfaces": ["libs/common/interfaces/src/index.ts"],
-      "@vmelou/contentful/client": ["libs/contentful/client/src/index.ts"],
       "@vmelou/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
