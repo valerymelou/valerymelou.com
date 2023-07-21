@@ -21,10 +21,17 @@ module.exports = {
           base: colors.teal[300],
           active: colors.teal[200],
         },
+        body: {
+          base: '#242424',
+        },
       },
       fontFamily: {
         sans: ['Proza Libre', ...defaultTheme.fontFamily.sans],
         display: ['Cormorant Garamond', ...defaultTheme.fontFamily.serif],
+      },
+      gridColumn: {
+        'span-1-7': '1 / span 7',
+        'span-9-4': '9 / span 4',
       },
     },
   },

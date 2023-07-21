@@ -1,7 +1,7 @@
 {
-  "name": "cms-core",
+  "name": "blog-feature-home",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/cms/core/src",
+  "sourceRoot": "libs/blog/feature-home/src",
   "prefix": "vmelou",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/cms/core/jest.config.ts",
+        "jestConfig": "libs/blog/feature-home/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,7 +24,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/cms/core/**/*.ts", "libs/cms/core/**/*.html"]
+        "lintFilePatterns": [
+          "libs/blog/feature-home/**/*.ts",
+          "libs/blog/feature-home/**/*.html"
+        ]
       }
     }
   }
