@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'cms-core',
+  displayName: 'blog-feature-home',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/cms/core',
+  coverageDirectory: '../../../coverage/libs/blog/feature-home',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,9 +1,9 @@
 import { Route } from '@angular/router';
-import { LayoutComponent } from '@vmelou/blog/layout';
+import { BlogHomeComponent } from '@vmelou/blog/feature-home';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    component: LayoutComponent,
+    component: BlogHomeComponent,
   },
 ];

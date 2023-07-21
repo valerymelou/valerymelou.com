@@ -1,0 +1,71 @@
+<div class="min-h-screen pt-[75px]">
+  <blog-header></blog-header>
+  <blog-hero></blog-hero>
+  <div>
+    <div class="container mx-auto max-w-[1192px] px-5 py-10 sm:px-0">
+      <div
+        *ngIf="articles$ | async as articles"
+        class="relative grid grid-cols-12"
+      >
+        <section class="lg:col-span-1-7 col-span-12 lg:col-start-1">
+          <h3 class="text-4xl font-bold">Latest articles from my blog</h3>
+          <div
+            *ngFor="let article of articles.items"
+            class="my-12 flex flex-auto items-center justify-between"
+          >
+            <div class="mr-5 block w-full">
+              <a [routerLink]="['', article.slug]">
+                <h4 class="text-xl font-bold">
+                  {{ article.title }}
+                </h4>
+                <p class="text-slate-500">{{ article.abstract }}</p>
+              </a>
+              <p class="mt-3 flex items-center text-sm text-slate-500">
+                <span>{{ article.createdAt | date : 'mediumDate' }}</span>
+                <span class="mx-3">&middot;</span>
+                <span>{{ article.abstract | readTime }} min read</span>
+                <ng-container *ngIf="article.tags.length !== 0">
+                  <span class="mx-3">&middot;</span>
+                  <a
+                    [routerLink]="['tag', tag.id]"
+                    *ngFor="let tag of article.tags | slice : 0 : 1"
+                    ui-tag
+                    >{{ tag.label }}</a
+                  >
+                </ng-container>
+              </p>
+            </div>
+            <a
+              [routerLink]="['', article.slug]"
+              *ngIf="article.cover"
+              class="relative block h-36 w-52 cursor-pointer"
+            >
+              <img
+                [ngSrc]="article.cover.url + '?w=200&h=134'"
+                [alt]="article.cover.description"
+                fill
+                class="block object-contain"
+              />
+            </a>
+          </div>
+        </section>
+        <aside class="lg:col-span-9-4 col-span-12 lg:row-start-1">
+          <div class="sticky top-24 block">
+            <h4 class="mb-4 text-xl font-bold">Things I talk about</h4>
+            <div class="flex flex-wrap" *ngIf="tags$ | async as tags">
+              <a
+                [routerLink]="['tag', tag.id]"
+                *ngFor="let tag of tags.items"
+                ui-tag
+                class="mb-3 mr-3"
+                >{{ tag.label }}</a
+              >
+            </div>
+            <hr class="my-10" />
+            <blog-footer></blog-footer>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

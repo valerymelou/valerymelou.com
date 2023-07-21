@@ -1,67 +1,72 @@
-import { inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import {
   ContentfulClientApi,
-  Entry,
   EntryCollection,
   EntrySkeletonType,
+  TagCollection,
   createClient,
 } from 'contentful';
-import { BaseEntry, Collection } from '@vmelou/cms/core';
 import {
   CONTENTFUL_ACCESS_TOKEN,
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE,
 } from './tokens';
-import { Serializer } from './serializer';
 
-export class ContentfulService<E extends BaseEntry> {
+@Injectable({
+  providedIn: 'root',
+})
+export class ContentfulService {
   private cdaClient: ContentfulClientApi<undefined>;
-  private serializer: Serializer;
 
-  constructor(
-    private readonly cls: new () => E,
-    private readonly entryId: string
-  ) {
+  constructor() {
     const space = inject(CONTENTFUL_SPACE);
     const accessToken = inject(CONTENTFUL_ACCESS_TOKEN);
     const environment = inject(CONTENTFUL_ENVIRONMENT);
-    this.serializer = new Serializer();
     this.cdaClient = createClient({ space, accessToken, environment });
   }
 
-  getEntries(query?: { [key: string]: string }): Observable<Collection<E>> {
-    if (!query) query = {};
-
-    query['content_type'] = this.entryId;
+  /**
+   * Query the contentful content type and return an observable of corresponding entries.
+   *
+   * @param contentType The Contentful content type to get the entries of
+   * @param query Query to filter the entries
+   * @returns Observable of EntryCollection
+   */
+  getEntries(
+    contentType: string,
+    query?: { [key: string]: string }
+  ): Observable<EntryCollection<EntrySkeletonType, undefined, string>> {
+    let defaultQuery: { [key: string]: string } = {
+      content_type: contentType,
+      limit: '10',
+      skip: '0',
+      order: '-sys.createdAt',
+    };
+    defaultQuery = Object.assign(defaultQuery, query);
 
     return from(
       this.cdaClient
-        .getEntries(query)
+        .getEntries(defaultQuery)
         .then(
           (entries: EntryCollection<EntrySkeletonType, undefined, string>) => {
-            const results: Collection<E> = {
-              items: [],
-              total: entries.total,
-              skip: entries.skip,
-              limit: entries.limit,
-            };
-
-            entries.items.forEach(
-              (entry: Entry<EntrySkeletonType, undefined, string>) => {
-                results.items.push(this.deserialize(entry));
-              }
-            );
-
             console.log(entries);
-
-            return results;
+            return entries;
           }
         )
     );
   }
 
-  private deserialize(entry: Entry<EntrySkeletonType, undefined, string>): E {
-    return this.serializer.deserialize<E>(this.cls, entry);
+  /**
+   * Returns an observable of Contentful tags.
+   *
+   * @returns Observable of TagCollection
+   */
+  getTags(): Observable<TagCollection> {
+    return from(
+      this.cdaClient.getTags().then((tags: TagCollection) => {
+        return tags;
+      })
+    );
   }
 }
