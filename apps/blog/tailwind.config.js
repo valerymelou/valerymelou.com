@@ -26,8 +26,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Proza Libre', ...defaultTheme.fontFamily.sans],
-        display: ['Cormorant Garamond', ...defaultTheme.fontFamily.serif],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       gridColumn: {
         'span-1-7': '1 / span 7',

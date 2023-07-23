@@ -9,7 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 const TAG_STYLE_CLASSES: { [key: string]: string } = {
-  default: 'bg-slate-200 px-3 py-1 font-thin hover:bg-slate-300',
+  default: 'bg-slate-200 px-3 py-1 hover:bg-slate-300',
 };
 
 @Component({
