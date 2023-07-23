@@ -32,7 +32,7 @@
     "@angular-eslint/template-parser": "~16.0.0",
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "~16.1.0",
-    "@angular/language-service": "~16.1.0",
+    "@angular/language-service": "~16.1.6",
     "@nx/angular": "16.5.3",
     "@nx/cypress": "16.5.3",
     "@nx/eslint-plugin": "16.5.3",
