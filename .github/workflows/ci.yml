@@ -2,9 +2,13 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: ['master', 'develop']
   pull_request:
+    branches: ['master', 'develop']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   actions: read
