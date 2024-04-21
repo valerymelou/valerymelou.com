@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@valerymelou/pages/about": ["libs/pages/about/src/index.ts"],
+      "@valerymelou/shared/layout": ["libs/shared/layout/src/index.ts"],
+      "@valerymelou/core/theming": ["libs/core/theming/src/index.ts"],
+      "@valerymelou/shared/ui": ["libs/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
