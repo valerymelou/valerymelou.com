@@ -15,27 +15,32 @@ permissions:
   contents: read
 
 jobs:
-  main:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Connect your workspace on nx.app and uncomment this to enable task distribution.
-      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
-      - run: yarn nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
+      - uses: nrwl/nx-set-shas@v3
+        with:
+          main-branch-name: develop
 
-      # Cache node_modules
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      - uses: nrwl/nx-set-shas@v4
 
-      - run: git branch --track main origin/main
-        if: ${{ github.event_name == 'pull_request' }}
+      - run: yarn install
+      - run: npx nx affected --target=lint --parallel=3
+      - run: npx nx affected --target=test --parallel=3 --code-coverage
+      - run: yarn merge-lcov
 
-      - run: yarn nx-cloud record -- nx format:check
-      - run: yarn nx affected -t lint test build
+      - name: Code Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
