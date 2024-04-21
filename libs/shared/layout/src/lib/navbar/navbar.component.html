@@ -1,0 +1,100 @@
+<header
+  class="fixed top-0 left-0 right-0 mx-auto text-dark dark:bg-dark bg-white dark:text-white border-b dark:border-slate-700 border-slate-200"
+>
+  <div class="container max-w-[1024px] mx-auto flex flex-col px-4">
+    <div class="flex justify-between w-full items-center mt-4 md:mb-0 mb-4">
+      <a href="/" class="flex items-center">
+        <img
+          src="/assets/images/valerymelou.jpg"
+          class="rounded-full dark:border-white border-dark border-2"
+          alt="Valery Melou"
+          width="40"
+          height="40"
+        />
+        <h1 class="mx-4 space-x-2 font-bold md:text-base text-sm">
+          Valery MELOU
+        </h1>
+      </a>
+      @if(showNavigation) {
+      <div
+        class="fixed top-[72px] bottom-0 left-0 right-0 backdrop-blur-lg dark:bg-dark bg-white bg-opacity-20"
+        (click)="toggleNavigation()"
+      ></div>
+      }
+      <nav
+        class="flex md:space-x-4 mx-auto font-display text-xs dark:text-slate-400 text-slate-700 md:relative fixed md:top-0 top-[72px] bottom-0 right-0 flex-col md:flex-row md:w-full w-3/5 py-8 px-8 md:p-0 md:translate-x-0 translate-x-full transition-all will-change-transform duration-300 ease-in-out shadow-lg md:shadow-none flex-1"
+        [ngClass]="{ 'translate-x-full': !showNavigation }"
+      >
+        @for (link of links; track link.label; let first = $first, last =
+        $last;) {
+        <a
+          [routerLink]="link.path"
+          class="py-4 md:px-4 md:text-left text-right rounded-t-lg font-medium uppercase md:border -mb-[1px] border-transparent transition-all duration-300 ease-in-out dark:text-white dark:hover:text-white hover:text-black"
+          routerLinkActive="dark:text-white text-black dark:border-b-dark border-b-white dark:border-t-slate-700 dark:border-l-slate-700 dark:border-r-slate-700 border-t-slate-200 border-l-slate-200 border-r-slate-200"
+          [ngClass]="{ 'md:ml-auto': first, 'md:!mr-auto': last }"
+          >{{ link.label }}</a
+        >
+        } @for (link of socialLinks; track link.path) {
+        <a
+          [href]="link.path"
+          target="_blank"
+          rel="noopener"
+          [attr.aria-label]="link.text"
+          class="dark:text-slate-400 hover:text-black focus:text-black active:text-black dark:hover:text-white dark:active:text-white dark:focus:text-white transition-all duration-300 ease-in-out flex items-center justify-end md:py-0 py-3"
+        >
+          <span class="md:hidden mr-4 uppercase">{{ link.text }}</span>
+          <ng-icon [name]="link.icon" size="20"></ng-icon>
+        </a>
+        }
+      </nav>
+      <div class="flex ml-4 dark:text-slate-400 text-slate-700">
+        <button
+          class="flex items-center"
+          [uiMenuTriggerFor]="themeMenu"
+          [yOffset]="20"
+          [xPosition]="'after'"
+        >
+          <ng-icon
+            [name]="theme === 'dark' ? 'matDarkModeRound' : 'matLightModeRound'"
+            size="24"
+          ></ng-icon>
+        </button>
+        <button
+          class="md:hidden flex items-center ml-4 dark:text-white text-black"
+          (click)="toggleNavigation()"
+        >
+          @if(showNavigation) {
+          <ng-icon name="matCloseRound" size="32"></ng-icon>
+          } @else {
+          <ng-icon name="matMenuRound" size="32"></ng-icon>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<ui-menu #themeMenu>
+  <div class="flex flex-col items-start space-y-3">
+    <button
+      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      (click)="changeTheme('light')"
+    >
+      <ng-icon name="matLightModeRound"></ng-icon>
+      <span>Light</span>
+    </button>
+    <button
+      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      (click)="changeTheme('dark')"
+    >
+      <ng-icon name="matDarkModeRound"></ng-icon>
+      <span>Dark</span>
+    </button>
+    <button
+      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      (click)="resetTheme()"
+    >
+      <ng-icon name="matDesktopMacRound"></ng-icon>
+      <span>System</span>
+    </button>
+  </div>
+</ui-menu>

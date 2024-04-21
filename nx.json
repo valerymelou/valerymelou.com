@@ -1,5 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "master",
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
@@ -14,7 +15,7 @@
     ],
     "sharedGlobals": []
   },
-  "nxCloudAccessToken": "ZjUzNTYyMTctYTQ4NC00ODMzLThjZTItNzBjYzZlYmQ4ZWQxfHJlYWQtd3JpdGU=",
+  "nxCloudAccessToken": "ODlhMWUwNGItYTZjMi00M2VjLWI3MGYtOTA2Yjc5MTZmMmQxfHJlYWQ=",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
@@ -50,6 +51,13 @@
       "linter": "eslint",
       "style": "scss",
       "unitTestRunner": "jest"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "none"
     }
   }
 }
