@@ -44,3 +44,19 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/lcov.info
+
+      - name: Code Coverage
+        uses: paambaati/codeclimate-action@v5.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/coverage/lcov.info:lcov
+
+      - name: Save NX Cache
+        id: nx-cache-save
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .nx
+          key: ${{ steps.nx-cache-restore.outputs.cache-primary-key }}
