@@ -54,7 +54,8 @@ interface SocialLink {
 })
 export class NavbarComponent {
   links: NavbarLink[] = [
-    { label: 'About', path: '/' },
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
     { label: 'Experience', path: '/experience' },
     { label: 'Projects', path: '/projects' },
     { label: 'Blog', path: '/blog' },

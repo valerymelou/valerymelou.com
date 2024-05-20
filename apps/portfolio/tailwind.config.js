@@ -14,9 +14,8 @@ module.exports = {
       colors: {
         ...colors,
         dark: colors.slate[900],
-        primary: {
-          dark: '#5eead4',
-          light: colors.teal[700],
+        accent: {
+          base: '#068477',
         },
       },
       fontFamily: {
