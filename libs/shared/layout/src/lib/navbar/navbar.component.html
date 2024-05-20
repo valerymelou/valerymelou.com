@@ -1,5 +1,5 @@
 <header
-  class="fixed top-0 left-0 right-0 mx-auto text-dark dark:bg-dark bg-white dark:text-white border-b dark:border-slate-700 border-slate-200"
+  class="fixed z-10 top-0 left-0 right-0 mx-auto text-dark dark:bg-dark bg-white dark:text-white border-b dark:border-slate-700 border-slate-200"
 >
   <div class="container max-w-[1024px] mx-auto flex flex-col px-4">
     <div class="flex w-full mt-4 md:mb-0 mb-4">
@@ -29,6 +29,7 @@
           class="py-4 md:px-4 md:text-left text-right rounded-t-lg font-medium uppercase md:border -mb-[1px] border-transparent transition-all duration-300 ease-in-out dark:text-white dark:hover:text-white hover:text-black"
           routerLinkActive="dark:text-white text-black dark:border-b-dark border-b-white dark:border-t-slate-700 dark:border-l-slate-700 dark:border-r-slate-700 border-t-slate-200 border-l-slate-200 border-r-slate-200"
           [ngClass]="{ 'md:!mr-auto': last }"
+          [routerLinkActiveOptions]="{ exact: true }"
           >{{ link.label }}</a
         >
         } @for (link of socialLinks; track link.path) {
