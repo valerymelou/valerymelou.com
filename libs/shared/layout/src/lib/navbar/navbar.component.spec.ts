@@ -1,20 +1,37 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 import { NavbarComponent } from './navbar.component';
-import { provideRouter } from '@angular/router';
+import { Router, provideRouter } from '@angular/router';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-about',
+  template: '',
+  standalone: true,
+})
+export class AboutComponent {}
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent],
-      providers: [provideRouter([])],
+      imports: [NavbarComponent, AboutComponent],
+      providers: [
+        provideRouter([{ path: 'about', component: AboutComponent }]),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    router = TestBed.inject(Router);
   });
 
   it('should create', () => {
@@ -27,16 +44,10 @@ describe('NavbarComponent', () => {
     expect(component.showNavigation).toBeTruthy();
   });
 
-  it('should change the theme', () => {
-    component.changeTheme('dark');
+  it('should set isAbout to true', fakeAsync(() => {
+    router.navigate(['/about']);
+    tick();
 
-    expect(component.theme).toBe('dark');
-  });
-
-  // TODO: fix this test
-  // it('should reset theme to preferred theme', () => {
-  //   component.resetTheme();
-
-  //   expect(component.theme).toBe('light');
-  // });
+    expect(component.isAbout).toBeTruthy();
+  }));
 });
