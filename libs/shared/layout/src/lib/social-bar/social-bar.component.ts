@@ -5,6 +5,12 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
+  bootstrapGithub,
+  bootstrapLinkedin,
+  bootstrapTwitterX,
+  bootstrapArrowRight,
+} from '@ng-icons/bootstrap-icons';
+import {
   matCloseRound,
   matDarkModeRound,
   matDesktopMacRound,
@@ -13,26 +19,27 @@ import {
 } from '@ng-icons/material-icons/round';
 
 import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
+import { ThemeService } from '@valerymelou/core/theming';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
-interface NavbarLink {
-  label: string;
-  path: string;
-}
-
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-social-bar',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule,
     NgIconComponent,
-    MenuComponent,
     MenuTriggerForDirective,
+    MenuComponent,
     SocialLinksComponent,
   ],
+  templateUrl: './social-bar.component.html',
   viewProviders: [
     provideIcons({
+      bootstrapArrowRight,
+      bootstrapGithub,
+      bootstrapLinkedin,
+      bootstrapTwitterX,
       matCloseRound,
       matDarkModeRound,
       matDesktopMacRound,
@@ -40,32 +47,35 @@ interface NavbarLink {
       matMenuRound,
     }),
   ],
-  templateUrl: './navbar.component.html',
 })
-export class NavbarComponent {
-  links: NavbarLink[] = [
-    { label: 'About', path: '/about' },
-    { label: 'Projects', path: '/projects' },
-    { label: 'Blog', path: '/blog' },
-  ];
-  showNavigation = false;
-  isAbout = false;
-  isProject = false;
-  isBlog = false;
+export class SocialBarComponent {
+  theme = 'dark';
+  isHome = false;
 
-  constructor(router: Router) {
+  constructor(
+    router: Router,
+    private themeService: ThemeService,
+  ) {
+    themeService.getTheme().subscribe({
+      next: (theme: string) => {
+        this.theme = theme;
+      },
+    });
+
     router.events
       .pipe(filter((event: unknown) => event instanceof NavigationEnd))
       .subscribe((event: unknown) => {
         if (event instanceof NavigationEnd) {
-          this.isAbout = event.urlAfterRedirects === '/about';
-          this.isProject = event.urlAfterRedirects === '/projects';
-          this.isBlog = event.urlAfterRedirects === '/blog';
+          this.isHome = event.urlAfterRedirects === '/';
         }
       });
   }
 
-  toggleNavigation(): void {
-    this.showNavigation = !this.showNavigation;
+  changeTheme(theme: 'dark' | 'light'): void {
+    this.themeService.changeTheme(theme);
+  }
+
+  resetTheme(): void {
+    this.themeService.resetPreferredTheme();
   }
 }

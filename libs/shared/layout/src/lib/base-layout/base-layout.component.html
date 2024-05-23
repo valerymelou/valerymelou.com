@@ -1,9 +1,11 @@
-<div class="flex min-h-screen flex-col">
+<div class="base flex min-h-screen flex-col overflow-x-hidden">
   <app-navbar></app-navbar>
-  <main class="flex-1 flex flex-col pt-[72px]">
-    <div class="container max-w-[1024px] mx-auto px-4 flex flex-col flex-1">
-      <router-outlet></router-outlet>
-    </div>
+  <app-social-bar></app-social-bar>
+  <main
+    class="mx-5 flex flex-1 flex-col pt-20 md:mx-64 md:pt-0"
+    [@routeAnimations]="prepareRoute()"
+  >
+    <router-outlet #outlet="outlet"></router-outlet>
   </main>
-  <app-footer></app-footer>
+  <app-footer class="mt-auto"></app-footer>
 </div>

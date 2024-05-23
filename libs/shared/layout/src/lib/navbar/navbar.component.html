@@ -1,98 +1,89 @@
-<header
-  class="fixed top-0 left-0 right-0 mx-auto text-dark dark:bg-dark bg-white dark:text-white border-b dark:border-slate-700 border-slate-200"
+<div class="fixed left-0 right-0 top-0 z-10 flex p-5 md:hidden">
+  <a href="/" class="flex items-center">
+    <img
+      src="/assets/images/valerymelou.jpg"
+      class="border-dark rounded-full border-2 dark:border-white"
+      alt="Valery Melou"
+      width="40"
+      height="40"
+    />
+  </a>
+
+  <button
+    class="ml-auto items-center text-black dark:text-white"
+    (click)="toggleNavigation()"
+    aria-label="Toggle navigation"
+  >
+    @if (showNavigation) {
+      <ng-icon name="matCloseRound" size="32"></ng-icon>
+    } @else {
+      <ng-icon name="matMenuRound" size="32"></ng-icon>
+    }
+  </button>
+</div>
+
+<nav
+  class="fixed bottom-0 right-0 top-20 z-10 flex flex-col overflow-auto transition-transform duration-300 ease-in-out will-change-transform md:top-0 md:flex-row md:overflow-visible"
+  [ngClass]="{
+    'translate-x-[100vw] md:translate-x-0': !showNavigation,
+    'left-0 translate-x-0': showNavigation
+  }"
 >
-  <div class="container max-w-[1024px] mx-auto flex flex-col px-4">
-    <div class="flex w-full mt-4 md:mb-0 mb-4">
-      <a href="/" class="flex items-center md:mb-2 mr-10">
-        <img
-          src="/assets/images/valerymelou.jpg"
-          class="rounded-full dark:border-white border-dark border-2"
-          alt="Valery Melou"
-          width="40"
-          height="40"
-        />
-      </a>
-      @if(showNavigation) {
-      <div
-        class="fixed top-[72px] bottom-0 left-0 right-0 backdrop-blur-sm dark:bg-dark bg-white bg-opacity-20 dark:bg-opacity-20"
-        (click)="toggleNavigation()"
-      ></div>
-      }
-      <nav
-        class="flex md:space-x-5 mr-auto font-display text-xs dark:bg-dark bg-white dark:text-slate-400 text-slate-700 md:relative fixed md:top-0 top-[72px] bottom-0 right-0 flex-col md:flex-row md:w-full w-3/5 py-8 px-8 md:p-0 md:translate-x-0 translate-x-full transition-all will-change-transform duration-300 ease-in-out shadow-lg md:shadow-none flex-1"
-        [ngClass]="{ 'translate-x-full': !showNavigation }"
-      >
-        @for (link of links; track link.label; let first = $first, last =
-        $last;) {
-        <a
-          [routerLink]="link.path"
-          class="py-4 md:px-4 md:text-left text-right rounded-t-lg font-medium uppercase md:border -mb-[1px] border-transparent transition-all duration-300 ease-in-out dark:text-white dark:hover:text-white hover:text-black"
-          routerLinkActive="dark:text-white text-black dark:border-b-dark border-b-white dark:border-t-slate-700 dark:border-l-slate-700 dark:border-r-slate-700 border-t-slate-200 border-l-slate-200 border-r-slate-200"
-          [ngClass]="{ 'md:!mr-auto': last }"
-          >{{ link.label }}</a
-        >
-        } @for (link of socialLinks; track link.path) {
-        <a
-          [href]="link.path"
-          target="_blank"
-          rel="noopener"
-          [attr.aria-label]="link.text"
-          class="dark:text-slate-400 hover:text-black focus:text-black active:text-black dark:hover:text-white dark:active:text-white dark:focus:text-white transition-all duration-300 ease-in-out flex items-center justify-end md:py-0 py-3"
-        >
-          <span class="md:hidden mr-4 uppercase">{{ link.text }}</span>
-          <ng-icon [name]="link.icon" size="20"></ng-icon>
-        </a>
-        }
-      </nav>
-      <div class="flex md:ml-5 dark:text-slate-400 text-slate-700 ml-auto">
-        <button
-          class="flex items-center dark:text-slate-400 hover:text-black focus:text-black active:text-black dark:hover:text-white dark:active:text-white dark:focus:text-white transition-all duration-300 ease-in-out"
-          [uiMenuTriggerFor]="themeMenu"
-          [xPosition]="'after'"
-          aria-label="Change theme"
-        >
-          <ng-icon
-            [name]="theme === 'dark' ? 'matDarkModeRound' : 'matLightModeRound'"
-            size="24"
-          ></ng-icon>
-        </button>
-        <button
-          class="md:hidden flex items-center ml-4 dark:text-white text-black"
-          (click)="toggleNavigation()"
-          aria-label="Toggle navigation"
-        >
-          @if(showNavigation) {
-          <ng-icon name="matCloseRound" size="32"></ng-icon>
-          } @else {
-          <ng-icon name="matMenuRound" size="32"></ng-icon>
-          }
-        </button>
-      </div>
-    </div>
+  <a
+    routerLink="/"
+    class="dark:bg-dark relative flex bg-white px-4 py-16 text-sm uppercase transition-transform duration-500 ease-in-out will-change-transform md:hidden md:min-h-full md:w-16 md:min-w-16 dark:text-white"
+    [ngClass]="{
+      'md:-translate-x-[calc(100vw-256px)]': isAbout || isBlog || isProject
+    }"
+    (click)="showNavigation = false"
+  >
+    <span
+      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      >Home</span
+    >
+  </a>
+  <a
+    routerLink="/about"
+    class="relative flex bg-black px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform md:min-h-full md:w-16 md:min-w-16"
+    [ngClass]="{
+      'md:-translate-x-[calc(100vw-256px)]': isAbout || isBlog || isProject
+    }"
+    (click)="showNavigation = false"
+  >
+    <span
+      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      >About</span
+    >
+  </a>
+  <a
+    routerLink="/projects"
+    class="bg-accent-base relative flex px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform md:min-h-full md:w-16 md:min-w-16"
+    [ngClass]="{
+      'md:-translate-x-[calc(100vw-256px)]': isProject || isBlog
+    }"
+    (click)="showNavigation = false"
+  >
+    <span
+      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      >Projects</span
+    >
+  </a>
+  <a
+    routerLink="/blog"
+    class="bg-dark dark:text-dark relative flex px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform md:min-h-full md:w-16 md:min-w-16 dark:bg-white"
+    [ngClass]="{
+      'md:-translate-x-[calc(100vw-256px)]': isBlog
+    }"
+    (click)="showNavigation = false"
+  >
+    <span
+      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      >Blog</span
+    >
+  </a>
+
+  <div class="dark:bg-dark flex flex-1 flex-col bg-white px-4 md:hidden">
+    <p class="my-5 text-center uppercase">Let's connect</p>
+    <app-social-links></app-social-links>
   </div>
-</header>
-<ui-menu #themeMenu>
-  <div class="flex flex-col items-start space-y-3">
-    <button
-      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
-      (click)="changeTheme('light')"
-    >
-      <ng-icon name="matLightModeRound"></ng-icon>
-      <span>Light</span>
-    </button>
-    <button
-      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
-      (click)="changeTheme('dark')"
-    >
-      <ng-icon name="matDarkModeRound"></ng-icon>
-      <span>Dark</span>
-    </button>
-    <button
-      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
-      (click)="resetTheme()"
-    >
-      <ng-icon name="matDesktopMacRound"></ng-icon>
-      <span>System</span>
-    </button>
-  </div>
-</ui-menu>
+</nav>

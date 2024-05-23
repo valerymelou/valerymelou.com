@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BaseLayoutComponent } from './base-layout.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+
+import { BaseLayoutComponent } from './base-layout.component';
 
 describe('BaseLayoutComponent', () => {
   let component: BaseLayoutComponent;
@@ -8,7 +10,7 @@ describe('BaseLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BaseLayoutComponent],
+      imports: [BaseLayoutComponent, NoopAnimationsModule],
       providers: [provideRouter([])],
     }).compileComponents();
 
