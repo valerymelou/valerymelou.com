@@ -1,5 +1,5 @@
 {
-  "name": "about",
+  "name": "pages-about",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/pages/about/src",
   "prefix": "app",
