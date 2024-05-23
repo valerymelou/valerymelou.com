@@ -1,0 +1,71 @@
+<aside
+  class="md:flex flex-col py-10 items-center fixed top-0 bottom-0 transition-all duration-500 ease-in-out justify-between z-10 hidden"
+  [ngClass]="{
+    'px-4 md:px-16': isHome,
+    'px-3 bg-transparent md:dark:bg-dark md:bg-white': !isHome
+  }"
+>
+  <a href="/" class="flex items-center">
+    <img
+      src="/assets/images/valerymelou.jpg"
+      class="rounded-full dark:border-white border-dark border-2"
+      alt="Valery Melou"
+      width="40"
+      height="40"
+    />
+  </a>
+
+  @if(!isHome) {
+  <a
+    routerLink="/"
+    aria-label="Back to home"
+    class="hidden md:block md:fixed top-1/2 bottom-1/2"
+  >
+    <span
+      class="block rotate-90 absolute top-1/2 left-1/2 origin-center -translate-y-1/2 -translate-x-1/2 uppercase text-sm"
+      >Home</span
+    >
+  </a>
+  }
+
+  <div class="md:flex flex-col space-y-6">
+    <app-social-links vertical=""></app-social-links>
+    <button
+      class="flex items-center dark:text-slate-400 hover:text-black focus:text-black active:text-black dark:hover:text-white dark:active:text-white dark:focus:text-white transition-all duration-300 ease-in-out"
+      [uiMenuTriggerFor]="themeMenu"
+      [xPosition]="'after'"
+      aria-label="Change theme"
+    >
+      <ng-icon
+        [name]="theme === 'dark' ? 'matDarkModeRound' : 'matLightModeRound'"
+        size="24"
+      ></ng-icon>
+    </button>
+  </div>
+</aside>
+
+<ui-menu #themeMenu>
+  <div class="flex flex-col items-start space-y-3">
+    <button
+      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      (click)="changeTheme('light')"
+    >
+      <ng-icon name="matLightModeRound"></ng-icon>
+      <span>Light</span>
+    </button>
+    <button
+      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      (click)="changeTheme('dark')"
+    >
+      <ng-icon name="matDarkModeRound"></ng-icon>
+      <span>Dark</span>
+    </button>
+    <button
+      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      (click)="resetTheme()"
+    >
+      <ng-icon name="matDesktopMacRound"></ng-icon>
+      <span>System</span>
+    </button>
+  </div>
+</ui-menu>

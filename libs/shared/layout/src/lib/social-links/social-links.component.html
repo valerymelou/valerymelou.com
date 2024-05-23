@@ -1,0 +1,16 @@
+<nav
+  class="flex justify-center"
+  [ngClass]="{ 'flex-col space-y-6': vertical, 'space-x-6': !vertical }"
+>
+  @for (link of socialLinks; track link.path) {
+    <a
+      [href]="link.path"
+      target="_blank"
+      rel="noopener"
+      [attr.aria-label]="link.text"
+      class="flex items-center justify-end transition-all duration-300 ease-in-out hover:text-black focus:text-black active:text-black dark:text-slate-400 dark:hover:text-white dark:focus:text-white dark:active:text-white"
+    >
+      <ng-icon [name]="link.icon" size="24"></ng-icon>
+    </a>
+  }
+</nav>
