@@ -9,7 +9,7 @@ import {
   AnimationMetadata,
 } from '@angular/animations';
 
-const pages = ['HomePage', 'AboutPage', 'ProjectsPage', 'BlogPage'];
+const pages = ['HomePage', 'AboutPage', 'ProjectsPage', 'BlogHomePage'];
 const transissions: AnimationMetadata[] = [];
 
 const isMobile = matchMedia('(max-width: 768px)').matches;
