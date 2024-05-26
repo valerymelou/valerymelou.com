@@ -26,9 +26,15 @@ export const appRoutes: Route[] = [
         path: 'projects',
         loadComponent: () =>
           import('@valerymelou/pages/projects').then(
-            (c) => c.ProjectsComponent
+            (c) => c.ProjectsComponent,
           ),
         data: { animation: 'ProjectsPage' },
+      },
+      {
+        path: 'blog',
+        loadComponent: () =>
+          import('@valerymelou/blog/home').then((c) => c.BlogHomeComponent),
+        data: { animation: 'BlogHomePage' },
       },
     ],
   },
