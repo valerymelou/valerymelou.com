@@ -16,7 +16,7 @@ module.exports = {
         dark: colors.slate[900],
         secondary: {
           dark: '#112240',
-          base: '#1e3a8a',
+          light: colors.slate[200],
         },
         accent: {
           base: '#068477',
