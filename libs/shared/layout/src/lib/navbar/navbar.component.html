@@ -1,4 +1,4 @@
-<div class="fixed left-0 right-0 top-0 z-10 flex p-5 md:hidden">
+<div class="fixed left-0 right-0 top-0 z-10 flex p-5 lg:hidden">
   <a href="/" class="flex items-center">
     <img
       src="/assets/images/valerymelou.jpg"
@@ -23,66 +23,66 @@
 </div>
 
 <nav
-  class="fixed bottom-0 right-0 top-20 z-10 flex flex-col overflow-auto transition-transform duration-300 ease-in-out will-change-transform md:top-0 md:flex-row md:overflow-visible"
+  class="fixed bottom-0 right-0 top-20 z-10 flex flex-col overflow-auto transition-transform duration-300 ease-in-out will-change-transform lg:top-0 lg:flex-row lg:overflow-visible"
   [ngClass]="{
-    'translate-x-[100vw] md:translate-x-0': !showNavigation,
+    'translate-x-[100vw] lg:translate-x-0': !showNavigation,
     'left-0 translate-x-0': showNavigation
   }"
 >
   <a
     routerLink="/"
-    class="dark:bg-dark relative flex bg-white px-4 py-16 text-sm uppercase transition-transform duration-500 ease-in-out will-change-transform md:hidden md:min-h-full md:w-16 md:min-w-16 dark:text-white"
+    class="dark:bg-dark relative flex bg-white px-4 py-16 text-sm uppercase transition-transform duration-500 ease-in-out will-change-transform lg:hidden lg:min-h-full lg:w-12 lg:min-w-12 dark:text-white"
     [ngClass]="{
-      'md:-translate-x-[calc(100vw-256px)]': isAbout || isBlog || isProject
+      'lg:-translate-x-[calc(100vw-208px)]': isAbout || isBlog || isProject
     }"
     (click)="showNavigation = false"
   >
     <span
-      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      class="relative block origin-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rotate-90"
       >Home</span
     >
   </a>
   <a
     routerLink="/about"
-    class="relative flex bg-black px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform md:min-h-full md:w-16 md:min-w-16"
+    class="relative flex bg-black px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform lg:min-h-full lg:w-12 lg:min-w-12"
     [ngClass]="{
-      'md:-translate-x-[calc(100vw-256px)]': isAbout || isBlog || isProject
+      'lg:-translate-x-[calc(100vw-208px)]': isAbout || isBlog || isProject
     }"
     (click)="showNavigation = false"
   >
     <span
-      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      class="relative block origin-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rotate-90"
       >About</span
     >
   </a>
   <a
     routerLink="/projects"
-    class="bg-accent-base relative flex px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform md:min-h-full md:w-16 md:min-w-16"
+    class="bg-accent-base relative flex px-4 py-16 text-sm uppercase text-white transition-transform duration-500 ease-in-out will-change-transform lg:min-h-full lg:w-12 lg:min-w-12"
     [ngClass]="{
-      'md:-translate-x-[calc(100vw-256px)]': isProject || isBlog
+      'lg:-translate-x-[calc(100vw-208px)]': isProject || isBlog
     }"
     (click)="showNavigation = false"
   >
     <span
-      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      class="relative block origin-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rotate-90"
       >Projects</span
     >
   </a>
   <a
     routerLink="/blog"
-    class="bg-secondary-light dark:bg-secondary-dark relative flex px-4 py-16 text-sm uppercase text-black transition-transform duration-500 ease-in-out will-change-transform md:min-h-full md:w-16 md:min-w-16 dark:text-white"
+    class="bg-secondary-light dark:bg-secondary-dark relative flex px-4 py-16 text-sm uppercase text-black transition-transform duration-500 ease-in-out will-change-transform lg:min-h-full lg:w-12 lg:min-w-12 dark:text-white"
     [ngClass]="{
-      'md:-translate-x-[calc(100vw-256px)]': isBlog
+      'lg:-translate-x-[calc(100vw-208px)]': isBlog
     }"
     (click)="showNavigation = false"
   >
     <span
-      class="relative block origin-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-90"
+      class="relative block origin-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rotate-90"
       >Articles</span
     >
   </a>
 
-  <div class="dark:bg-dark flex flex-1 flex-col bg-white px-4 md:hidden">
+  <div class="dark:bg-dark flex flex-1 flex-col bg-white px-4 lg:hidden">
     <p class="my-5 text-center uppercase">Let's connect</p>
     <app-social-links></app-social-links>
   </div>

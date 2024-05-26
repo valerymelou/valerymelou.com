@@ -1,6 +1,6 @@
 <div class="my-10">
   <h1
-    class="mb-5 text-2xl font-bold leading-[3rem] text-black md:text-4xl dark:text-white"
+    class="mb-5 text-2xl font-bold leading-[3rem] text-black lg:text-4xl dark:text-white"
   >
     Inside my head
   </h1>
@@ -15,7 +15,7 @@
         @for (article of articles.items; track article.slug) {
           <a
             [routerLink]="['/blog', article.slug]"
-            class="dark:bg-secondary-dark dark:hover:bg-secondary-dark hover:bg-secondary-light bg-secondary-light mb-5 flex flex-col rounded-md p-5 transition-all duration-300 ease-in-out"
+            class="dark:bg-secondary-dark bg-secondary-light mb-5 flex flex-col rounded-md p-5 transition-all duration-300 ease-in-out"
           >
             <div class="flex items-start">
               <h3 class="font-medium text-black dark:text-white">
@@ -47,11 +47,11 @@
     >
       <h3 class="mb-5 text-xl">Topics</h3>
       @if (tags$ | async; as tags) {
-        <div>
+        <div class="flex flex-wrap">
           @for (tag of tags.items; track tag.id) {
             <a
               [routerLink]="['/blog', 'topic', tag.id]"
-              class="mr-3 text-sm"
+              class="mb-3 mr-3 text-sm"
               ui-link
               >{{ tag.label }}</a
             >

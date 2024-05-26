@@ -1,37 +1,37 @@
 <aside
-  class="md:flex flex-col py-10 items-center fixed top-0 bottom-0 transition-all duration-500 ease-in-out justify-between z-10 hidden"
+  class="fixed bottom-0 top-0 z-10 hidden flex-col items-center justify-between py-10 transition-all duration-500 ease-in-out lg:flex"
   [ngClass]="{
-    'px-4 md:px-16': isHome,
-    'px-3 bg-transparent md:dark:bg-dark md:bg-white': !isHome
+    'px-4 lg:px-16': isHome,
+    'lg:dark:bg-dark bg-transparent px-3 lg:bg-white': !isHome
   }"
 >
   <a href="/" class="flex items-center">
     <img
       src="/assets/images/valerymelou.jpg"
-      class="rounded-full dark:border-white border-dark border-2"
+      class="border-dark rounded-full border-2 dark:border-white"
       alt="Valery Melou"
       width="40"
       height="40"
     />
   </a>
 
-  @if(!isHome) {
-  <a
-    routerLink="/"
-    aria-label="Back to home"
-    class="hidden md:block md:fixed top-1/2 bottom-1/2"
-  >
-    <span
-      class="block rotate-90 absolute top-1/2 left-1/2 origin-center -translate-y-1/2 -translate-x-1/2 uppercase text-sm"
-      >Home</span
+  @if (!isHome) {
+    <a
+      routerLink="/"
+      aria-label="Back to home"
+      class="bottom-1/2 top-1/2 hidden lg:fixed lg:block"
     >
-  </a>
+      <span
+        class="absolute left-1/2 top-1/2 block origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 text-sm uppercase"
+        >Home</span
+      >
+    </a>
   }
 
-  <div class="md:flex flex-col space-y-6">
+  <div class="flex-col space-y-6 lg:flex">
     <app-social-links vertical=""></app-social-links>
     <button
-      class="flex items-center dark:text-slate-400 hover:text-black focus:text-black active:text-black dark:hover:text-white dark:active:text-white dark:focus:text-white transition-all duration-300 ease-in-out"
+      class="flex items-center transition-all duration-300 ease-in-out hover:text-black focus:text-black active:text-black dark:text-slate-400 dark:hover:text-white dark:focus:text-white dark:active:text-white"
       [uiMenuTriggerFor]="themeMenu"
       [xPosition]="'after'"
       aria-label="Change theme"
@@ -47,21 +47,21 @@
 <ui-menu #themeMenu>
   <div class="flex flex-col items-start space-y-3">
     <button
-      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      class="flex items-center space-x-4 px-3 dark:hover:text-white dark:focus:text-white dark:active:text-white"
       (click)="changeTheme('light')"
     >
       <ng-icon name="matLightModeRound"></ng-icon>
       <span>Light</span>
     </button>
     <button
-      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      class="flex items-center space-x-4 px-3 dark:hover:text-white dark:focus:text-white dark:active:text-white"
       (click)="changeTheme('dark')"
     >
       <ng-icon name="matDarkModeRound"></ng-icon>
       <span>Dark</span>
     </button>
     <button
-      class="flex items-center space-x-4 dark:hover:text-white dark:focus:text-white dark:active:text-white px-3"
+      class="flex items-center space-x-4 px-3 dark:hover:text-white dark:focus:text-white dark:active:text-white"
       (click)="resetTheme()"
     >
       <ng-icon name="matDesktopMacRound"></ng-icon>
