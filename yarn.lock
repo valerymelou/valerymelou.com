@@ -1593,10 +1593,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@contentful/content-source-maps@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.5.0.tgz#3561c705f49ec3411aa90ff8a3606ceb5da1fc5b"
-  integrity sha512-Ui14m5QvgFWteAXsv5pmFtbm2deGUJrn1WPHoBa79SK3Z3nV47wQb3/aDZhnXushgpJlk2HmH32Fda/0XZqq1w==
+"@contentful/content-source-maps@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@contentful/content-source-maps/-/content-source-maps-0.6.0.tgz#420934abd38522d776227888dd3a1cb5cf8879d3"
+  integrity sha512-REX3kUm4f2tkdfJArqblhKL7SMLfEG18eF3vcQA+8KdBqo+7lNS2W2CuPt2i8uvdgt1aKliGXJeJTgZjYFpCqw==
   dependencies:
     "@vercel/stega" "^0.1.2"
     json-pointer "^0.6.2"
@@ -3925,19 +3925,10 @@ autoprefixer@10.4.19, autoprefixer@^10.4.0, autoprefixer@^10.4.9:
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
 
-axios@^1.6.0:
+axios@^1.6.0, axios@~1.6.8:
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
   integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
-  dependencies:
-    follow-redirects "^1.15.6"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
-axios@^1.6.7:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
-  integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -4552,14 +4543,14 @@ contentful-sdk-core@^8.1.0:
     p-throttle "^4.1.1"
     qs "^6.11.2"
 
-contentful@^10.11.3:
-  version "10.11.3"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.11.3.tgz#9ca638746b058dfcd40ed894af305c5e85e33d4a"
-  integrity sha512-sBI2fCfw101JOSJvjVS2rBpP3HwGl3S2lQPhYwdKjrLepktdJs+gxEyGnMWhOJ36Di5aObIrc0PSA4jAftDB/Q==
+contentful@^10.12.1:
+  version "10.12.1"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.12.1.tgz#355581cb003b589cc82a2034f5cd708b4beb4228"
+  integrity sha512-rGo4OgL7hMPOhUQ1v9ELqWFhFkzmyoO2ILTZciv9HLGG6lhcEtXH4eAaO46XPKswyabPwuCjTERc/XBGVSLLDg==
   dependencies:
-    "@contentful/content-source-maps" "^0.5.0"
+    "@contentful/content-source-maps" "^0.6.0"
     "@contentful/rich-text-types" "^16.0.2"
-    axios "^1.6.7"
+    axios "~1.6.8"
     contentful-resolve-response "^1.8.1"
     contentful-sdk-core "^8.1.0"
     json-stringify-safe "^5.0.1"
