@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.metadataService.updateMetadata({
-      title: 'About myself (Valery Melou)',
+      title: 'About myself | Valery Melou',
       description:
         "I'm now specialized into web development. Building RESTfull APIs with Django and Python then, consuming those APIs with Angular and Typescript.",
     });

@@ -19,7 +19,6 @@ import {
 } from '@ng-icons/material-icons/round';
 
 import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
-import { ThemeService } from '@valerymelou/core/theming';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 
 @Component({
@@ -49,19 +48,9 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
   ],
 })
 export class SocialBarComponent {
-  theme = 'dark';
   isHome = false;
 
-  constructor(
-    router: Router,
-    private themeService: ThemeService,
-  ) {
-    themeService.getTheme().subscribe({
-      next: (theme: string) => {
-        this.theme = theme;
-      },
-    });
-
+  constructor(router: Router) {
     router.events
       .pipe(filter((event: unknown) => event instanceof NavigationEnd))
       .subscribe((event: unknown) => {
@@ -69,13 +58,5 @@ export class SocialBarComponent {
           this.isHome = event.urlAfterRedirects === '/';
         }
       });
-  }
-
-  changeTheme(theme: 'dark' | 'light'): void {
-    this.themeService.changeTheme(theme);
-  }
-
-  resetTheme(): void {
-    this.themeService.resetPreferredTheme();
   }
 }
