@@ -8,6 +8,4 @@ import { LinkComponent } from '@valerymelou/shared/ui';
   imports: [CommonModule, LinkComponent],
   templateUrl: './footer.component.html',
 })
-export class FooterComponent {
-  year = new Date().getFullYear();
-}
+export class FooterComponent {}

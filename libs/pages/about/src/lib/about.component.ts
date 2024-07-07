@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MetadataService } from '@valerymelou/shared/seo';
+import { LinkComponent } from '@valerymelou/shared/ui';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LinkComponent],
   templateUrl: './about.component.html',
 })
 export class AboutComponent implements OnInit {

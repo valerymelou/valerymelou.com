@@ -13,13 +13,13 @@ module.exports = {
     extend: {
       colors: {
         ...colors,
-        dark: '#080E29',
+        dark: '#080e29',
         secondary: {
-          dark: '#131B62',
-          light: '#EEF3F7',
+          dark: '#131b62',
+          light: '#eef3f7',
         },
         accent: {
-          base: '#3754ED',
+          base: '#3754ed',
         },
       },
       fontFamily: {

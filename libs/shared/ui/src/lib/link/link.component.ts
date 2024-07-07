@@ -11,12 +11,13 @@ export class LinkComponent {
   constructor(private _elementRef: ElementRef<HTMLElement>) {
     // Button base classes:
     this.getHostElement().classList.add(
-      'hover:text-accent-base',
-      'font-normal',
+      'text-accent-base',
+      'dark:text-white',
+      'dark:hover:text-accent-base',
+      'font-medium',
       'transition-all',
       'duration-300',
       'ease-in-out',
-      'dark:text-white',
     );
   }
 
