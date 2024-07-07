@@ -6,8 +6,6 @@ import {
   Article,
   ArticleService,
   Results,
-  Tag,
-  TagService,
 } from '@valerymelou/blob/data-access';
 import { LinkComponent } from '@valerymelou/shared/ui';
 import { RouterModule } from '@angular/router';
@@ -21,7 +19,6 @@ import { MetadataService } from '@valerymelou/shared/seo';
 })
 export class BlogHomeComponent implements OnInit {
   articles$!: Observable<Results<Article>>;
-  tags$!: Observable<Results<Tag>>;
 
   ngOnInit(): void {
     this.metadataService.updateMetadata({
@@ -30,20 +27,14 @@ export class BlogHomeComponent implements OnInit {
         'I talk about Django, Angular... Web Development in general and many other topics. These are just a few of the things in my head.',
     });
     this.loadArticles();
-    this.loadTags();
   }
 
   constructor(
     private articleService: ArticleService,
     private metadataService: MetadataService,
-    private tagService: TagService,
   ) {}
 
   loadArticles(): void {
     this.articles$ = this.articleService.get({});
-  }
-
-  loadTags(): void {
-    this.tags$ = this.tagService.getAll();
   }
 }
