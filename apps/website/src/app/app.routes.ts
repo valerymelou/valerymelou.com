@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { BaseLayoutComponent } from '@valerymelou/shared/layout';
-import { themeResolver } from '@valerymelou/core/theming';
+import { themeResolver } from '@valerymelou/shared/theming';
 
 export const appRoutes: Route[] = [
   {

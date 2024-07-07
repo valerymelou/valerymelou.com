@@ -14,7 +14,7 @@ import {
   matMenuRound,
 } from '@ng-icons/material-icons/round';
 import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
-import { ThemeService } from '@valerymelou/core/theming';
+import { ThemeService } from '@valerymelou/shared/theming';
 
 interface SocialLink {
   icon: string;
@@ -75,7 +75,7 @@ export class SocialLinksComponent {
   }
 
   changeTheme(theme: 'dark' | 'light'): void {
-    this.themeService.changeTheme(theme);
+    this.themeService.changeTheme(theme, false);
   }
 
   resetTheme(): void {

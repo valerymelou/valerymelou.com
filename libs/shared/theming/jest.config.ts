@@ -3,7 +3,7 @@ export default {
   displayName: 'theming',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/core/theming',
+  coverageDirectory: '../../../coverage/libs/shared/theming',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
