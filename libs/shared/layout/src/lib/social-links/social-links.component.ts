@@ -6,6 +6,15 @@ import {
   bootstrapLinkedin,
   bootstrapTwitterX,
 } from '@ng-icons/bootstrap-icons';
+import {
+  matCloseRound,
+  matDarkModeRound,
+  matDesktopMacRound,
+  matLightModeRound,
+  matMenuRound,
+} from '@ng-icons/material-icons/round';
+import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
+import { ThemeService } from '@valerymelou/core/theming';
 
 interface SocialLink {
   icon: string;
@@ -16,14 +25,29 @@ interface SocialLink {
 @Component({
   selector: 'app-social-links',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [
+    CommonModule,
+    NgIconComponent,
+    MenuTriggerForDirective,
+    MenuComponent,
+  ],
   templateUrl: './social-links.component.html',
   viewProviders: [
-    provideIcons({ bootstrapGithub, bootstrapLinkedin, bootstrapTwitterX }),
+    provideIcons({
+      bootstrapGithub,
+      bootstrapLinkedin,
+      bootstrapTwitterX,
+      matCloseRound,
+      matDarkModeRound,
+      matDesktopMacRound,
+      matLightModeRound,
+      matMenuRound,
+    }),
   ],
 })
 export class SocialLinksComponent {
   @Input({ transform: booleanAttribute }) vertical = false;
+  theme = 'dark';
   socialLinks: SocialLink[] = [
     {
       icon: 'bootstrapGithub',
@@ -41,4 +65,20 @@ export class SocialLinksComponent {
       text: 'Linkedin',
     },
   ];
+
+  constructor(private themeService: ThemeService) {
+    themeService.getTheme().subscribe({
+      next: (theme: string) => {
+        this.theme = theme;
+      },
+    });
+  }
+
+  changeTheme(theme: 'dark' | 'light'): void {
+    this.themeService.changeTheme(theme);
+  }
+
+  resetTheme(): void {
+    this.themeService.resetPreferredTheme();
+  }
 }

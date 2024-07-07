@@ -18,4 +18,16 @@ describe('SocialLinksComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change the theme', () => {
+    component.changeTheme('dark');
+
+    expect(component.theme).toBe('dark');
+  });
+
+  it('should reset theme to preferred theme', () => {
+    component.resetTheme();
+
+    expect(component.theme).toBe('light');
+  });
 });

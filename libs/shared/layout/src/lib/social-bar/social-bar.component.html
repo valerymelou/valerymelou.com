@@ -1,8 +1,8 @@
 <aside
   class="fixed bottom-0 top-0 z-10 hidden flex-col items-center justify-between py-10 transition-all duration-500 ease-in-out lg:flex"
   [ngClass]="{
-    'px-4 lg:px-16': isHome,
-    'lg:dark:bg-dark bg-transparent px-3 lg:bg-white': !isHome
+    'px-4 lg:px-14': isHome,
+    'lg:dark:bg-dark bg-transparent px-4 lg:bg-white': !isHome
   }"
 >
   <a href="/" class="flex items-center">
@@ -19,10 +19,10 @@
     <a
       routerLink="/"
       aria-label="Back to home"
-      class="bottom-1/2 top-1/2 hidden lg:fixed lg:block"
+      class="hidden h-full w-full lg:flex"
     >
       <span
-        class="absolute left-1/2 top-1/2 block origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 text-sm uppercase"
+        class="absolute left-1/2 top-1/2 block origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 text-sm font-medium uppercase"
         >Home</span
       >
     </a>
@@ -30,42 +30,5 @@
 
   <div class="flex-col space-y-6 lg:flex">
     <app-social-links vertical=""></app-social-links>
-    <button
-      class="flex items-center transition-all duration-300 ease-in-out hover:text-black focus:text-black active:text-black dark:text-slate-400 dark:hover:text-white dark:focus:text-white dark:active:text-white"
-      [uiMenuTriggerFor]="themeMenu"
-      [xPosition]="'after'"
-      aria-label="Change theme"
-    >
-      <ng-icon
-        [name]="theme === 'dark' ? 'matDarkModeRound' : 'matLightModeRound'"
-        size="24"
-      ></ng-icon>
-    </button>
   </div>
 </aside>
-
-<ui-menu #themeMenu>
-  <div class="flex flex-col items-start space-y-3">
-    <button
-      class="flex items-center space-x-4 px-3 dark:hover:text-white dark:focus:text-white dark:active:text-white"
-      (click)="changeTheme('light')"
-    >
-      <ng-icon name="matLightModeRound"></ng-icon>
-      <span>Light</span>
-    </button>
-    <button
-      class="flex items-center space-x-4 px-3 dark:hover:text-white dark:focus:text-white dark:active:text-white"
-      (click)="changeTheme('dark')"
-    >
-      <ng-icon name="matDarkModeRound"></ng-icon>
-      <span>Dark</span>
-    </button>
-    <button
-      class="flex items-center space-x-4 px-3 dark:hover:text-white dark:focus:text-white dark:active:text-white"
-      (click)="resetTheme()"
-    >
-      <ng-icon name="matDesktopMacRound"></ng-icon>
-      <span>System</span>
-    </button>
-  </div>
-</ui-menu>
