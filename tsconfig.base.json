@@ -23,7 +23,8 @@
       "@valerymelou/pages/home": ["libs/pages/home/src/index.ts"],
       "@valerymelou/pages/projects": ["libs/pages/projects/src/index.ts"],
       "@valerymelou/shared/layout": ["libs/shared/layout/src/index.ts"],
-      "@valerymelou/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@valerymelou/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@valerymelou/shared/seo": ["libs/shared/seo/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
