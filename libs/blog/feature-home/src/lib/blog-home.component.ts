@@ -6,13 +6,13 @@ import {
   Article,
   ArticleService,
   Results,
-} from '@valerymelou/blob/data-access';
+} from '@valerymelou/blog/data-access';
 import { LinkComponent } from '@valerymelou/shared/ui';
 import { RouterModule } from '@angular/router';
 import { MetadataService } from '@valerymelou/shared/seo';
 
 @Component({
-  selector: 'blog-blog-home',
+  selector: 'blog-home',
   standalone: true,
   imports: [CommonModule, RouterModule, LinkComponent],
   templateUrl: './blog-home.component.html',

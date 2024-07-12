@@ -16,6 +16,7 @@
     "@angular/platform-browser": "18.0.0",
     "@angular/platform-browser-dynamic": "18.0.0",
     "@angular/router": "18.0.0",
+    "@contentful/rich-text-types": "^16.6.1",
     "@ng-icons/bootstrap-icons": "^27.3.1",
     "@ng-icons/core": "^27.3.1",
     "@ng-icons/material-icons": "^27.5.2",

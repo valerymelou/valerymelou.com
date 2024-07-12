@@ -60,7 +60,7 @@ export class NavbarComponent {
         if (event instanceof NavigationEnd) {
           this.isAbout = event.urlAfterRedirects === '/about';
           this.isProject = event.urlAfterRedirects === '/projects';
-          this.isBlog = event.urlAfterRedirects === '/blog';
+          this.isBlog = event.urlAfterRedirects.startsWith('/blog');
         }
       });
   }
