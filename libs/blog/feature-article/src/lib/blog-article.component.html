@@ -1,0 +1,23 @@
+@if (article$ | async; as article) {
+  <article class="relative my-10 max-w-3xl pt-10">
+    <dl>
+      <dt class="sr-only">Date</dt>
+      <dd class="top-0 whitespace-nowrap text-sm leading-6">
+        <time [attr.datetime]="article.createdAt">{{
+          article.createdAt | date: 'mediumDate'
+        }}</time>
+      </dd>
+    </dl>
+    <h1
+      class="my-5 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
+    >
+      {{ article.title }}
+    </h1>
+
+    <h2>
+      {{ article.abstract }}
+    </h2>
+
+    <div class="my-10"></div>
+  </article>
+}

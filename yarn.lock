@@ -1606,6 +1606,11 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.5.0.tgz#f82f38d2131ebae10458990cbb7574d9b77b77e7"
   integrity sha512-Z5fls/6Hs+ETq6vx+sfiq+n+z3dwurPVJukgLvThdvzs4VlChoPkRIKr4WrBdjzLYqUspawlf7XvtuUpp32glw==
 
+"@contentful/rich-text-types@^16.6.1":
+  version "16.6.1"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.6.1.tgz#d7a0890b885ab681028aa7f1085e219d8b2c51be"
+  integrity sha512-Rb8QusSMSTMUP4dbpBDWgwGJoqKDYRxPcNXySP0URYTQ6pViJ2SXhVc81RJCgJ5Fb02n5ctbvDYGtcnBH8yhDw==
+
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz#00629c35a688e05a88b1cda684fb9d5e73f000a1"
@@ -10382,6 +10387,7 @@ wildcard@^2.0.0:
   integrity sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

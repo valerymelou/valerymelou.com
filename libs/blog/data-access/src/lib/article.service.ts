@@ -38,4 +38,20 @@ export class ArticleService {
       }),
     );
   }
+
+  getOne(slug: string): Observable<Article> {
+    return this.contentfulService
+      .getEntries(this.contentType, { 'fields.slug[match]': slug })
+      .pipe(
+        map(
+          (entries: EntryCollection<EntrySkeletonType, undefined, string>) => {
+            if (entries.items.length === 0) {
+              throw new Error('Article not found');
+            }
+
+            return Article.fromEntry(entries.items[0], entries.includes?.Asset);
+          },
+        ),
+      );
+  }
 }

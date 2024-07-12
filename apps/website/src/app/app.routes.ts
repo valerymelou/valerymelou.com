@@ -36,6 +36,14 @@ export const appRoutes: Route[] = [
           import('@valerymelou/blog/home').then((c) => c.BlogHomeComponent),
         data: { animation: 'BlogHomePage' },
       },
+      {
+        path: 'blog/:slug',
+        loadComponent: () =>
+          import('@valerymelou/blog/article').then(
+            (c) => c.BlogArticleComponent,
+          ),
+        data: { animation: 'BlogHomePage' },
+      },
     ],
   },
 ];

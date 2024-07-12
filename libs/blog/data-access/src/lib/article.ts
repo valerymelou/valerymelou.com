@@ -15,10 +15,11 @@ export class Article {
   createdAt = '';
   updatedAt = '';
   tags: Tag[] = [];
+  content: any;
 
   static fromEntry(
     entry: Entry<EntrySkeletonType, undefined, string>,
-    assets?: ContentfulAsset[]
+    assets?: ContentfulAsset[],
   ): Article {
     const article = new Article();
     article.title = entry.fields['title'] as string;
@@ -45,6 +46,7 @@ export class Article {
           .join(),
       });
     });
+    article.content = entry.fields['content'];
     return article;
   }
 }
