@@ -1,15 +1,33 @@
 on:
   workflow_call:
-    inputs:
-      environment:
-        required: true
-        type: string
-        description: 'The environment to deploy to'
 
 jobs:
-  deploy:
+  staging:
+    if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+
+      - run: yarn install
+      - run: npx nx run website:build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: preview
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+  production:
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: staging
     steps:
       - uses: actions/checkout@v4
 
