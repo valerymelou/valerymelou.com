@@ -13,6 +13,8 @@ concurrency:
 permissions:
   actions: read
   contents: read
+  checks: write
+  pull-requests: write
 
 jobs:
   test:
@@ -54,3 +56,19 @@ jobs:
           path: |
             .nx
           key: ${{ steps.nx-cache-restore.outputs.cache-primary-key }}
+
+  deploy-preview:
+    if: github.ref == 'refs/heads/develop'
+    needs: test
+    uses: ./.github/workflows/cd.yml
+    secrets: inherit
+    with:
+      environment: staging
+
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    needs: test
+    uses: ./.github/workflows/cd.yml
+    secrets: inherit
+    with:
+      environment: production
