@@ -58,7 +58,7 @@ jobs:
           key: ${{ steps.nx-cache-restore.outputs.cache-primary-key }}
 
   deploy-preview:
-    if: github.ref == 'refs/heads/develop' or github.event.pull_request.head.repo.full_name == github.repository
+    if: github.ref == 'refs/heads/develop' || github.event.pull_request.head.repo.full_name == github.repository
     uses: ./.github/workflows/cd.yml
     secrets: inherit
     with:
