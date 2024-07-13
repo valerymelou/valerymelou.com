@@ -20,7 +20,7 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-output
+          name: build-output-${{ github.ref_name }}
           path: |
             dist
 
@@ -35,7 +35,8 @@ jobs:
       - name: Download build result
         uses: actions/download-artifact@v4
         with:
-          name: build-output
+          path: dist
+          name: build-output-${{ github.ref_name }}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -55,7 +56,8 @@ jobs:
       - name: Download build result
         uses: actions/download-artifact@v4
         with:
-          name: build-output
+          path: dist
+          name: build-output-${{ github.ref_name }}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
