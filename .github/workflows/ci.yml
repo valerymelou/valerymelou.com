@@ -57,18 +57,7 @@ jobs:
             .nx
           key: ${{ steps.nx-cache-restore.outputs.cache-primary-key }}
 
-  deploy-preview:
-    if: github.ref == 'refs/heads/develop'
-    needs: test
-    uses: ./.github/workflows/cd.yml
-    secrets: inherit
-    with:
-      environment: staging
-
   deploy:
-    if: github.ref == 'refs/heads/master'
     needs: test
     uses: ./.github/workflows/cd.yml
     secrets: inherit
-    with:
-      environment: production
