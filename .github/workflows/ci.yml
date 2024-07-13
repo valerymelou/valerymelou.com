@@ -58,6 +58,7 @@ jobs:
           key: ${{ steps.nx-cache-restore.outputs.cache-primary-key }}
 
   deploy:
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
     needs: test
     uses: ./.github/workflows/cd.yml
     secrets: inherit
