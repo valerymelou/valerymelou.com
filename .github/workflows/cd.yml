@@ -9,6 +9,8 @@ jobs:
       VM_CONTENTFUL_SPACE: ${{ secrets.VM_CONTENTFUL_SPACE }}
       VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
       VM_CONTENTFUL_ENVIRONMENT: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+    outputs:
+      ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
     steps:
       - uses: actions/checkout@v4
 
@@ -24,9 +26,30 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-output-${{ github.ref_name }}
+          name: build-output-${{ env.VM_CONTENTFUL_ENVIRONMENT }}
           path: |
             dist
+
+  preview:
+    if: ${{ github.event.pull_request.base.ref == 'develop' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: preview
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
 
   staging:
     if: github.ref == 'refs/heads/develop'
@@ -40,13 +63,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: dist
-          name: build-output-${{ github.ref_name }}
+          name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: preview
+          channelId: live
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
 
   production:
@@ -61,7 +84,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: dist
-          name: build-output-${{ github.ref_name }}
+          name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
