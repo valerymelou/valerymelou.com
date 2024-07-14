@@ -5,6 +5,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+    env:
+      VM_CONTENTFUL_SPACE: ${{ secrets.VM_CONTENTFUL_SPACE }}
+      VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
+      VM_CONTENTFUL_ENVIRONMENT: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
     steps:
       - uses: actions/checkout@v4
 
