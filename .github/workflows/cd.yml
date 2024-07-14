@@ -1,0 +1,71 @@
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+    env:
+      VM_CONTENTFUL_SPACE: ${{ secrets.VM_CONTENTFUL_SPACE }}
+      VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
+      VM_CONTENTFUL_ENVIRONMENT: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+
+      - run: yarn install
+      - run: npx nx run website:build
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output-${{ github.ref_name }}
+          path: |
+            dist
+
+  staging:
+    if: github.ref == 'refs/heads/develop'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ github.ref_name }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: preview
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+  production:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ github.ref_name }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
