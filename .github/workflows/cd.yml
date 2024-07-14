@@ -28,6 +28,27 @@ jobs:
           path: |
             dist
 
+  preview:
+    if: ${{ github.event.pull_request.base.ref == 'develop' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ github.ref_name }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: preview
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+
   staging:
     if: github.ref == 'refs/heads/develop'
     needs: build
