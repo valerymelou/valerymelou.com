@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BlogHomeComponent } from './blog-home.component';
-import { Article, ArticleService } from '@valerymelou/blob/data-access';
+
 import { of } from 'rxjs';
+
+import { Article, ArticleService } from '@valerymelou/blog/data-access';
+
+import { BlogHomeComponent } from './blog-home.component';
 
 describe('BlogHomeComponent', () => {
   let component: BlogHomeComponent;
