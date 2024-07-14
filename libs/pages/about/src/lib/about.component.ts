@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MetadataService } from '@valerymelou/shared/seo';
 import { LinkComponent } from '@valerymelou/shared/ui';
@@ -9,11 +9,9 @@ import { LinkComponent } from '@valerymelou/shared/ui';
   imports: [CommonModule, LinkComponent],
   templateUrl: './about.component.html',
 })
-export class AboutComponent implements OnInit {
-  constructor(private metadataService: MetadataService) {}
-
-  ngOnInit(): void {
-    this.metadataService.updateMetadata({
+export class AboutComponent {
+  constructor(metadataService: MetadataService) {
+    metadataService.updateMetadata({
       title: 'About myself | Valery Melou',
       description:
         "I'm now specialized into web development. Building RESTfull APIs with Django and Python then, consuming those APIs with Angular and Typescript.",

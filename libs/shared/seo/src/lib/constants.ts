@@ -6,6 +6,6 @@ export const DEFAULT_METADATA: PageMetadata = {
   description: 'Web developer from Yaounde, Cameroon',
   keywords: ['angular', 'django', 'angular', 'web', 'developer', 'yaounde'],
   type: 'website',
-  image: '/assets/images/logo.png',
+  image: '/assets/images/valerymelou.jpg',
   imageAlt: APP_NAME,
 };

@@ -21,18 +21,19 @@ export class BlogHomeComponent implements OnInit {
   articles$!: Observable<Results<Article>>;
 
   ngOnInit(): void {
-    this.metadataService.updateMetadata({
-      title: 'Inside my head | Valery Melou',
-      description:
-        'I talk about Django, Angular... Web Development in general and many other topics. These are just a few of the things in my head.',
-    });
     this.loadArticles();
   }
 
   constructor(
     private articleService: ArticleService,
-    private metadataService: MetadataService,
-  ) {}
+    metadataService: MetadataService,
+  ) {
+    metadataService.updateMetadata({
+      title: 'Inside my head | Valery Melou',
+      description:
+        'I talk about Django, Angular... Web Development in general and many other topics. These are just a few of the things in my head.',
+    });
+  }
 
   loadArticles(): void {
     this.articles$ = this.articleService.get({});
