@@ -10,7 +10,7 @@ jobs:
       VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
       VM_CONTENTFUL_ENVIRONMENT: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
     outputs:
-      ENVIRONMENT: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+      ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +26,7 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-output-${{ env.ENVIRONMENT }}
+          name: build-output-${{ env.VM_CONTENTFUL_ENVIRONMENT }}
           path: |
             dist
 
