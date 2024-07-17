@@ -59,8 +59,7 @@ jobs:
 
   deploy:
     if: >
-      (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || github.event.pull_request.base.ref == 'develop') &&
-      github.event.pull_request.user.login == 'valerymelou'
+      (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' || (github.event.pull_request.base.ref == 'develop' && github.event.pull_request.head.repo.full_name == github.repository))
     needs: test
     uses: ./.github/workflows/cd.yml
     secrets: inherit
