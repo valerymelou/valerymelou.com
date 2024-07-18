@@ -13,11 +13,13 @@ export class LinkComponent {
     this.getHostElement().classList.add(
       'text-accent-base',
       'dark:text-white',
-      'dark:hover:text-accent-base',
       'font-medium',
       'transition-all',
       'duration-300',
       'ease-in-out',
+      'dark:border-b',
+      'dark:border-blue-500',
+      'dark:hover:border-b-2',
     );
   }
 
