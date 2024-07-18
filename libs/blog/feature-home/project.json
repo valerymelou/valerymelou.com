@@ -1,5 +1,5 @@
 {
-  "name": "feature-home",
+  "name": "blog-home",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/blog/feature-home/src",
   "prefix": "blog",

@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
+
+import { of } from 'rxjs';
+
+import { ArticleService, Article } from '@valerymelou/blog/data-access';
 
 import { BlogArticleComponent } from './blog-article.component';
-import { ArticleService, Article } from '@valerymelou/blog/data-access';
-import { of } from 'rxjs';
 
 describe('BlogArticleComponent', () => {
   let component: BlogArticleComponent;
@@ -14,6 +16,12 @@ describe('BlogArticleComponent', () => {
       imports: [BlogArticleComponent],
       providers: [
         provideRouter([]),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ slug: 'test' }),
+          },
+        },
         {
           provide: ArticleService,
           useValue: {
