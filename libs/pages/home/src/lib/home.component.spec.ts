@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
+import { MetadataService } from '@valerymelou/shared/seo';
+
 import { HomeComponent } from './home.component';
 
 describe('AboutComponent', () => {
@@ -10,7 +12,13 @@ describe('AboutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomeComponent],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([]),
+        {
+          provide: MetadataService,
+          useValue: { updateMetadata: () => true },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);

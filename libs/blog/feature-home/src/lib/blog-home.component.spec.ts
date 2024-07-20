@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { Article, ArticleService } from '@valerymelou/blog/data-access';
+import { MetadataService } from '@valerymelou/shared/seo';
 
 import { BlogHomeComponent } from './blog-home.component';
 
@@ -19,6 +20,10 @@ describe('BlogHomeComponent', () => {
           useValue: {
             get: () => of({ data: [new Article(), new Article()] }),
           },
+        },
+        {
+          provide: MetadataService,
+          useValue: { updateMetadata: () => true },
         },
       ],
     }).compileComponents();
