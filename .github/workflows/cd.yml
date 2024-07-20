@@ -21,6 +21,9 @@ jobs:
           cache: 'yarn'
 
       - run: yarn install
+      # Generate the routes for prerendering. This is the only way I found to pass
+      # environment variables to the executor.
+      - run: VM_CONTENTFUL_SPACE=${{ env.VM_CONTENTFUL_SPACE }} VM_CONTENTFUL_ACCESS_TOKEN=${{ env.VM_CONTENTFUL_ACCESS_TOKEN }} VM_CONTENTFUL_ENVIRONMENT=${{ env.VM_CONTENTFUL_ENVIRONMENT }} yarn nx run website:build-routes
       - run: npx nx run website:prerender
 
       - name: Archive artifacts

@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "routes": {
+      "implementation": "./src/lib/executor",
+      "schema": "./src/lib/schema.json",
+      "description": "Create a file of parameterized routes"
+    }
+  }
+}
