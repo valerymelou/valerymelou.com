@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MetadataService } from '@valerymelou/shared/seo';
 import { LinkComponent } from '@valerymelou/shared/ui';
 
@@ -8,6 +9,7 @@ import { LinkComponent } from '@valerymelou/shared/ui';
   standalone: true,
   imports: [CommonModule, LinkComponent],
   templateUrl: './about.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
   constructor(metadataService: MetadataService) {

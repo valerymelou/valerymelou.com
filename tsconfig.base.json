@@ -19,6 +19,7 @@
       "@valerymelou/blog/data-access": ["libs/blog/data-access/src/index.ts"],
       "@valerymelou/blog/home": ["libs/blog/feature-home/src/index.ts"],
       "@valerymelou/cms/contentful": ["libs/cms/contentful/src/index.ts"],
+      "@valerymelou/common/browser": ["libs/common/browser/src/index.ts"],
       "@valerymelou/pages/about": ["libs/pages/about/src/index.ts"],
       "@valerymelou/pages/home": ["libs/pages/home/src/index.ts"],
       "@valerymelou/pages/projects": ["libs/pages/projects/src/index.ts"],
