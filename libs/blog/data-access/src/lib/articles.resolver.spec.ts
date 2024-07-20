@@ -1,9 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { ResolveFn } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  ResolveFn,
+  RouterStateSnapshot,
+} from '@angular/router';
 
 import { articlesResolver } from './articles.resolver';
 import { Results } from './results';
 import { Article } from './article';
+import { ArticleService } from './article.service';
+import { of } from 'rxjs';
 
 describe('articlesResolver', () => {
   const executeResolver: ResolveFn<Results<Article>> = (
@@ -14,10 +20,23 @@ describe('articlesResolver', () => {
     );
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: ArticleService,
+          useValue: {
+            get: () => of({ items: [new Article(), new Article()] }),
+          },
+        },
+      ],
+    });
   });
 
-  it('should be created', () => {
-    expect(executeResolver).toBeTruthy();
+  it('should get the articles', () => {
+    const articleService = TestBed.inject(ArticleService);
+    const getSpy = jest.spyOn(articleService, 'get');
+
+    executeResolver({} as ActivatedRouteSnapshot, {} as RouterStateSnapshot);
+    expect(getSpy).toHaveBeenCalled();
   });
 });

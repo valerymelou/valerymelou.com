@@ -373,4 +373,17 @@ describe('ArticleService', () => {
       expect(articles.items.length === 1);
     });
   });
+
+  it('should get one article entry', () => {
+    service
+      .getOne(
+        'the-django-administration-site-one-of-the-reasons-why-i-love-django',
+      )
+      .subscribe((article: Article) => {
+        expect(
+          article.title ===
+            'The Django administration site: One of the reasons why I love Django',
+        );
+      });
+  });
 });

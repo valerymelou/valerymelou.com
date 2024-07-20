@@ -33,7 +33,10 @@ export const appConfig: ApplicationConfig = {
             matches: true,
           }),
           location: {
-            origin: 'https://valerymelou.com',
+            origin:
+              process.env['VM_CONTENTFUL_ENVIRONMENT'] === 'master'
+                ? 'https://valerymelou.com'
+                : 'https://staging.valerymelou.com/',
             href: '',
           },
         };
