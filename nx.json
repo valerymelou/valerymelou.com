@@ -15,7 +15,6 @@
     ],
     "sharedGlobals": []
   },
-  "nxCloudAccessToken": "ODlhMWUwNGItYTZjMi00M2VjLWI3MGYtOTA2Yjc5MTZmMmQxfHJlYWQ=",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
@@ -43,6 +42,14 @@
           "codeCoverage": true
         }
       }
+    },
+    "@angular-devkit/build-angular:browser": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "server": {
+      "cache": true
     }
   },
   "generators": {
@@ -55,9 +62,6 @@
     "@nx/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest"
-    },
-    "@nx/angular:component": {
-      "style": "none"
     }
   }
 }

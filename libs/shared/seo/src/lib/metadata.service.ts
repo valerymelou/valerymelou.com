@@ -1,13 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
-import { PageMetadata } from './page-metadata';
+
+import { WINDOW_TOKEN } from '@valerymelou/common/browser';
+
 import { DEFAULT_METADATA } from './constants';
+import { PageMetadata } from './page-metadata';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MetadataService {
   constructor(
+    @Inject(WINDOW_TOKEN) private window: Window,
     private meta: Meta,
     private title: Title,
   ) {}
@@ -42,11 +46,9 @@ export class MetadataService {
   }
 
   private generateOgMetaDefinitions(metadata: PageMetadata): MetaDefinition[] {
-    const imageUrl = metadata.image.startsWith('http')
-      ? metadata.image
-      : window.location.origin + metadata.image;
+    const imageUrl = this.buildImageUrl(metadata.image);
     return [
-      { name: 'og:url', content: window.location.href },
+      { name: 'og:url', content: this.window.location.href },
       { property: 'og:title', content: metadata.title },
       { property: 'og:description', content: metadata.description },
       { property: 'og:type', content: metadata.type },
@@ -57,9 +59,7 @@ export class MetadataService {
   }
 
   private generateXMetaDefinitions(metadata: PageMetadata): MetaDefinition[] {
-    const imageUrl = metadata.image.startsWith('http')
-      ? metadata.image
-      : window.location.origin + metadata.image;
+    const imageUrl = this.buildImageUrl(metadata.image);
     return [
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', content: '@valerymelou' },
@@ -68,5 +68,11 @@ export class MetadataService {
       { name: 'twitter:image', content: imageUrl },
       { name: 'twitter:image:alt', content: metadata.imageAlt },
     ];
+  }
+
+  private buildImageUrl(image: string): string {
+    return image.startsWith('http')
+      ? image
+      : this.window.location.origin + image;
   }
 }

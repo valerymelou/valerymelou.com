@@ -9,14 +9,18 @@ import {
   AnimationMetadata,
 } from '@angular/animations';
 
+function isMobile() {
+  if (typeof window === 'undefined' || typeof window.document !== 'undefined') return false;
+  return matchMedia('(max-width: 768px)').matches;
+}
+
 const pages = ['HomePage', 'AboutPage', 'ProjectsPage', 'BlogHomePage'];
 const transissions: AnimationMetadata[] = [];
 
-const isMobile = matchMedia('(max-width: 768px)').matches;
-const enterStyleOne = isMobile
+const enterStyleOne = isMobile()
   ? { top: '100%' }
   : ({ left: '100%' } as { top: string; left: string });
-const enterStyleTwo = isMobile
+const enterStyleTwo = isMobile()
   ? { top: '-100%' }
   : ({ left: '-100%' } as { top: string; left: string });
 

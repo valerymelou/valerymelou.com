@@ -7,11 +7,5 @@ export const themeResolver: ResolveFn<boolean> = () => {
   const preferredTheme = themeService.getPreferredTheme();
   themeService.changeTheme(preferredTheme);
 
-  if (preferredTheme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-
   return true;
 };

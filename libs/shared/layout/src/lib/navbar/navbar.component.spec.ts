@@ -7,13 +7,21 @@ import {
 import { NavbarComponent } from './navbar.component';
 import { Router, provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
+import { SocialLinksComponent } from '../social-links/social-links.component';
+
+@Component({
+  selector: 'app-social-links',
+  template: 'social links works!',
+  standalone: true,
+})
+class SocialLinksStubComponent {}
 
 @Component({
   selector: 'app-about',
-  template: '',
+  template: 'about works!',
   standalone: true,
 })
-export class AboutComponent {}
+class AboutStubComponent {}
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -22,11 +30,16 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent, AboutComponent],
+      imports: [NavbarComponent, AboutStubComponent],
       providers: [
-        provideRouter([{ path: 'about', component: AboutComponent }]),
+        provideRouter([{ path: 'about', component: AboutStubComponent }]),
       ],
-    }).compileComponents();
+    })
+      .overrideComponent(NavbarComponent, {
+        add: { imports: [SocialLinksStubComponent] },
+        remove: { imports: [SocialLinksComponent] },
+      })
+      .compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
