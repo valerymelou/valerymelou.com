@@ -1,18 +1,37 @@
 import { TestBed } from '@angular/core/testing';
-import { ResolveFn } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  ResolveFn,
+  RouterStateSnapshot,
+} from '@angular/router';
 
-import { articleResolver } from './article.resolver';
+import { of } from 'rxjs';
+
 import { Article } from './article';
+import { articleResolver } from './article.resolver';
+import { ArticleService } from './article.service';
 
 describe('articleResolver', () => {
   const executeResolver: ResolveFn<Article> = (...resolverParameters) =>
     TestBed.runInInjectionContext(() => articleResolver(...resolverParameters));
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: ArticleService,
+          useValue: { getOne: () => of(new Article()) },
+        },
+      ],
+    });
   });
 
-  it('should be created', () => {
-    expect(executeResolver).toBeTruthy();
+  it('should get the article', () => {
+    const route: unknown = { params: { slug: '2024-07-20-test-article' } };
+    const articleService = TestBed.inject(ArticleService);
+    const getOneSpy = jest.spyOn(articleService, 'getOne');
+
+    executeResolver(route as ActivatedRouteSnapshot, {} as RouterStateSnapshot);
+    expect(getOneSpy).toHaveBeenCalledWith('test-article');
   });
 });
