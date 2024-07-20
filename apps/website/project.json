@@ -123,7 +123,8 @@
     "prerender": {
       "executor": "@angular-devkit/build-angular:prerender",
       "options": {
-        "routes": ["/"]
+        "routes": ["/"],
+        "routesFile": "apps/website/src/routes.txt"
       },
       "configurations": {
         "development": {
@@ -136,6 +137,14 @@
         }
       },
       "defaultConfiguration": "production"
+    },
+    "build-routes": {
+      "executor": "@valerymelou/blog-tasks:routes",
+      "options": {
+        "contentType": "article",
+        "outputPath": "apps/website/src/routes.txt",
+        "limit": "10"
+      }
     }
   }
 }

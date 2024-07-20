@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { of } from 'rxjs';
 
-import { Article, ArticleService } from '@valerymelou/blog/data-access';
+import { Article } from '@valerymelou/blog/data-access';
 import { MetadataService } from '@valerymelou/shared/seo';
 
 import { BlogHomeComponent } from './blog-home.component';
@@ -16,9 +17,9 @@ describe('BlogHomeComponent', () => {
       imports: [BlogHomeComponent],
       providers: [
         {
-          provide: ArticleService,
+          provide: ActivatedRoute,
           useValue: {
-            get: () => of({ data: [new Article(), new Article()] }),
+            data: of({ articles: { items: [new Article(), new Article()] } }),
           },
         },
         {

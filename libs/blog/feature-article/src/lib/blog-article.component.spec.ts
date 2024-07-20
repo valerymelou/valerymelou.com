@@ -3,7 +3,7 @@ import { ActivatedRoute, provideRouter } from '@angular/router';
 
 import { of } from 'rxjs';
 
-import { ArticleService, Article } from '@valerymelou/blog/data-access';
+import { Article } from '@valerymelou/blog/data-access';
 import { MetadataService } from '@valerymelou/shared/seo';
 
 import { BlogArticleComponent } from './blog-article.component';
@@ -20,13 +20,7 @@ describe('BlogArticleComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            params: of({ slug: 'test' }),
-          },
-        },
-        {
-          provide: ArticleService,
-          useValue: {
-            getOne: () => of(new Article()),
+            data: of({ article: new Article() }),
           },
         },
         {

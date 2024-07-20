@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
 
-import {
-  Article,
-  ArticleService,
-  Results,
-} from '@valerymelou/blog/data-access';
+import { Article, Results } from '@valerymelou/blog/data-access';
 import { LinkComponent } from '@valerymelou/shared/ui';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MetadataService } from '@valerymelou/shared/seo';
 
 @Component({
@@ -17,25 +12,19 @@ import { MetadataService } from '@valerymelou/shared/seo';
   imports: [CommonModule, RouterModule, LinkComponent],
   templateUrl: './blog-home.component.html',
 })
-export class BlogHomeComponent implements OnInit {
-  articles$!: Observable<Results<Article>>;
+export class BlogHomeComponent {
+  articles!: Results<Article>;
 
-  ngOnInit(): void {
-    this.loadArticles();
-  }
-
-  constructor(
-    private articleService: ArticleService,
-    metadataService: MetadataService,
-  ) {
+  constructor(route: ActivatedRoute, metadataService: MetadataService) {
+    route.data.subscribe({
+      next: (data) => {
+        this.articles = data['articles'];
+      },
+    });
     metadataService.updateMetadata({
       title: 'Inside my head | Valery Melou',
       description:
         'I talk about Django, Angular... Web Development in general and many other topics. These are just a few of the things in my head.',
     });
-  }
-
-  loadArticles(): void {
-    this.articles$ = this.articleService.get({});
   }
 }
