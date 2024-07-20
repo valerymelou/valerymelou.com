@@ -1,169 +1,167 @@
-@if (article$ | async; as article) {
-  <article class="relative max-w-3xl pt-10">
-    <a
-      routerLink="/blog"
-      ui-flat-button
-      color="accent"
-      aria-label="Go back"
-      class="mb-4"
-    >
-      <ng-icon name="bootstrapArrowLeft" strokeWidth="5" size="20"></ng-icon>
-    </a>
-    <dl>
-      <dt class="sr-only">Date</dt>
-      <dd class="top-0 whitespace-nowrap text-sm leading-6">
-        <time [attr.datetime]="article.createdAt">{{
-          article.createdAt | date: 'mediumDate'
-        }}</time>
-      </dd>
-    </dl>
-    <h1
-      class="my-5 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
-    >
-      {{ article.title }}
-    </h1>
+<article class="relative mx-auto max-w-3xl pt-10">
+  <a
+    routerLink="/blog"
+    ui-flat-button
+    color="accent"
+    aria-label="Go back"
+    class="mb-4"
+  >
+    <ng-icon name="bootstrapArrowLeft" strokeWidth="5" size="20"></ng-icon>
+  </a>
+  <dl>
+    <dt class="sr-only">Date</dt>
+    <dd class="top-0 whitespace-nowrap text-sm leading-6">
+      <time [attr.datetime]="article.createdAt">{{
+        article.createdAt | date: 'mediumDate'
+      }}</time>
+    </dd>
+  </dl>
+  <h1
+    class="my-5 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
+  >
+    {{ article.title }}
+  </h1>
 
-    @if (article.cover) {
-      <figure>
-        <img
-          class="h-96 w-full rounded-lg object-cover object-center"
-          [src]="article.cover.url"
-          [alt]="article.cover.title"
-        />
-        <figcaption class="italic text-slate-500 dark:text-slate-400">
-          {{ article.cover.title }}
-        </figcaption>
-      </figure>
-    }
+  @if (article.cover) {
+    <figure>
+      <img
+        class="h-96 w-full rounded-lg object-cover object-center"
+        [src]="article.cover.url"
+        [alt]="article.cover.title"
+      />
+      <figcaption class="italic text-slate-500 dark:text-slate-400">
+        {{ article.cover.title }}
+      </figcaption>
+    </figure>
+  }
 
-    <p class="my-10">
-      {{ article.abstract }}
-    </p>
+  <p class="my-10">
+    {{ article.abstract }}
+  </p>
 
-    <hr class="my-10 border-slate-200 dark:border-slate-700" />
+  <hr class="my-10 border-slate-200 dark:border-slate-700" />
 
-    <div class="mb-10">
-      <div [cfRichTextDocument]="article.content">
-        <ng-container *cfRichTextNode="BLOCKS.HEADING_1; let node = node">
-          <h1
-            class="mb-4 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </h1>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.HEADING_2; let node = node">
-          <h2
-            class="mb-4 text-xl font-bold leading-[3rem] tracking-tight text-black lg:text-2xl dark:text-white"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </h2>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.HEADING_3; let node = node">
-          <h3
-            class="mb-4 text-lg font-bold leading-[3rem] tracking-tight text-black lg:text-xl dark:text-white"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </h3>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.HEADING_4; let node = node">
-          <h4
-            class="mb-4 text-base font-bold leading-[3rem] tracking-tight text-black lg:text-lg dark:text-white"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </h4>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.HEADING_5; let node = node">
-          <h5
-            class="mb-4 font-bold leading-[3rem] tracking-tight text-black dark:text-white"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </h5>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.HEADING_6; let node = node">
-          <h6
-            class="mb-4 font-bold leading-[3rem] tracking-tight text-black dark:text-white"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </h6>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.PARAGRAPH; let node = node">
-          <p class="mb-4">
-            <ng-container [cfRichTextChildren]="node" />
-          </p>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.UL_LIST; let node = node">
-          <ul class="mb-4 list-disc pl-4">
-            <ng-container [cfRichTextChildren]="node" />
-          </ul>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.OL_LIST; let node = node">
-          <ol class="mb-4 list-decimal pl-4">
-            <ng-container [cfRichTextChildren]="node" />
-          </ol>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.LIST_ITEM; let node = node">
-          <li class="mb-4 pl-2">
-            <ng-container [cfRichTextChildren]="node" />
-          </li>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.QUOTE; let node = node">
-          <blockquote class="mb-4 border-l-4 border-gray-500 pl-4 italic">
-            <ng-container [cfRichTextChildren]="node" />
-          </blockquote>
-        </ng-container>
-        <ng-container *cfRichTextNode="BLOCKS.HR">
-          <hr class="my-10 border-slate-200 dark:border-slate-700" />
-        </ng-container>
-        <ng-container *cfRichTextNode="INLINES.HYPERLINK; let node = node">
-          <a
-            ui-link
-            [href]="node.data.uri"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ng-container [cfRichTextChildren]="node" />
-          </a>
-        </ng-container>
-
-        <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ASSET; let node = node">
-          <figure class="mb-4">
-            <img
-              class="h-auto w-full"
-              [src]="node.data.target.fields.file.url"
-              [alt]="node.data.target.fields.title"
-            />
-            @if (node.data.target.fields.title) {
-              <figcaption class="italic text-slate-500 dark:text-slate-400">
-                {{ node.data.target.fields.title }}
-              </figcaption>
-            }
-          </figure>
-        </ng-container>
-
-        <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ENTRY; let node = node">
-          Embedded entry
-        </ng-container>
-
-        <strong
-          *cfRichTextMark="MARKS.BOLD; let node = node"
-          class="dark:text-white"
-          >{{ node.value }}</strong
+  <div class="mb-10">
+    <div [cfRichTextDocument]="article.content">
+      <ng-container *cfRichTextNode="BLOCKS.HEADING_1; let node = node">
+        <h1
+          class="mb-4 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
         >
+          <ng-container [cfRichTextChildren]="node" />
+        </h1>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.HEADING_2; let node = node">
+        <h2
+          class="mb-4 text-xl font-bold leading-[3rem] tracking-tight text-black lg:text-2xl dark:text-white"
+        >
+          <ng-container [cfRichTextChildren]="node" />
+        </h2>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.HEADING_3; let node = node">
+        <h3
+          class="mb-4 text-lg font-bold leading-[3rem] tracking-tight text-black lg:text-xl dark:text-white"
+        >
+          <ng-container [cfRichTextChildren]="node" />
+        </h3>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.HEADING_4; let node = node">
+        <h4
+          class="mb-4 text-base font-bold leading-[3rem] tracking-tight text-black lg:text-lg dark:text-white"
+        >
+          <ng-container [cfRichTextChildren]="node" />
+        </h4>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.HEADING_5; let node = node">
+        <h5
+          class="mb-4 font-bold leading-[3rem] tracking-tight text-black dark:text-white"
+        >
+          <ng-container [cfRichTextChildren]="node" />
+        </h5>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.HEADING_6; let node = node">
+        <h6
+          class="mb-4 font-bold leading-[3rem] tracking-tight text-black dark:text-white"
+        >
+          <ng-container [cfRichTextChildren]="node" />
+        </h6>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.PARAGRAPH; let node = node">
+        <p class="mb-4">
+          <ng-container [cfRichTextChildren]="node" />
+        </p>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.UL_LIST; let node = node">
+        <ul class="mb-4 list-disc pl-4">
+          <ng-container [cfRichTextChildren]="node" />
+        </ul>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.OL_LIST; let node = node">
+        <ol class="mb-4 list-decimal pl-4">
+          <ng-container [cfRichTextChildren]="node" />
+        </ol>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.LIST_ITEM; let node = node">
+        <li class="mb-4 pl-2">
+          <ng-container [cfRichTextChildren]="node" />
+        </li>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.QUOTE; let node = node">
+        <blockquote class="mb-4 border-l-4 border-gray-500 pl-4 italic">
+          <ng-container [cfRichTextChildren]="node" />
+        </blockquote>
+      </ng-container>
+      <ng-container *cfRichTextNode="BLOCKS.HR">
+        <hr class="my-10 border-slate-200 dark:border-slate-700" />
+      </ng-container>
+      <ng-container *cfRichTextNode="INLINES.HYPERLINK; let node = node">
+        <a
+          ui-link
+          [href]="node.data.uri"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ng-container [cfRichTextChildren]="node" />
+        </a>
+      </ng-container>
 
-        <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
-          @if (node.value.split('\n').length > 1) {
-            <pre
-              class="bg-dark dark:bg-secondary-dark overflow-auto rounded-md p-4 text-white"
-            ><code [innerHTML]="highlightCode(node.value)"></code></pre>
-          } @else {
-            <div
-              class="bg-dark dark:bg-secondary-dark inline-block rounded-md px-2 leading-5 text-white"
-            >
-              <code [innerHTML]="highlightCode(node.value)"></code>
-            </div>
+      <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ASSET; let node = node">
+        <figure class="mb-4">
+          <img
+            class="h-auto w-full"
+            [src]="node.data.target.fields.file.url"
+            [alt]="node.data.target.fields.title"
+          />
+          @if (node.data.target.fields.title) {
+            <figcaption class="italic text-slate-500 dark:text-slate-400">
+              {{ node.data.target.fields.title }}
+            </figcaption>
           }
-        </ng-container>
-      </div>
+        </figure>
+      </ng-container>
+
+      <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ENTRY; let node = node">
+        Embedded entry
+      </ng-container>
+
+      <strong
+        *cfRichTextMark="MARKS.BOLD; let node = node"
+        class="dark:text-white"
+        >{{ node.value }}</strong
+      >
+
+      <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
+        @if (node.value.split('\n').length > 1) {
+          <pre
+            class="bg-dark dark:bg-secondary-dark overflow-auto rounded-md p-4 text-white"
+          ><code [innerHTML]="highlightCode(node.value)"></code></pre>
+        } @else {
+          <div
+            class="bg-dark dark:bg-secondary-dark inline-block rounded-md px-2 leading-5 text-white"
+          >
+            <code [innerHTML]="highlightCode(node.value)"></code>
+          </div>
+        }
+      </ng-container>
     </div>
-  </article>
-}
+  </div>
+</article>

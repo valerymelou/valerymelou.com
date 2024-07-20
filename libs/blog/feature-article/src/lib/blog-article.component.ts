@@ -1,18 +1,10 @@
-import {
-  AfterViewChecked,
-  Component,
-  Inject,
-  OnDestroy,
-  OnInit,
-  Renderer2,
-} from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { ActivatedRoute, Params, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
-import { map, Observable } from 'rxjs';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
-import { highlight, languages, highlightAll } from 'prismjs';
+import { highlight, languages } from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-rust';
 
@@ -25,7 +17,7 @@ import {
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { bootstrapArrowLeft } from '@ng-icons/bootstrap-icons';
 
-import { Article, ArticleService } from '@valerymelou/blog/data-access';
+import { Article } from '@valerymelou/blog/data-access';
 import { MetadataService } from '@valerymelou/shared/seo';
 import { ButtonComponent, LinkComponent } from '@valerymelou/shared/ui';
 
@@ -46,10 +38,8 @@ import { ButtonComponent, LinkComponent } from '@valerymelou/shared/ui';
   templateUrl: './blog-article.component.html',
   viewProviders: [provideIcons({ bootstrapArrowLeft })],
 })
-export class BlogArticleComponent
-  implements AfterViewChecked, OnInit, OnDestroy
-{
-  article$!: Observable<Article>;
+export class BlogArticleComponent implements OnInit, OnDestroy {
+  article!: Article;
   loaded = false;
   ready = false;
 
@@ -62,40 +52,24 @@ export class BlogArticleComponent
   constructor(
     private renderer: Renderer2,
     private route: ActivatedRoute,
-    private articleService: ArticleService,
     private metadataService: MetadataService,
     @Inject(DOCUMENT) private document: Document,
   ) {
-    this.route.params.subscribe({
-      next: (params: Params) => {
-        if (params['slug']) this.getArticle(params['slug']);
+    this.route.data.subscribe({
+      next: (data) => {
+        this.article = data['article'];
+        this.metadataService.updateMetadata({
+          title: this.article.title,
+          description: this.article.abstract,
+          image: this.article.cover?.url ?? '',
+        });
+        this.loaded = true;
       },
     });
   }
 
-  ngAfterViewChecked(): void {
-    if (this.loaded && !this.ready) {
-      highlightAll();
-    }
-  }
-
   ngOnInit(): void {
     this.loadCodeHighlightLib();
-  }
-
-  getArticle(slug: string): void {
-    slug = slug.split('-').slice(3).join('-');
-    this.article$ = this.articleService.getOne(slug).pipe(
-      map((article: Article) => {
-        this.metadataService.updateMetadata({
-          title: article.title,
-          description: article.abstract,
-          image: article.cover?.url ?? '',
-        });
-        this.loaded = true;
-        return article;
-      }),
-    );
   }
 
   highlightCode(code: string): string {
