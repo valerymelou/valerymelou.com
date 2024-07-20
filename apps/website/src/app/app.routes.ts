@@ -1,4 +1,8 @@
 import { Route } from '@angular/router';
+import {
+  articleResolver,
+  articlesResolver,
+} from '@valerymelou/blog/data-access';
 import { BaseLayoutComponent } from '@valerymelou/shared/layout';
 import { themeResolver } from '@valerymelou/shared/theming';
 
@@ -35,6 +39,9 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import('@valerymelou/blog/home').then((c) => c.BlogHomeComponent),
         data: { animation: 'BlogHomePage' },
+        resolve: {
+          articles: articlesResolver,
+        },
       },
       {
         path: 'blog/:slug',
@@ -43,6 +50,9 @@ export const appRoutes: Route[] = [
             (c) => c.BlogArticleComponent,
           ),
         data: { animation: 'BlogHomePage' },
+        resolve: {
+          article: articleResolver,
+        },
       },
     ],
   },
