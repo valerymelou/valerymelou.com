@@ -71,7 +71,7 @@ export class MetadataService {
   }
 
   private buildImageUrl(image: string): string {
-    return image.startsWith('http')
+    return image.startsWith('http') || image.startsWith('//')
       ? image
       : this.window.location.origin + image;
   }
