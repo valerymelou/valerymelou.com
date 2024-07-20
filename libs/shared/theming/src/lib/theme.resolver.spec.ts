@@ -6,6 +6,7 @@ import {
   ResolveFn,
   RouterStateSnapshot,
 } from '@angular/router';
+import { WINDOW_TOKEN } from '@valerymelou/common/browser';
 
 describe('themeResolver', () => {
   let themeService: ThemeService;
@@ -14,7 +15,7 @@ describe('themeResolver', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ThemeService],
+      providers: [ThemeService, { provide: WINDOW_TOKEN, useValue: window }],
     });
     themeService = TestBed.inject(ThemeService);
   });

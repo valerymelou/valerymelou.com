@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'about',
+  displayName: 'pages-about',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../coverage/libs/pages/about',

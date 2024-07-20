@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MetadataService } from '@valerymelou/shared/seo';
 
 @Component({
@@ -7,6 +8,7 @@ import { MetadataService } from '@valerymelou/shared/seo';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
   constructor(metadataService: MetadataService) {

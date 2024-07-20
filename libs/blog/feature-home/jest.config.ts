@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'feature-home',
+  displayName: 'blog-home',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../coverage/libs/blog/feature-home',
