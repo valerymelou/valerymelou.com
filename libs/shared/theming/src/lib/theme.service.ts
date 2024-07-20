@@ -1,5 +1,11 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
+import { StorageService, WINDOW_TOKEN } from '@valerymelou/common/browser';
 import { BehaviorSubject } from 'rxjs';
+
+const USE_SYSTEM_THEME_STORAGE_KEY = 'useSystemTheme';
+const THEME_STORAGE_KEY = 'theme';
+const DARK_MODE_CLASS = 'dark'
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +13,11 @@ import { BehaviorSubject } from 'rxjs';
 export class ThemeService {
   private themeChanged: BehaviorSubject<string> = new BehaviorSubject('light');
 
-  constructor() {
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(WINDOW_TOKEN) private window: Window,
+    private storage: StorageService
+  ) {
     // Only listen to system's theme change if user prefers system's theme
     if (this.shouldUseSystemTheme()) {
       this.setUserPreference(true);
@@ -15,40 +25,34 @@ export class ThemeService {
   }
 
   changeTheme(theme: 'dark' | 'light', system = true) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    theme === 'dark'
+      ? this.addClassToDocument()
+      : this.removeClassFromDocument();
 
-    localStorage['theme'] = theme;
     // Indicate that the user has chosen a specific theme, not the system's theme
     if (!system) {
       this.setUserPreference(system);
     }
+    this.storage.setItem(THEME_STORAGE_KEY, theme);
     this.themeChanged.next(theme);
   }
 
   setUserPreference(useSystemTheme: boolean) {
-    localStorage['useSystemTheme'] = useSystemTheme.toString();
-    window
+    this.storage.setItem(USE_SYSTEM_THEME_STORAGE_KEY, useSystemTheme.toString());
+    this.window
       .matchMedia('(prefers-color-scheme: dark)')
-      .removeEventListener('change', (e) => {
-        this.changeTheme(e.matches ? 'dark' : 'light');
-      });
+      .removeEventListener('change', this.themeChangeListener.bind(this));
     if (useSystemTheme) {
       this.changeTheme(this.getPreferredTheme());
-      window
+      this.window
         .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', (e) => {
-          this.changeTheme(e.matches ? 'dark' : 'light');
-        });
+        .addEventListener('change', this.themeChangeListener.bind(this));
     }
   }
 
   resetPreferredTheme() {
-    document.documentElement.classList.remove('dark');
-    localStorage.removeItem('theme');
+    this.removeClassFromDocument();
+    this.storage.removeItem(THEME_STORAGE_KEY);
     this.setUserPreference(true);
   }
 
@@ -57,16 +61,16 @@ export class ThemeService {
   }
 
   getPreferredTheme(): 'dark' | 'light' {
-    const useSystemTheme = localStorage['useSystemTheme'] === 'true';
-    const prefersDarkTheme = window.matchMedia(
-      '(prefers-color-scheme: dark)',
+    const useSystemTheme = this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true';
+    const prefersDarkTheme = this.window.matchMedia(
+      '(prefers-color-scheme: dark)'
     ).matches;
 
     if (useSystemTheme) {
       return prefersDarkTheme ? 'dark' : 'light';
     }
 
-    const storedTheme = localStorage['theme'];
+    const storedTheme = this.storage.getItem(THEME_STORAGE_KEY);
 
     if (storedTheme === 'dark' || (!storedTheme && prefersDarkTheme)) {
       return 'dark';
@@ -78,8 +82,20 @@ export class ThemeService {
   private shouldUseSystemTheme(): boolean {
     // Check if the user has a preference set for using the system's theme
     return (
-      localStorage['useSystemTheme'] === 'true' ||
-      !('useSystemTheme' in localStorage)
+      this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true' ||
+      !this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY)
     );
+  }
+
+  private addClassToDocument() {
+    this.document.documentElement.classList.add(DARK_MODE_CLASS);
+  }
+
+  private removeClassFromDocument() {
+    this.document.documentElement.classList.remove(DARK_MODE_CLASS);
+  }
+
+  private themeChangeListener(e: MediaQueryListEvent) {
+    this.changeTheme(e.matches ? 'dark' : 'light');
   }
 }

@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { MetadataService } from '@valerymelou/shared/seo';
+
 import { ProjectsComponent } from './projects.component';
 
 describe('ProjectsComponent', () => {
@@ -8,6 +11,12 @@ describe('ProjectsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProjectsComponent],
+      providers: [
+        {
+          provide: MetadataService,
+          useValue: { updateMetadata: () => true },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProjectsComponent);
