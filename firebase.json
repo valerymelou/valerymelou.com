@@ -4,26 +4,6 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "/blog",
-        "destination": "/blog/index.html"
-      },
-      {
-        "source": "/blog/:post*",
-        "destination": "/blog/:post/index.html"
-      },
-      {
-        "source": "/about",
-        "destination": "/about/index.html"
-      },
-      {
-        "source": "/projects",
-        "destination": "/projects/index.html"
-      },
-      {
-        "source": "/projects/**",
-        "destination": "/projects/index.html"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }

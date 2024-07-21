@@ -16,7 +16,7 @@ const runExecutor: PromiseExecutor<RoutesExecutorSchema> = async (options) => {
   const entries = await cdaClient.getEntries(defaultQuery);
   const routes = entries.items.map(
     (entry) =>
-      `/blog/${entry.sys.createdAt.split('T')[0]}/${entry.fields['slug']}`,
+      `/blog/${entry.sys.createdAt.split('T')[0]}-${entry.fields['slug']}`,
   );
   const routesString = routes.join('\n');
 
