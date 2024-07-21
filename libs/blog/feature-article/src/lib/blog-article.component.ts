@@ -37,7 +37,6 @@ import { ButtonComponent, LinkComponent } from '@valerymelou/shared/ui';
   ],
   templateUrl: './blog-article.component.html',
   viewProviders: [provideIcons({ bootstrapArrowLeft })],
-  host: { ngSkipHydration: 'true' },
 })
 export class BlogArticleComponent implements OnInit, OnDestroy {
   article!: Article;
