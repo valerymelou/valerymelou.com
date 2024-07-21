@@ -36,14 +36,6 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
-      - name: Restore NX Cache
-        id: nx-cache-restore
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            .nx
-          key: ${{ runner.os }}-nx
-
       - run: yarn install
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx run-many --target=test --parallel=3 --code-coverage
@@ -56,14 +48,6 @@ jobs:
         with:
           coverageLocations: |
             ${{github.workspace}}/coverage/lcov.info:lcov
-
-      - name: Save NX Cache
-        id: nx-cache-save
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            .nx
-          key: ${{ steps.nx-cache-restore.outputs.cache-primary-key }}
 
   deploy:
     if: >
