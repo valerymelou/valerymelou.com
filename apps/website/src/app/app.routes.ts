@@ -49,6 +49,7 @@ export const appRoutes: Route[] = [
           import('@valerymelou/blog/article').then(
             (c) => c.BlogArticleComponent,
           ),
+        data: { animation: 'BlogHomePage' },
         resolve: {
           article: articleResolver,
         },
