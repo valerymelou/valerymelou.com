@@ -10,7 +10,7 @@ import {
 } from '@angular/animations';
 
 function isMobile() {
-  if (typeof window === 'undefined' || typeof window.document !== 'undefined') return false;
+  if (typeof window === 'undefined') return false;
   return matchMedia('(max-width: 768px)').matches;
 }
 
