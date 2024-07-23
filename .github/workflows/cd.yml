@@ -6,11 +6,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'master' || 'staging') }}
+    environment: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'production' || 'staging') }}
     env:
       VM_CONTENTFUL_SPACE: ${{ secrets.VM_CONTENTFUL_SPACE }}
       VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
-      VM_CONTENTFUL_ENVIRONMENT: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'master' || 'staging') }}
+      VM_CONTENTFUL_ENVIRONMENT: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'production' || 'staging') }}
     outputs:
       ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
     steps:
