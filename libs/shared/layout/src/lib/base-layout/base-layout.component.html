@@ -1,0 +1,11 @@
+<div class="base flex min-h-screen flex-col overflow-x-hidden">
+  <app-navbar></app-navbar>
+  <app-social-bar></app-social-bar>
+  <main
+    class="mx-5 flex flex-1 flex-col pt-20 lg:mx-[272px] lg:pt-0"
+    [@routeAnimations]="prepareRoute()"
+  >
+    <router-outlet #outlet="outlet"></router-outlet>
+  </main>
+  <app-footer class="mt-auto"></app-footer>
+</div>

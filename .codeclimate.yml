@@ -1,0 +1,13 @@
+version: '2'
+exclude_patterns:
+  - '**/*.spec.ts'
+  - '**/jest.config.ts'
+  - '**/test-setup.ts'
+  - '**/tests/*.py'
+checks:
+  similar-code:
+    config:
+      threshold: 100
+  identical-code:
+    config:
+      threshold: 100

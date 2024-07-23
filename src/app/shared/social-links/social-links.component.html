@@ -1,7 +1,0 @@
-<ul class="nav social-nav mt-auto">
-  <li class="nav-item" *ngFor="let link of links">
-    <a [href]="link.route" class="nav-link" [class]="scheme == 'dark' ? 'nav-link-dark' : 'nav-link-light'" target="_blank" rel="noopener" [attr.aria-label]="link.label" [title]="link.label">
-      <span [class]="'icon ' + link.icon"></span>
-    </a>
-  </li>
-</ul>

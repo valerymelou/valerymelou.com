@@ -1,0 +1,101 @@
+on:
+  workflow_call:
+  repository_dispatch:
+    types: [publish-event]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'production' || 'staging') }}
+    env:
+      VM_CONTENTFUL_SPACE: ${{ secrets.VM_CONTENTFUL_SPACE }}
+      VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
+      VM_CONTENTFUL_ENVIRONMENT: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'production' || 'staging') }}
+    outputs:
+      ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+
+      - run: yarn install
+      # Generate the routes for prerendering. This is the only way I found to pass
+      # environment variables to the executor.
+      - run: VM_CONTENTFUL_SPACE=${{ env.VM_CONTENTFUL_SPACE }} VM_CONTENTFUL_ACCESS_TOKEN=${{ env.VM_CONTENTFUL_ACCESS_TOKEN }} VM_CONTENTFUL_ENVIRONMENT=${{ env.VM_CONTENTFUL_ENVIRONMENT }} yarn nx run website:build-routes
+      - run: npx nx run website:prerender
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output-${{ env.VM_CONTENTFUL_ENVIRONMENT }}
+          path: |
+            dist
+
+  preview:
+    if: ${{ github.event.pull_request.base.ref == 'develop' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: preview
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          target: ${{ secrets.FIREBASE_SITE_TARGET }}
+
+  staging:
+    if: github.ref == 'refs/heads/develop'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          target: ${{ secrets.FIREBASE_SITE_TARGET }}
+
+  production:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build result
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}

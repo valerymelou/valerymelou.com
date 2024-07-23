@@ -1,0 +1,76 @@
+<div class="my-10">
+  <h1
+    class="mb-5 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
+  >
+    Inside my head
+  </h1>
+  <h2 class="text-xl lg:max-w-2xl">
+    I talk about Django, Angular... Web Development in general and many other
+    topics. These are just a few of the things in my head.
+  </h2>
+
+  <div
+    class="relative my-16 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[calc(14.5rem+1px)]"
+  >
+    <div
+      class="bg-secondary-light dark:bg-secondary-dark absolute bottom-0 right-full top-3 mr-7 hidden w-px sm:block md:mr-[3.25rem]"
+    ></div>
+    <div class="space-y-16">
+      @for (article of articles.items; track article) {
+        <article class="group relative">
+          <div
+            class="group-hover:bg-secondary-light/70 dark:group-hover:bg-secondary-dark/50 absolute -inset-x-4 -inset-y-2.5 sm:rounded-2xl md:-inset-x-6 md:-inset-y-4"
+          ></div>
+          <svg
+            viewBox="0 0 9 9"
+            class="absolute right-full top-2 mr-6 hidden h-[calc(0.5rem+1px)] w-[calc(0.5rem+1px)] overflow-visible text-slate-200 sm:block md:mr-12 dark:text-slate-600"
+          >
+            <circle
+              cx="4.5"
+              cy="4.5"
+              r="4.5"
+              stroke="currentColor"
+              class="fill-white dark:fill-slate-900"
+              stroke-width="2"
+            ></circle>
+          </svg>
+          <div class="relative">
+            <h3
+              class="pt-8 font-semibold tracking-tight text-black lg:pt-0 dark:text-white"
+            >
+              {{ article.title }}
+            </h3>
+            <div class="mb-4 mt-2 line-clamp-2">
+              <p>
+                {{ article.abstract }}
+              </p>
+            </div>
+            <dl
+              class="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]"
+            >
+              <dt class="sr-only">Date</dt>
+              <dd class="whitespace-nowrap text-sm leading-6">
+                <time [attr.datetime]="article.createdAt">{{
+                  article.createdAt | date: 'mediumDate'
+                }}</time>
+              </dd>
+            </dl>
+          </div>
+          <a
+            ui-link
+            [routerLink]="[
+              '/blog',
+              (article.createdAt | date: 'YYYY-MM-dd') + '-' + article.slug,
+            ]"
+          >
+            <span
+              class="absolute -inset-x-4 -inset-y-2.5 sm:rounded-2xl md:-inset-x-6 md:-inset-y-4"
+            >
+            </span>
+            <span class="relative">Read the article</span>
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</div>
