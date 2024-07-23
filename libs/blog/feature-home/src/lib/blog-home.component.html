@@ -57,7 +57,7 @@
             </dl>
           </div>
           <a
-            class="text-accent-base group-hover:text-accent-base flex items-center text-sm dark:text-white dark:group-hover:text-white"
+            ui-link
             [routerLink]="[
               '/blog',
               (article.createdAt | date: 'YYYY-MM-dd') + '-' + article.slug,
