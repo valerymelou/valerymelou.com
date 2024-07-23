@@ -14,6 +14,7 @@ import {
 
 import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
 import { SocialLinksComponent } from '../social-links/social-links.component';
+import { LogoComponent } from '../logo/logo.component';
 
 interface NavbarLink {
   label: string;
@@ -27,6 +28,7 @@ interface NavbarLink {
     CommonModule,
     RouterModule,
     NgIconComponent,
+    LogoComponent,
     MenuComponent,
     MenuTriggerForDirective,
     SocialLinksComponent,
