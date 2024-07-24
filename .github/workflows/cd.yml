@@ -55,7 +55,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: preview
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
-          target: ${{ secrets.FIREBASE_SITE_TARGET }}
 
   staging:
     if: github.ref == 'refs/heads/develop'
@@ -77,7 +76,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
-          target: ${{ secrets.FIREBASE_SITE_TARGET }}
 
   production:
     if: github.ref == 'refs/heads/master'
