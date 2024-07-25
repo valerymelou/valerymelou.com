@@ -1,14 +1,16 @@
 on:
   workflow_call:
+  repository_dispatch:
+    types: [publish-event]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+    environment: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'production' || 'staging') }}
     env:
       VM_CONTENTFUL_SPACE: ${{ secrets.VM_CONTENTFUL_SPACE }}
       VM_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VM_CONTENTFUL_ACCESS_TOKEN }}
-      VM_CONTENTFUL_ENVIRONMENT: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+      VM_CONTENTFUL_ENVIRONMENT: ${{ (github.event.client_payload.env && github.event_name == 'repository_dispatch') && github.event.client_payload.env || (github.ref == 'refs/heads/master' && 'production' || 'staging') }}
     outputs:
       ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
     steps:
@@ -95,3 +97,5 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
           projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          target: ${{ secrets.FIREBASE_SITE_TARGET }}
+          

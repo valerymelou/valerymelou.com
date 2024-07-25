@@ -72,6 +72,9 @@
     "@nx/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "none"
     }
   },
   "plugins": [
