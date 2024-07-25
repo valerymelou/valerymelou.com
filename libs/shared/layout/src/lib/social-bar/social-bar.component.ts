@@ -20,6 +20,7 @@ import {
 
 import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
 import { SocialLinksComponent } from '../social-links/social-links.component';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-social-bar',
@@ -28,6 +29,7 @@ import { SocialLinksComponent } from '../social-links/social-links.component';
     CommonModule,
     RouterModule,
     NgIconComponent,
+    LogoComponent,
     MenuTriggerForDirective,
     MenuComponent,
     SocialLinksComponent,

@@ -15,10 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@valerymelou/blog-tasks": ["libs/blog/tasks/src/index.ts"],
       "@valerymelou/blog/article": ["libs/blog/feature-article/src/index.ts"],
       "@valerymelou/blog/data-access": ["libs/blog/data-access/src/index.ts"],
       "@valerymelou/blog/home": ["libs/blog/feature-home/src/index.ts"],
-      "@valerymelou/blog-tasks": ["libs/blog/tasks/src/index.ts"],
       "@valerymelou/cms/contentful": ["libs/cms/contentful/src/index.ts"],
       "@valerymelou/common/browser": ["libs/common/browser/src/index.ts"],
       "@valerymelou/pages/about": ["libs/pages/about/src/index.ts"],
