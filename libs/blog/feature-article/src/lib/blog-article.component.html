@@ -145,17 +145,7 @@
       >
 
       <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
-        @if (node.value.split('\n').length > 1) {
-          <pre
-            class="bg-dark dark:bg-secondary-dark overflow-auto rounded-md p-4 text-white"
-          ><code [innerHTML]="highlightCode(node.value)"></code></pre>
-        } @else {
-          <div
-            class="bg-dark dark:bg-secondary-dark inline-block rounded-md px-2 leading-5 text-white"
-          >
-            <code [innerHTML]="highlightCode(node.value)"></code>
-          </div>
-        }
+        <ui-code [code]="node.value"></ui-code>
       </ng-container>
     </div>
   </div>

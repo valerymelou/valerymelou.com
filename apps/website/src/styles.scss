@@ -16,3 +16,33 @@
 .dark .base {
   background-image: url('/assets/images/looper-dark.svg');
 }
+
+* {
+  scrollbar-color: #d7d7d7 #fafafa;
+
+  .dark & {
+    scrollbar-color: #333 #080e29;
+  }
+}
+
+/* Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 5px;
+
+  .dark & {
+    background: #011627;
+  }
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 14px;
+  border: 3px solid white;
+
+  .dark & {
+    background-color: #011627;
+    border: 3px solid #011627;
+  }
+}
