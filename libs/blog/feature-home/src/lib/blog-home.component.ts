@@ -22,9 +22,9 @@ export class BlogHomeComponent {
       },
     });
     metadataService.updateMetadata({
-      title: 'Inside my head | Valery Melou',
+      title: 'Tech thoughts | Valery Melou',
       description:
-        'I talk about Django, Angular... Web Development in general and many other topics. These are just a few of the things in my head.',
+        'Diving into the world of Django, Angular, and programming in general. Expect a mix of technical deep dives, project showcases, and industry insights.',
     });
   }
 }

@@ -8,5 +8,7 @@ import { ArticleService } from './article.service';
 export const articlesResolver: ResolveFn<Results<Article>> = () => {
   const articleService = inject(ArticleService);
 
-  return articleService.get({});
+  return articleService.get({
+    order: '-fields.publishedAt',
+  });
 };
