@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { bootstrapCopy, bootstrapCheck } from '@ng-icons/bootstrap-icons';
-import { bundledLanguages } from 'shiki/langs';
 import { codeToHtml } from 'shiki';
 import { WINDOW_TOKEN } from '@valerymelou/common/browser';
 
@@ -31,6 +30,16 @@ export class CodeComponent {
   @Input() language!: string;
   highlightedCode!: SafeHtml;
 
+  private languages = [
+    'javascript',
+    'typescript',
+    'html',
+    'css',
+    'scss',
+    'python',
+    'rust',
+    'json',
+  ];
   private _code!: string;
   copied = false;
 
@@ -52,7 +61,7 @@ export class CodeComponent {
     this.language =
       this.language ?? this.code.split('\n')[0].replace('```', '');
 
-    if (this.language in bundledLanguages) {
+    if (this.languages.includes(this.language)) {
       this._code = this.code.replace('```' + this.language + '\n', '');
     } else {
       this.language = 'javascript';
@@ -61,7 +70,7 @@ export class CodeComponent {
     codeToHtml(this.code, {
       lang: this.language,
       themes: {
-        light: 'catppuccin-latte',
+        light: 'slack-ochin',
         dark: 'material-theme-ocean',
       },
       transformers: [
