@@ -6,8 +6,8 @@
   <dl>
     <dt class="sr-only">Date</dt>
     <dd class="top-0 whitespace-nowrap text-sm leading-6">
-      <time [attr.datetime]="article.createdAt">{{
-        article.createdAt | date: 'mediumDate'
+      <time [attr.datetime]="article.publishedAt">{{
+        article.publishedAt | date: 'mediumDate'
       }}</time>
     </dd>
   </dl>
