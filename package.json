@@ -45,7 +45,7 @@
     "@nx/jest": "19.5.1",
     "@nx/js": "19.5.1",
     "@nx/plugin": "19.5.1",
-    "@nx/workspace": "19.5.1",
+    "@nx/workspace": "19.5.3",
     "@schematics/angular": "~18.1.0",
     "@swc-node/register": "~1.10.9",
     "@swc/core": "~1.7.1",
