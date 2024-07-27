@@ -2,11 +2,11 @@
   <h1
     class="mb-5 text-2xl font-bold leading-[3rem] tracking-tight text-black lg:text-4xl dark:text-white"
   >
-    Inside my head
+    Tech thoughts
   </h1>
   <h2 class="text-xl lg:max-w-2xl">
-    I talk about Django, Angular... Web Development in general and many other
-    topics. These are just a few of the things in my head.
+    Diving into the world of Django, Angular, and programming in general. Expect
+    a mix of technical deep dives, project showcases, and industry insights.
   </h2>
 
   <div
@@ -50,8 +50,8 @@
             >
               <dt class="sr-only">Date</dt>
               <dd class="whitespace-nowrap text-sm leading-6">
-                <time [attr.datetime]="article.createdAt">{{
-                  article.createdAt | date: 'mediumDate'
+                <time [attr.datetime]="article.publishedAt">{{
+                  article.publishedAt | date: 'mediumDate'
                 }}</time>
               </dd>
             </dl>
@@ -60,14 +60,14 @@
             ui-link
             [routerLink]="[
               '/blog',
-              (article.createdAt | date: 'YYYY-MM-dd') + '-' + article.slug,
+              (article.publishedAt | date: 'YYYY-MM-dd') + '-' + article.slug,
             ]"
           >
             <span
               class="absolute -inset-x-4 -inset-y-2.5 sm:rounded-2xl md:-inset-x-6 md:-inset-y-4"
             >
             </span>
-            <span class="relative">Read the article</span>
+            <span class="relative text-sm">Read the article</span>
           </a>
         </article>
       }

@@ -1,0 +1,29 @@
+@if (code) {
+  @if (code.split(' ').length === 1) {
+    <div [innerHTML]="highlightedCode" class="code inline-flex"></div>
+  } @else {
+    <div class="group relative">
+      <span
+        class="absolute right-2 top-2 text-xs text-slate-400 opacity-100 transition-all duration-300 ease-in-out group-hover:opacity-0"
+        >{{ language }}</span
+      >
+      <button
+        class="absolute right-2 top-2 flex h-10 min-w-10 items-center justify-center rounded-lg border border-slate-400 bg-slate-100 text-slate-400 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 dark:border-slate-400 dark:bg-slate-900"
+        aria-label="Copy"
+        [ngClass]="{ 'px-4': copied }"
+        (click)="copy()"
+      >
+        @if (copied) {
+          <span class="text-sm">Copied</span>
+          <ng-icon name="bootstrapCheck" size="20"></ng-icon>
+        } @else {
+          <ng-icon name="bootstrapCopy"></ng-icon>
+        }
+      </button>
+      <div
+        [innerHTML]="highlightedCode"
+        class="code dark:border-secondary-dark overflow-x-auto rounded-md border border-slate-100"
+      ></div>
+    </div>
+  }
+}
