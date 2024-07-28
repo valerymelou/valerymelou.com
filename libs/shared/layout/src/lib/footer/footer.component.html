@@ -1,24 +1,7 @@
-<footer class="mx-5 flex items-center py-8 text-sm font-light lg:mx-[272px]">
+<footer
+  class="mx-5 flex w-full max-w-3xl items-center py-8 text-sm font-light lg:mx-auto"
+>
   <div class="grid grid-cols-2 gap-8">
-    <div class="col-span-2 flex flex-col sm:col-span-1">
-      <p class="mt-auto">
-        The code of this website is available on
-        <a
-          href="https://github.com/valerymelou/valerymelou.com"
-          ui-link
-          target="_blank"
-          rel="noopener"
-          >GitHub</a
-        >.
-      </p>
-      <p>
-        All the content is from me and edited in
-        <a href="https://contentful.com" ui-link target="_blank" rel="noopener"
-          >Contentful</a
-        >.
-      </p>
-      <p class="text-sm">&copy; {{ date | date: 'yyyy' }} Valery Melou.</p>
-    </div>
     <div class="col-span-2 sm:col-span-1">
       <p>
         Coded in
@@ -53,6 +36,25 @@
           >Firebase Hosting</a
         >.
       </p>
+    </div>
+    <div class="col-span-2 flex flex-col sm:col-span-1">
+      <p class="mt-auto">
+        The code of this website is available on
+        <a
+          href="https://github.com/valerymelou/valerymelou.com"
+          ui-link
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >.
+      </p>
+      <p>
+        All the content is from me and edited in
+        <a href="https://contentful.com" ui-link target="_blank" rel="noopener"
+          >Contentful</a
+        >.
+      </p>
+      <p class="text-sm">&copy; {{ date | date: 'yyyy' }} Valery Melou.</p>
     </div>
   </div>
 </footer>
