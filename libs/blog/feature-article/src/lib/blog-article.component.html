@@ -1,4 +1,4 @@
-<article class="relative max-w-3xl pt-10">
+<article class="relative my-10">
   <a routerLink="/blog" ui-flat-button color="accent" class="mb-4">
     <ng-icon name="bootstrapArrowLeft" strokeWidth="5" size="20"></ng-icon>
     <span class="ml-3">Articles</span>
@@ -29,12 +29,6 @@
       </figcaption>
     </figure>
   }
-
-  <p class="my-10">
-    {{ article.abstract }}
-  </p>
-
-  <hr class="my-10 border-slate-200 dark:border-slate-700" />
 
   <div class="mb-10">
     <div [cfRichTextDocument]="article.content">
