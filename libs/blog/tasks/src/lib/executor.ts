@@ -11,12 +11,12 @@ const runExecutor: PromiseExecutor<RoutesExecutorSchema> = async (options) => {
   const defaultQuery: { [key: string]: string } = {
     content_type: 'article',
     limit: options.limit?.toString() ?? '10',
-    order: options.order ?? '-sys.createdAt',
+    order: options.order ?? '-fields.publishedAt',
   };
   const entries = await cdaClient.getEntries(defaultQuery);
   const routes = entries.items.map(
     (entry) =>
-      `/blog/${entry.sys.createdAt.split('T')[0]}-${entry.fields['slug']}`,
+      `/blog/${(entry.fields['publishedAt'] as string).split('T')[0]}-${entry.fields['slug']}`,
   );
   const routesString = routes.join('\n');
 
