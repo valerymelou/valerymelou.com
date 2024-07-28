@@ -30,12 +30,6 @@
     </figure>
   }
 
-  <p class="my-10">
-    {{ article.abstract }}
-  </p>
-
-  <hr class="my-10 border-slate-200 dark:border-slate-700" />
-
   <div class="mb-10">
     <div [cfRichTextDocument]="article.content">
       <ng-container *cfRichTextNode="BLOCKS.HEADING_1; let node = node">
