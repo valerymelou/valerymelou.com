@@ -36,6 +36,7 @@ export class CodeComponent {
     'html',
     'css',
     'scss',
+    'shellsession',
     'python',
     'rust',
     'json',
