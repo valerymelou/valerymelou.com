@@ -139,7 +139,7 @@
       >
 
       <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
-        <ui-code [code]="node.value"></ui-code>
+        <ui-code [code]="node.value" ngSkipHydration></ui-code>
       </ng-container>
     </div>
   </div>
