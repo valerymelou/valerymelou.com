@@ -20,6 +20,7 @@ export class CodeComponent {
   @Input()
   set code(value: string) {
     this._code = value;
+    this.inline = !value.includes('\n');
     this.highlight();
   }
 
@@ -29,6 +30,7 @@ export class CodeComponent {
 
   @Input() language!: string;
   highlightedCode!: SafeHtml;
+  inline = false;
 
   private languages = [
     'javascript',
