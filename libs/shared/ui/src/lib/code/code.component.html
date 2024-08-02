@@ -1,5 +1,5 @@
 @if (code) {
-  @if (code.split(' ').length === 1) {
+  @if (inline) {
     <div [innerHTML]="highlightedCode" class="code inline-flex"></div>
   } @else {
     <div class="group relative">

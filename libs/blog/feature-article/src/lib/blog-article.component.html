@@ -22,15 +22,19 @@
       <img
         class="h-96 w-full rounded-lg object-cover object-center"
         [src]="article.cover.url"
-        [alt]="article.cover.title"
+        [alt]="article.cover.description"
       />
       <figcaption class="italic text-slate-500 dark:text-slate-400">
-        {{ article.cover.title }}
+        {{ article.cover.description }}
       </figcaption>
     </figure>
   }
 
   <div class="my-10">
+    @if (article.abstract) {
+      <p class="my-5">{{ article.abstract }}</p>
+      <hr class="my-10 border-slate-200 dark:border-slate-700" />
+    }
     <div [cfRichTextDocument]="article.content" ngSkipHydration>
       <ng-container *cfRichTextNode="BLOCKS.HEADING_1; let node = node">
         <h1
@@ -118,11 +122,11 @@
           <img
             class="h-auto w-full"
             [src]="node.data.target.fields.file.url"
-            [alt]="node.data.target.fields.title"
+            [alt]="node.data.target.fields.description"
           />
           @if (node.data.target.fields.title) {
             <figcaption class="italic text-slate-500 dark:text-slate-400">
-              {{ node.data.target.fields.title }}
+              {{ node.data.target.fields.description }}
             </figcaption>
           }
         </figure>
