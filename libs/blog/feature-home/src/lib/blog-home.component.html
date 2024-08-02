@@ -60,7 +60,7 @@
             ui-link
             [routerLink]="[
               '/blog',
-              (article.publishedAt | date: 'YYYY-MM-dd') + '-' + article.slug,
+              article.publishedAt.split('T')[0] + '-' + article.slug,
             ]"
           >
             <span
