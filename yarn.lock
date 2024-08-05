@@ -107,7 +107,7 @@
     "@angular-devkit/architect" "0.1801.1"
     rxjs "7.8.1"
 
-"@angular-devkit/core@18.1.1", "@angular-devkit/core@~18.1.0":
+"@angular-devkit/core@18.1.1":
   version "18.1.1"
   resolved "https://registry.npmjs.org/@angular-devkit/core/-/core-18.1.1.tgz"
   integrity sha512-YFzn/+8LezX7ZJhMQisvrqfkxJm6+JOtbWFj8K/luK0rTDmE8Z9n9r6kJ36FnHcLJ5MvvVaBc7n1v1wnzdqXpg==
@@ -119,12 +119,35 @@
     rxjs "7.8.1"
     source-map "0.7.4"
 
-"@angular-devkit/schematics@18.1.1", "@angular-devkit/schematics@~18.1.0":
+"@angular-devkit/core@18.1.3", "@angular-devkit/core@~18.1.0":
+  version "18.1.3"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-18.1.3.tgz#ff36e83ea19a90b1d01f8d2c35b1fffb8e3af4b5"
+  integrity sha512-S0UzNNVLbHPaiSVXHjCd2wX+eERj/YR7jJCc40PHs1gINA7Gtd2q3VDm3bUEWe4P6fP6GNp43qSXmWJFQD0+Yg==
+  dependencies:
+    ajv "8.16.0"
+    ajv-formats "3.0.1"
+    jsonc-parser "3.3.1"
+    picomatch "4.0.2"
+    rxjs "7.8.1"
+    source-map "0.7.4"
+
+"@angular-devkit/schematics@18.1.1":
   version "18.1.1"
   resolved "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-18.1.1.tgz"
   integrity sha512-r+DAvVvv+hOuhh19PefPOKa/zDkvzLHz/YOLGq/k1KfJRtNtjCKiDsXp1s6HSzYdJD1H10wnzUIh48uvxfwH5Q==
   dependencies:
     "@angular-devkit/core" "18.1.1"
+    jsonc-parser "3.3.1"
+    magic-string "0.30.10"
+    ora "5.4.1"
+    rxjs "7.8.1"
+
+"@angular-devkit/schematics@18.1.3", "@angular-devkit/schematics@~18.1.0":
+  version "18.1.3"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-18.1.3.tgz#86e06216fcd881abe6b4acef6ccd0ce87f834966"
+  integrity sha512-ElzCfiYW9P3xPRNRbPRSrOTGm+G7X8ta1ce3srqi00yPX39Y0WSM95SACqqF8j9dxL6BqazBMyAgNQUaVSbWjw==
+  dependencies:
+    "@angular-devkit/core" "18.1.3"
     jsonc-parser "3.3.1"
     magic-string "0.30.10"
     ora "5.4.1"
@@ -3255,13 +3278,22 @@
   optionalDependencies:
     fsevents "~2.3.2"
 
-"@schematics/angular@18.1.1", "@schematics/angular@~18.1.0":
+"@schematics/angular@18.1.1":
   version "18.1.1"
   resolved "https://registry.npmjs.org/@schematics/angular/-/angular-18.1.1.tgz"
   integrity sha512-6nQUSuFSP7un5Bmm6/MpQXq3jnkdEYg2MUPv7JStsqnT1YYzUsDjkUv7Hsci0xQmeUAzVz3ueg4znviJoQxWdg==
   dependencies:
     "@angular-devkit/core" "18.1.1"
     "@angular-devkit/schematics" "18.1.1"
+    jsonc-parser "3.3.1"
+
+"@schematics/angular@~18.1.3":
+  version "18.1.3"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-18.1.3.tgz#c022e989340ff803845c3c71d9cb7d9be530ef81"
+  integrity sha512-VyoL7O+3eL+BazmoWzexFpVy9k0MoOAmff3XqKLhP3/V7eXPc9s7znIDpPp28QF0V/Y2xMaGDWhqTx2CFcz4Qg==
+  dependencies:
+    "@angular-devkit/core" "18.1.3"
+    "@angular-devkit/schematics" "18.1.3"
     jsonc-parser "3.3.1"
 
 "@shikijs/core@1.12.0":
