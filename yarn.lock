@@ -2453,10 +2453,10 @@
   dependencies:
     tslib "^2.2.0"
 
-"@ng-icons/material-icons@^29.0.0":
-  version "29.0.0"
-  resolved "https://registry.npmjs.org/@ng-icons/material-icons/-/material-icons-29.0.0.tgz"
-  integrity sha512-NdEZTuYEeLiiSoyolLZSYQBCCgXx2y8XIHupFk3C7/8O7Bg19nj1ErK/tuj9g/Sr3uIKgW3MM8QyfrDRoiLa/A==
+"@ng-icons/material-icons@^29.3.0":
+  version "29.3.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/material-icons/-/material-icons-29.3.0.tgz#1e3323b236fe2143332376b52caa897e833b2d52"
+  integrity sha512-99klHInmP9HtpuuPmUxDWl/UI/0RA21TaEp6p1udEGqNtvj8awJ0xvnlx6fGWHIBaMRe5nby5irS5pJZB+qVOg==
   dependencies:
     tslib "^2.2.0"
 
