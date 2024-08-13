@@ -21,7 +21,7 @@
     "@flowup/contentful-rich-text-angular-renderer": "^0.8.0",
     "@ng-icons/bootstrap-icons": "^29.0.0",
     "@ng-icons/core": "^29.0.0",
-    "@ng-icons/material-icons": "^29.0.0",
+    "@ng-icons/material-icons": "^29.3.0",
     "contentful": "^10.12.13",
     "express": "~4.19.2",
     "rxjs": "~7.8.0",
