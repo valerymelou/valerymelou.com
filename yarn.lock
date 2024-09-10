@@ -3826,12 +3826,14 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@18.16.9":
-  version "18.16.9"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.16.9.tgz"
-  integrity sha512-IeB32oIV4oGArLrd7znD2rkHQ6EDCM+2Sr76dJnrHwv9OHBTTM6nuDLK9bmikXzPa0ZlWMWtRGo/Uw4mrzQedA==
+"@types/node@*", "@types/node@22.5.4", "@types/node@>=10.0.0":
+  version "22.5.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.5.4.tgz#83f7d1f65bc2ed223bdbf57c7884f1d5a4fa84e8"
+  integrity sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==
+  dependencies:
+    undici-types "~6.19.2"
 
-"@types/node@>=10.0.0", "@types/node@^20.14.11", "@types/node@^20.14.9":
+"@types/node@^20.14.11", "@types/node@^20.14.9":
   version "20.14.11"
   resolved "https://registry.npmjs.org/@types/node/-/node-20.14.11.tgz"
   integrity sha512-kprQpL8MMeszbz6ojB5/tU8PLN4kesnN8Gjzw349rDlNgsSzg90lAVj3llK99Dh7JON+t9AuscPPFW6mPbTnSA==
