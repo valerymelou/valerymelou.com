@@ -18,7 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    provideRouter(appRoutes),
     {
       provide: WINDOW_TOKEN,
       useFactory: () => {
