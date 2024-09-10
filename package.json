@@ -17,7 +17,7 @@
     "@angular/platform-browser-dynamic": "~18.1.0",
     "@angular/platform-server": "~18.1.0",
     "@angular/router": "~18.1.0",
-    "@angular/ssr": "~18.1.0",
+    "@angular/ssr": "~18.2.3",
     "@flowup/contentful-rich-text-angular-renderer": "^0.8.0",
     "@ng-icons/bootstrap-icons": "^29.0.0",
     "@ng-icons/core": "^29.0.0",
