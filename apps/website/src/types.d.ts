@@ -3,5 +3,6 @@ declare const process: {
     VM_CONTENTFUL_SPACE: string;
     VM_CONTENTFUL_ENVIRONMENT: string;
     VM_CONTENTFUL_ACCESS_TOKEN: string;
+    PORT: number;
   };
 };
