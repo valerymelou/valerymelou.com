@@ -5,4 +5,5 @@ declare const process: {
     VM_CONTENTFUL_ACCESS_TOKEN: string;
     PORT: number;
   };
+  cwd: () => string;
 };
