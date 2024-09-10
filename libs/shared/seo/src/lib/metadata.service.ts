@@ -64,7 +64,7 @@ export class MetadataService {
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', content: '@valerymelou' },
       { name: 'twitter:title', content: metadata.title },
-      { name: 'twitter:description', content: imageUrl },
+      { name: 'twitter:description', content: metadata.description },
       { name: 'twitter:image', content: imageUrl },
       { name: 'twitter:image:alt', content: metadata.imageAlt },
     ];
