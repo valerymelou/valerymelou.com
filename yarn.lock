@@ -28,6 +28,14 @@
     "@angular-devkit/core" "18.2.7"
     rxjs "7.8.1"
 
+"@angular-devkit/architect@0.1802.9":
+  version "0.1802.9"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1802.9.tgz#001c28e88113a7dffdb6233489f1a4ee2a8aae4c"
+  integrity sha512-fubJf4WC/t3ITy+tyjI4/CKKwUP4XJTmV+Y0nyPcrkcthVyUcIpZB74NlUOvg6WECiPQuIc+CtoAaA9X5+RQ5Q==
+  dependencies:
+    "@angular-devkit/core" "18.2.9"
+    rxjs "7.8.1"
+
 "@angular-devkit/build-angular@18.2.7":
   version "18.2.7"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-18.2.7.tgz#21b72596f270e4a5a16d38224b38e46a609aad80"
@@ -118,6 +126,18 @@
     rxjs "7.8.1"
     source-map "0.7.4"
 
+"@angular-devkit/core@18.2.9":
+  version "18.2.9"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-18.2.9.tgz#12610387b1d9c92d049409d8f158bc1508e1a376"
+  integrity sha512-bsVt//5E0ua7FZfO0dCF/qGGY6KQD34/bNGyRu5B6HedimpdU2/0PGDptksU5v3yKEc9gNw0xC6mT0UsY/R9pA==
+  dependencies:
+    ajv "8.17.1"
+    ajv-formats "3.0.1"
+    jsonc-parser "3.3.1"
+    picomatch "4.0.2"
+    rxjs "7.8.1"
+    source-map "0.7.4"
+
 "@angular-devkit/schematics@18.2.7":
   version "18.2.7"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-18.2.7.tgz#348cb0d790720a66e8183d6876effc262571086c"
@@ -181,6 +201,37 @@
   dependencies:
     "@ampproject/remapping" "2.3.0"
     "@angular-devkit/architect" "0.1802.7"
+    "@babel/core" "7.25.2"
+    "@babel/helper-annotate-as-pure" "7.24.7"
+    "@babel/helper-split-export-declaration" "7.24.7"
+    "@babel/plugin-syntax-import-attributes" "7.24.7"
+    "@inquirer/confirm" "3.1.22"
+    "@vitejs/plugin-basic-ssl" "1.1.0"
+    browserslist "^4.23.0"
+    critters "0.0.24"
+    esbuild "0.23.0"
+    fast-glob "3.3.2"
+    https-proxy-agent "7.0.5"
+    listr2 "8.2.4"
+    lmdb "3.0.13"
+    magic-string "0.30.11"
+    mrmime "2.0.0"
+    parse5-html-rewriting-stream "7.0.0"
+    picomatch "4.0.2"
+    piscina "4.6.1"
+    rollup "4.22.4"
+    sass "1.77.6"
+    semver "7.6.3"
+    vite "5.4.6"
+    watchpack "2.4.1"
+
+"@angular/build@18.2.9":
+  version "18.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/build/-/build-18.2.9.tgz#68e44d7e9cb376069bfa9ae56cecf18cddefa098"
+  integrity sha512-o1hOEM2e6ARy+ck2Pohl0d/RFgbbXTw6/hTLAj3CBKjtqAGStRaVF2UlJjhi+xOxlfsOPuJJc9IpzLBteku+Ag==
+  dependencies:
+    "@ampproject/remapping" "2.3.0"
+    "@angular-devkit/architect" "0.1802.9"
     "@babel/core" "7.25.2"
     "@babel/helper-annotate-as-pure" "7.24.7"
     "@babel/helper-split-export-declaration" "7.24.7"
