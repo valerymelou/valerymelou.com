@@ -20,6 +20,14 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
+"@angular-devkit/architect@0.1802.12":
+  version "0.1802.12"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1802.12.tgz#096f8e9cf71f8848c6f0172c03f3f1135509e133"
+  integrity sha512-bepVb2/GtJppYKaeW8yTGE6egmoWZ7zagFDsmBdbF+BYp+HmeoPsclARcdryBPVq68zedyTRdvhWSUTbw1AYuw==
+  dependencies:
+    "@angular-devkit/core" "18.2.12"
+    rxjs "7.8.1"
+
 "@angular-devkit/architect@0.1802.7":
   version "0.1802.7"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1802.7.tgz#eb69e6b94473c3ca3428b71c5f31ee418724a8e5"
@@ -106,6 +114,18 @@
     "@angular-devkit/architect" "0.1802.7"
     rxjs "7.8.1"
 
+"@angular-devkit/core@18.2.12":
+  version "18.2.12"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-18.2.12.tgz#fb514e9b3c9ea87ddaa1582d3947f1b094c9b387"
+  integrity sha512-NtB6ypsaDyPE6/fqWOdfTmACs+yK5RqfH5tStEzWFeeDsIEDYKsJ06ypuRep7qTjYus5Rmttk0Ds+cFgz8JdUQ==
+  dependencies:
+    ajv "8.17.1"
+    ajv-formats "3.0.1"
+    jsonc-parser "3.3.1"
+    picomatch "4.0.2"
+    rxjs "7.8.1"
+    source-map "0.7.4"
+
 "@angular-devkit/core@18.2.7":
   version "18.2.7"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-18.2.7.tgz#f7133c9c50eb1916f8862370be975e4e2b84cca3"
@@ -173,6 +193,37 @@
   integrity sha512-5B7qD1K+kKOf9lgJT4VNMft3IK2BnRHjN1S6l38ywzQ/nxpmCG7f+qKAAU6CpCywhNUBeXW0hVXTMuMNPVOcQQ==
   dependencies:
     tslib "^2.3.0"
+
+"@angular/build@18.2.12":
+  version "18.2.12"
+  resolved "https://registry.yarnpkg.com/@angular/build/-/build-18.2.12.tgz#d6be89fb572675cfa170f664c0b0ed49c317f33c"
+  integrity sha512-4Ohz+OSILoL+cCAQ4UTiCT5v6pctu3fXNoNpTEUK46OmxELk9jDITO5rNyNS7TxBn9wY69kjX5VcDf7MenquFQ==
+  dependencies:
+    "@ampproject/remapping" "2.3.0"
+    "@angular-devkit/architect" "0.1802.12"
+    "@babel/core" "7.25.2"
+    "@babel/helper-annotate-as-pure" "7.24.7"
+    "@babel/helper-split-export-declaration" "7.24.7"
+    "@babel/plugin-syntax-import-attributes" "7.24.7"
+    "@inquirer/confirm" "3.1.22"
+    "@vitejs/plugin-basic-ssl" "1.1.0"
+    browserslist "^4.23.0"
+    critters "0.0.24"
+    esbuild "0.23.0"
+    fast-glob "3.3.2"
+    https-proxy-agent "7.0.5"
+    listr2 "8.2.4"
+    lmdb "3.0.13"
+    magic-string "0.30.11"
+    mrmime "2.0.0"
+    parse5-html-rewriting-stream "7.0.0"
+    picomatch "4.0.2"
+    piscina "4.6.1"
+    rollup "4.22.4"
+    sass "1.77.6"
+    semver "7.6.3"
+    vite "5.4.6"
+    watchpack "2.4.1"
 
 "@angular/build@18.2.7":
   version "18.2.7"
