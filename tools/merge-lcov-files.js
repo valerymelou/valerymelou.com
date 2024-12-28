@@ -35,7 +35,7 @@ const getLcovFiles = async function (src) {
         Promise.resolve(''),
       );
 
-      await fs.writeFile('coverage/merged-lcov.info', mergedReport, 'utf8');
+      await fs.writeFile('coverage/lcov.info', mergedReport, 'utf8');
       console.log('Merged lcov files successfully.');
     } else {
       console.log('No lcov files found.');
