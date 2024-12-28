@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'a[ui-link]',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './link.component.html',
 })

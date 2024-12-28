@@ -1,7 +1,7 @@
-import { OverlayModule } from '@angular/cdk/overlay';
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { MenuTriggerForDirective } from './menu-trigger-for.directive';
 import { MenuComponent } from './menu.component';
 
@@ -17,6 +17,7 @@ import { MenuComponent } from './menu.component';
     </ui-menu>
   `,
   selector: 'ui-test-component',
+  imports: [MenuTriggerForDirective, MenuComponent],
 })
 // skipcq: JS-0327
 class TestComponent {}
@@ -26,8 +27,7 @@ describe('MenuTriggerForDirective', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [TestComponent],
-      imports: [MenuTriggerForDirective, MenuComponent, OverlayModule],
+      imports: [TestComponent],
     }).createComponent(TestComponent);
 
     fixture.detectChanges();
@@ -35,7 +35,7 @@ describe('MenuTriggerForDirective', () => {
 
   it('should have three menu trigger', () => {
     const trigger = fixture.debugElement.queryAll(
-      By.directive(MenuTriggerForDirective)
+      By.directive(MenuTriggerForDirective),
     );
     trigger.forEach((d: DebugElement) => {
       d.triggerEventHandler('click', null);
