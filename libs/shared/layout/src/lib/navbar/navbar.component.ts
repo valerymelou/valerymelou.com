@@ -11,8 +11,6 @@ import {
   matLightModeRound,
   matMenuRound,
 } from '@ng-icons/material-icons/round';
-
-import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 import { LogoComponent } from '../logo/logo.component';
 
@@ -23,14 +21,11 @@ interface NavbarLink {
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [
     CommonModule,
     RouterModule,
     NgIconComponent,
     LogoComponent,
-    MenuComponent,
-    MenuTriggerForDirective,
     SocialLinksComponent,
   ],
   viewProviders: [

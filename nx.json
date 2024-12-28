@@ -84,5 +84,6 @@
         "targetName": "eslint:lint"
       }
     }
-  ]
+  ],
+  "useLegacyCache": true
 }
