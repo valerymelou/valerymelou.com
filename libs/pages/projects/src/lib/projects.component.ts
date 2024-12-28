@@ -5,7 +5,6 @@ import { MetadataService } from '@valerymelou/shared/seo';
 
 @Component({
   selector: 'app-projects',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -11,6 +11,7 @@ import { ButtonComponent } from './button.component';
     <button ui-flat-button disabled>Test</button>
   `,
   selector: 'ui-button-test',
+  imports: [ButtonComponent],
 })
 class ButtonTestComponent {}
 
@@ -20,8 +21,7 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ButtonTestComponent],
-      imports: [ButtonComponent],
+      imports: [ButtonTestComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonTestComponent);

@@ -32,7 +32,6 @@ const BUTTON_STYLE_CLASSES: { [name: string]: { [name: string]: string } } = {
  */
 @Component({
   selector: 'button[ui-flat-button], a[ui-flat-button]',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
 })
@@ -55,7 +54,7 @@ export class ButtonComponent implements AfterViewInit {
       'rounded-full',
       'transition-all',
       'duration-300',
-      'font-semibold'
+      'font-semibold',
     );
   }
 
@@ -95,7 +94,7 @@ export class ButtonComponent implements AfterViewInit {
    */
   private hasHostAttributes(...attributes: string[]): boolean {
     return attributes.some((attribute) =>
-      this.getHostElement().hasAttribute(attribute)
+      this.getHostElement().hasAttribute(attribute),
     );
   }
 
