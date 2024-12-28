@@ -8,7 +8,6 @@ import { MetadataService } from '@valerymelou/shared/seo';
 
 @Component({
   selector: 'blog-home',
-  standalone: true,
   imports: [CommonModule, RouterModule, LinkComponent],
   templateUrl: './blog-home.component.html',
 })

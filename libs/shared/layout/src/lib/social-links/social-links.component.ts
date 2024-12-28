@@ -24,7 +24,6 @@ interface SocialLink {
 
 @Component({
   selector: 'app-social-links',
-  standalone: true,
   imports: [
     CommonModule,
     NgIconComponent,

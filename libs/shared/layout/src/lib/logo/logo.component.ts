@@ -10,7 +10,6 @@ import {
 
 @Component({
   selector: 'app-logo',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './logo.component.html',
   styles: `

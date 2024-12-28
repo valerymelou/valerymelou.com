@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 
 import { filter } from 'rxjs';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { provideIcons } from '@ng-icons/core';
 import {
   bootstrapGithub,
   bootstrapLinkedin,
@@ -18,22 +18,12 @@ import {
   matMenuRound,
 } from '@ng-icons/material-icons/round';
 
-import { MenuComponent, MenuTriggerForDirective } from '@valerymelou/shared/ui';
 import { SocialLinksComponent } from '../social-links/social-links.component';
 import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-social-bar',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgIconComponent,
-    LogoComponent,
-    MenuTriggerForDirective,
-    MenuComponent,
-    SocialLinksComponent,
-  ],
+  imports: [CommonModule, RouterModule, LogoComponent, SocialLinksComponent],
   templateUrl: './social-bar.component.html',
   viewProviders: [
     provideIcons({
