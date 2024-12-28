@@ -6,7 +6,6 @@ import { LinkComponent } from '@valerymelou/shared/ui';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
   imports: [CommonModule, LinkComponent],
   templateUrl: './about.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

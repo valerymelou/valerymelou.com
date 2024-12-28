@@ -23,7 +23,6 @@ import {
 
 @Component({
   selector: 'blog-article',
-  standalone: true,
   imports: [
     CommonModule,
     RouterModule,

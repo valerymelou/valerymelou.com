@@ -4,7 +4,6 @@ import { LinkComponent } from '@valerymelou/shared/ui';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [CommonModule, LinkComponent],
   templateUrl: './footer.component.html',
 })
