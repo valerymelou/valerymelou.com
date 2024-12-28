@@ -7,7 +7,6 @@ import { MetadataService } from '@valerymelou/shared/seo';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [CommonModule, RouterModule, ButtonComponent],
   templateUrl: './home.component.html',
   styles: ':host {display: flex; flex-direction: column; flex: 1;}',

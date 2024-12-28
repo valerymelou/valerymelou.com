@@ -9,7 +9,6 @@ import { WINDOW_TOKEN } from '@valerymelou/common/browser';
 
 @Component({
   selector: 'ui-code',
-  standalone: true,
   imports: [CommonModule, NgIconComponent],
   templateUrl: './code.component.html',
   styleUrls: ['./code.component.scss'],
