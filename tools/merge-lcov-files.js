@@ -1,32 +1,46 @@
-const glob = require('glob');
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 
-const getLcovFiles = function (src) {
-  return new Promise((resolve, reject) => {
-    glob(`${src}/**/lcov.info`, (error, result) => {
-      if (error) return reject(error);
-      resolve(result);
-      return null;
-    });
-  });
+const getLcovFiles = async function (src) {
+  const lcovFiles = [];
+
+  async function findLcovFiles(dir) {
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+
+      if (entry.isDirectory()) {
+        await findLcovFiles(fullPath);
+      } else if (entry.isFile() && entry.name === 'lcov.info') {
+        lcovFiles.push(fullPath);
+      }
+    }
+  }
+
+  await findLcovFiles(src);
+  return lcovFiles;
 };
 
 (async function () {
-  const files = await getLcovFiles('coverage');
-  if (files && files instanceof Array) {
-    const mergedReport = files.reduce(
-      (report, currFile) => (report += fs.readFileSync(currFile)),
-      '',
-    );
-    await fs.writeFile(
-      path.resolve('./coverage/lcov.info'),
-      mergedReport,
-      (err) => {
-        if (err) console.log(err); // skipcq: JS-0002
-        console.log('The file has been saved!'); // skipcq: JS-0002
-        return null;
-      },
-    );
+  try {
+    const files = await getLcovFiles('coverage');
+    if (files && files.length > 0) {
+      const mergedReport = await files.reduce(
+        async (reportPromise, currFile) => {
+          const report = await reportPromise;
+          const fileContent = await fs.readFile(currFile, 'utf8');
+          return report + fileContent;
+        },
+        Promise.resolve(''),
+      );
+
+      await fs.writeFile('coverage/merged-lcov.info', mergedReport, 'utf8');
+      console.log('Merged lcov files successfully.');
+    } else {
+      console.log('No lcov files found.');
+    }
+  } catch (error) {
+    console.error('Error merging lcov files:', error);
   }
 })();
