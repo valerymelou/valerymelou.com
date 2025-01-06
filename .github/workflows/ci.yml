@@ -37,8 +37,8 @@ jobs:
           cache: 'yarn'
 
       - run: yarn install
-      - run: npx nx affected --target=lint --parallel=3
-      - run: npx nx run-many --target=test --parallel=3 --code-coverage
+      - run: yarn nx affected --target=lint
+      - run: yarn nx run-many --target=test --code-coverage
       - run: yarn merge-lcov
 
       - name: Code Coverage
