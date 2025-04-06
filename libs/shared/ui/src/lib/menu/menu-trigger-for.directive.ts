@@ -33,7 +33,11 @@ export class MenuTriggerForDirective implements OnDestroy {
 
   @HostListener('click')
   toggleDropdown(): void {
-    this.isMenuOpen ? this.destroyMenu() : this.openMenu();
+    if (this.isMenuOpen) {
+      this.destroyMenu();
+    } else {
+      this.openMenu();
+    }
   }
 
   openMenu(): void {
