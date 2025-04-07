@@ -4,4 +4,5 @@ module.exports = {
   ...nxPreset,
   coverageReporters: ['html', 'lcov', 'text'],
   coveragePathIgnorePatterns: ['<rootDir>/libs/shared/ui-testing/*'],
+  testEnvironment: '@happy-dom/jest-environment',
 };
