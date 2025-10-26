@@ -1,0 +1,36 @@
+@for(article of articles.items; track article.slug) {
+<a
+  [routerLink]="['/blog', article.url,]"
+  class="prose dark:prose-invert border-border flex w-full max-w-none flex-col gap-3 border-b px-4 pt-4 pb-8 sm:px-6"
+>
+  <div
+    class="text-muted-foreground flex items-center gap-2 text-sm font-medium"
+  >
+    <dl class="mt-0 mb-0">
+      <dt class="sr-only">Date</dt>
+      <dd class="mt-0 mb-0 pl-0 text-nowrap">
+        <time [attr.datetime]="article.publishedAt"
+          >{{ article.publishedAt | date: 'mediumDate' }}</time
+        >
+      </dd>
+    </dl>
+    <span>&middot;</span>
+    <span>{{ article.readingTime }} min read</span>
+  </div>
+
+  @if (article.cover) {
+  <figure class="relative mt-0 mb-0 h-[200px] sm:h-[300px]">
+    <img
+      class="w-full rounded-lg object-cover"
+      [ngSrc]="article.cover.url"
+      [alt]="article.cover.description"
+      fill
+      priority
+    />
+  </figure>
+  }
+  <h2 class="mt-0 mb-0">{{ article.title }}</h2>
+
+  <p class="my-0">{{ article.abstract }}</p>
+</a>
+}

@@ -1,0 +1,23 @@
+<div class="border-border mx-auto flex max-w-2xl flex-col border-r border-l">
+  <nav class="border-border flex w-full overflow-auto border-b">
+    <a
+      routerLink="/"
+      routerLinkActive="text-foreground border-b-4 border-sky-600"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="text-muted-foreground hover:bg-accent relative px-5 py-4 text-[15px] font-medium transition-colors duration-300 ease-in-out"
+      >About</a
+    >
+    <a
+      routerLink="/projects"
+      routerLinkActive="text-foreground border-b-4 border-sky-600"
+      class="text-muted-foreground hover:bg-accent relative px-5 py-4 text-[15px] font-medium transition-colors duration-300 ease-in-out"
+      >Projects</a
+    >
+    <a
+      routerLink="/blog"
+      routerLinkActive="text-foreground border-b-4 border-sky-600"
+      class="text-muted-foreground hover:bg-accent relative px-5 py-4 text-[15px] font-medium transition-colors duration-300 ease-in-out"
+      >Articles</a
+    >
+  </nav>
+</div>

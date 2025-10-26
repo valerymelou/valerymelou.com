@@ -1,7 +1,7 @@
-import { Inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
-import { WINDOW_TOKEN } from '@valerymelou/common/browser';
+import { WINDOW_TOKEN } from '@vm/common/browser';
 
 import { DEFAULT_METADATA } from './constants';
 import { PageMetadata } from './page-metadata';
@@ -10,11 +10,9 @@ import { PageMetadata } from './page-metadata';
   providedIn: 'root',
 })
 export class MetadataService {
-  constructor(
-    @Inject(WINDOW_TOKEN) private window: Window,
-    private meta: Meta,
-    private title: Title,
-  ) {}
+  private readonly window = inject(WINDOW_TOKEN);
+  private readonly meta = inject(Meta);
+  private readonly title = inject(Title);
 
   updateMetadata(metadata: Partial<PageMetadata>, index = true): void {
     const pageMetadata: PageMetadata = { ...DEFAULT_METADATA, ...metadata };

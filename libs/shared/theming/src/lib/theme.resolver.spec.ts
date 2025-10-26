@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-import { themeResolver } from './theme.resolver';
-import { ThemeService } from './theme.service';
 import {
   ActivatedRouteSnapshot,
   ResolveFn,
   RouterStateSnapshot,
 } from '@angular/router';
-import { WINDOW_TOKEN } from '@valerymelou/common/browser';
+
+import { WINDOW_TOKEN } from '@vm/common/browser';
+
+import { themeResolver } from './theme.resolver';
+import { ThemeService } from './theme.service';
 
 describe('themeResolver', () => {
   let themeService: ThemeService;

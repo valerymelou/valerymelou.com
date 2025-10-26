@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'pages-home',
   preset: '../../../jest.preset.js',

@@ -1,0 +1,197 @@
+<article class="prose dark:prose-invert max-w-none px-4 py-4 sm:px-6">
+  <div
+    class="text-muted-foreground flex items-center gap-2 text-sm font-medium"
+  >
+    <dl class="mt-0 mb-0">
+      <dt class="sr-only">Date</dt>
+      <dd class="mt-0 mb-0 pl-0 text-nowrap">
+        <time [attr.datetime]="article.publishedAt"
+          >{{ article.publishedAt | date: 'mediumDate' }}</time
+        >
+      </dd>
+    </dl>
+    <span>&middot;</span>
+    <span>{{ article.readingTime }} min read</span>
+    <div class="ml-auto">
+      <button
+        ui-button
+        size="icon"
+        variant="ghost"
+        [ui-menu-trigger-for]="shareMenu"
+        xPosition="after"
+        aria-label="Share this article"
+      >
+        <ng-icon name="radixShare2" size="20"></ng-icon>
+      </button>
+    </div>
+  </div>
+  <h1 class="mt-0">{{ article.title }}</h1>
+
+  @if (article.cover) {
+  <figure class="relative mt-0 mb-0">
+    <div class="relative h-[200px] w-full sm:h-[300px]">
+      <img
+        class="mt-0 mb-0 w-full rounded-lg object-cover"
+        [ngSrc]="article.cover.url"
+        [alt]="article.cover.description"
+        fill
+        priority
+      />
+    </div>
+    @if (article.cover.description) {
+    <figcaption>{{ article.cover.description }}</figcaption>
+    }
+  </figure>
+  } @if (article.abstract) {
+  <p>{{ article.abstract }}</p>
+  }
+
+  <div [cfRichTextDocument]="article.content" ngSkipHydration>
+    <ng-container *cfRichTextNode="BLOCKS.HEADING_1; let node = node">
+      <h1
+        class="mb-4 text-2xl leading-[3rem] font-bold tracking-tight text-black lg:text-4xl dark:text-white"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </h1>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.HEADING_2; let node = node">
+      <h2
+        class="mb-4 text-xl leading-[3rem] font-bold tracking-tight text-black lg:text-2xl dark:text-white"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </h2>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.HEADING_3; let node = node">
+      <h3
+        class="mb-4 text-lg leading-[3rem] font-bold tracking-tight text-black lg:text-xl dark:text-white"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </h3>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.HEADING_4; let node = node">
+      <h4
+        class="mb-4 text-base leading-[3rem] font-bold tracking-tight text-black lg:text-lg dark:text-white"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </h4>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.HEADING_5; let node = node">
+      <h5
+        class="mb-4 leading-[3rem] font-bold tracking-tight text-black dark:text-white"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </h5>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.HEADING_6; let node = node">
+      <h6
+        class="mb-4 leading-[3rem] font-bold tracking-tight text-black dark:text-white"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </h6>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.PARAGRAPH; let node = node">
+      <p class="mb-4">
+        <ng-container [cfRichTextChildren]="node" />
+      </p>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.UL_LIST; let node = node">
+      <ul class="mb-4 list-disc pl-4">
+        <ng-container [cfRichTextChildren]="node" />
+      </ul>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.OL_LIST; let node = node">
+      <ol class="mb-4 list-decimal pl-4">
+        <ng-container [cfRichTextChildren]="node" />
+      </ol>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.LIST_ITEM; let node = node">
+      <li class="mb-4 pl-2">
+        <ng-container [cfRichTextChildren]="node" />
+      </li>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.QUOTE; let node = node">
+      <blockquote class="mb-4 border-l-4 border-gray-500 pl-4 italic">
+        <ng-container [cfRichTextChildren]="node" />
+      </blockquote>
+    </ng-container>
+    <ng-container *cfRichTextNode="BLOCKS.HR">
+      <hr class="my-10 border-slate-200 dark:border-slate-700" />
+    </ng-container>
+    <ng-container *cfRichTextNode="INLINES.HYPERLINK; let node = node">
+      <a
+        ui-link
+        [href]="node.data.uri"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ng-container [cfRichTextChildren]="node" />
+      </a>
+    </ng-container>
+
+    <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ASSET; let node = node">
+      <figure class="mb-4">
+        <img
+          class="h-auto w-full"
+          [src]="node.data.target.fields.file.url"
+          [alt]="node.data.target.fields.description"
+        />
+        @if (node.data.target.fields.title) {
+        <figcaption class="text-slate-500 italic dark:text-slate-400">
+          {{ node.data.target.fields.description }}
+        </figcaption>
+        }
+      </figure>
+    </ng-container>
+
+    <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ENTRY; let node = node">
+      Embedded entry
+    </ng-container>
+
+    <strong
+      *cfRichTextMark="MARKS.BOLD; let node = node"
+      class="dark:text-white"
+      >{{ node.value }}</strong
+    >
+
+    <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
+      <ui-code [code]="node.value"></ui-code>
+    </ng-container>
+  </div>
+
+  <!-- Comments -->
+  <section class="mt-10">
+    <div #giscus></div>
+  </section>
+</article>
+
+<ui-menu #shareMenu>
+  <div class="flex flex-col items-start space-y-1">
+    <button
+      ui-button
+      variant="ghost"
+      class="w-full justify-start"
+      (click)="copyLink()"
+    >
+      <ng-icon name="remixLink"></ng-icon>
+      <span>Copy link</span>
+    </button>
+    <button
+      ui-button
+      variant="ghost"
+      class="w-full justify-start"
+      (click)="shareOnX()"
+    >
+      <ng-icon name="remixTwitterXFill"></ng-icon>
+      <span>Share on X</span>
+    </button>
+    <button
+      ui-button
+      variant="ghost"
+      class="w-full justify-start"
+      (click)="shareOnLinkedIn()"
+    >
+      <ng-icon name="remixLinkedinFill"></ng-icon>
+      <span>Share on LinkedIn</span>
+    </button>
+  </div>
+</ui-menu>
