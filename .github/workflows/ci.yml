@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v5
 
       - uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: develop
 
       - name: Setup Node
         uses: actions/setup-node@v6
