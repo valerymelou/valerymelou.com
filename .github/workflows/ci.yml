@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ['master', 'develop']
+    branches: ["master", "develop"]
   pull_request:
-    branches: ['master', 'develop']
+    branches: ["master", "develop"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout Code Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -31,23 +31,20 @@ jobs:
           main-branch-name: develop
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
-          cache: 'yarn'
+          node-version: 24
+          cache: "yarn"
 
       - run: yarn install
       - run: yarn nx affected --target=lint
       - run: yarn nx run-many --target=test --code-coverage
       - run: yarn merge-lcov
 
-      - name: Code Coverage
-        uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - uses: qltysh/qlty-action/coverage@v2
         with:
-          coverageLocations: |
-            ${{github.workspace}}/coverage/lcov.info:lcov
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/lcov.info
 
   deploy:
     if: >

@@ -3,9 +3,9 @@ import { PageMetadata } from './page-metadata';
 export const APP_NAME = 'Valery Melou';
 export const DEFAULT_METADATA: PageMetadata = {
   title: '',
-  description: 'Web developer from Yaounde, Cameroon',
-  keywords: ['angular', 'django', 'angular', 'web', 'developer', 'yaounde'],
+  description: 'Valery Melou - Full-Stack Developer & Product Builder',
+  keywords: ['angular', 'django', 'web', 'developer', 'yaounde'],
   type: 'website',
-  image: '/assets/images/valerymelou.jpg',
+  image: '/images/valerymelou.png',
   imageAlt: APP_NAME,
 };

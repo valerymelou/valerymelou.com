@@ -1,14 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ThemeService } from './theme.service';
 import { take } from 'rxjs';
-import { WINDOW_TOKEN } from '@valerymelou/common/browser';
+
+import { WINDOW_TOKEN } from '@vm/common/browser';
+
+import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
   let service: ThemeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({providers: [{provide: WINDOW_TOKEN, useValue: window}]});
+    TestBed.configureTestingModule({
+      providers: [{ provide: WINDOW_TOKEN, useValue: window }],
+    });
     service = TestBed.inject(ThemeService);
     service.getTheme().subscribe();
   });

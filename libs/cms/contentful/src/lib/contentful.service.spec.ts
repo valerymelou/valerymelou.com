@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+
 import { EntryCollection, EntrySkeletonType, TagCollection } from 'contentful';
 
 import { ContentfulService } from './contentful.service';
@@ -376,7 +377,7 @@ describe('ContentfulService', () => {
       .subscribe(
         (collection: EntryCollection<EntrySkeletonType, undefined, string>) => {
           expect(collection.items === entries.items);
-        }
+        },
       );
 
     expect(getEntriesSpy).toHaveBeenCalled();
