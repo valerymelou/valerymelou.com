@@ -1,4 +1,5 @@
 import { inject, Injectable } from '@angular/core';
+
 import { from, Observable } from 'rxjs';
 import {
   ContentfulClientApi,
@@ -7,6 +8,7 @@ import {
   TagCollection,
   createClient,
 } from 'contentful';
+
 import {
   CONTENTFUL_ACCESS_TOKEN,
   CONTENTFUL_ENVIRONMENT,

@@ -1,10 +1,11 @@
+import { Document } from '@contentful/rich-text-types';
 import {
   Asset as ContentfulAsset,
   Entry,
   EntrySkeletonType,
   TagLink,
 } from 'contentful';
-import { Document } from '@contentful/rich-text-types';
+
 import { Asset } from './asset';
 import { Tag } from './tag';
 
@@ -51,5 +52,43 @@ export class Article {
     });
     article.content = entry.fields['content'] as Document;
     return article;
+  }
+
+  get url(): string {
+    return `${this.publishedAt.split('T')[0]}-${this.slug}`;
+  }
+
+  /**
+   * Estimated reading time in minutes based on the article rich-text content.
+   * Uses a default reading speed of ~200 words per minute.
+   */
+  get readingTime(): number {
+    if (!this.content) {
+      return 0;
+    }
+
+    const text = this.#extractText(this.content);
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const minutes = Math.ceil(words / 200);
+    return Math.max(1, minutes);
+  }
+
+  // Recursively extract all textual content from a Contentful Rich Text document
+  #extractText(node: any): string {
+    if (!node) return '';
+
+    // Text node
+    if (node.nodeType === 'text') {
+      return node.value ?? '';
+    }
+
+    // Nodes with children
+    if (Array.isArray(node.content)) {
+      return node.content
+        .map((child: unknown) => this.#extractText(child))
+        .join(' ');
+    }
+
+    return '';
   }
 }

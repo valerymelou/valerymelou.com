@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
-import { ContentfulService } from '@valerymelou/cms/contentful';
-import { Observable, map } from 'rxjs';
-import { Tag } from './tag';
+import { inject, Injectable } from '@angular/core';
+
 import { Tag as ContentfulTag, TagCollection } from 'contentful';
+import { Observable, map } from 'rxjs';
+
+import { ContentfulService } from '@vm/cms/contentful';
+
 import { Results } from './results';
+import { Tag } from './tag';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TagService {
-  constructor(private contentfulService: ContentfulService) {}
+  private readonly contentfulService = inject(ContentfulService);
 
   getAll(): Observable<Results<Tag>> {
     return this.contentfulService.getTags().pipe(
@@ -27,7 +30,7 @@ export class TagService {
           });
         });
         return tags;
-      }),
+      })
     );
   }
 }

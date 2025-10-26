@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
+import { WINDOW_TOKEN } from '@vm/common/browser';
+
 import { MetadataService } from './metadata.service';
-import { WINDOW_TOKEN } from '@valerymelou/common/browser';
 
 describe('MetadataService', () => {
   let service: MetadataService;

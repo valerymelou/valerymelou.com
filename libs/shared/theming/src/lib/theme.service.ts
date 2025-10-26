@@ -1,33 +1,33 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
-import { StorageService, WINDOW_TOKEN } from '@valerymelou/common/browser';
+import { inject, Injectable } from '@angular/core';
+import { StorageService, WINDOW_TOKEN } from '@vm/common/browser';
 import { BehaviorSubject } from 'rxjs';
 
 const USE_SYSTEM_THEME_STORAGE_KEY = 'useSystemTheme';
 const THEME_STORAGE_KEY = 'theme';
-const DARK_MODE_CLASS = 'dark'
+const DARK_MODE_CLASS = 'dark';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
+  private readonly document = inject(DOCUMENT);
+  private readonly window = inject(WINDOW_TOKEN);
   private themeChanged: BehaviorSubject<string> = new BehaviorSubject('light');
+  private storage = inject(StorageService);
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW_TOKEN) private window: Window,
-    private storage: StorageService
-  ) {
-    // Only listen to system's theme change if user prefers system's theme
+  constructor() {
     if (this.shouldUseSystemTheme()) {
       this.setUserPreference(true);
     }
   }
 
   changeTheme(theme: 'dark' | 'light', system = true) {
-    theme === 'dark'
-      ? this.addClassToDocument()
-      : this.removeClassFromDocument();
+    if (theme === 'dark') {
+      this.addClassToDocument();
+    } else {
+      this.removeClassFromDocument();
+    }
 
     // Indicate that the user has chosen a specific theme, not the system's theme
     if (!system) {
@@ -38,7 +38,10 @@ export class ThemeService {
   }
 
   setUserPreference(useSystemTheme: boolean) {
-    this.storage.setItem(USE_SYSTEM_THEME_STORAGE_KEY, useSystemTheme.toString());
+    this.storage.setItem(
+      USE_SYSTEM_THEME_STORAGE_KEY,
+      useSystemTheme.toString(),
+    );
     this.window
       .matchMedia('(prefers-color-scheme: dark)')
       .removeEventListener('change', this.themeChangeListener.bind(this));
@@ -61,9 +64,10 @@ export class ThemeService {
   }
 
   getPreferredTheme(): 'dark' | 'light' {
-    const useSystemTheme = this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true';
+    const useSystemTheme =
+      this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true';
     const prefersDarkTheme = this.window.matchMedia(
-      '(prefers-color-scheme: dark)'
+      '(prefers-color-scheme: dark)',
     ).matches;
 
     if (useSystemTheme) {
