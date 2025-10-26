@@ -40,7 +40,7 @@ export class ThemeService {
   setUserPreference(useSystemTheme: boolean) {
     this.storage.setItem(
       USE_SYSTEM_THEME_STORAGE_KEY,
-      useSystemTheme.toString()
+      useSystemTheme.toString(),
     );
     this.window
       .matchMedia('(prefers-color-scheme: dark)')
@@ -67,7 +67,7 @@ export class ThemeService {
     const useSystemTheme =
       this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true';
     const prefersDarkTheme = this.window.matchMedia(
-      '(prefers-color-scheme: dark)'
+      '(prefers-color-scheme: dark)',
     ).matches;
 
     if (useSystemTheme) {
