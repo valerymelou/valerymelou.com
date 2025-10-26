@@ -3,7 +3,6 @@ exclude_patterns:
   - '**/*.spec.ts'
   - '**/jest.config.ts'
   - '**/test-setup.ts'
-  - '**/tests/*.py'
 checks:
   similar-code:
     config:

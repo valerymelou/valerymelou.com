@@ -14,6 +14,7 @@ export class Asset {
     asset.contentType = (entry.fields['file'] as AssetFile).contentType;
     asset.filename = (entry.fields['file'] as AssetFile).fileName;
     asset.url = (entry.fields['file'] as AssetFile).url;
+    asset.url = asset.url.replace('//', 'https://');
 
     return asset;
   }

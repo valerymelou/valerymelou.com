@@ -1,1 +1,1 @@
-export * from './lib/blog-home.component';
+export * from './lib/articles';

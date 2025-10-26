@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 
 import { Observable, map } from 'rxjs';
 import { Entry, EntryCollection, EntrySkeletonType } from 'contentful';
 
-import { ContentfulService } from '@valerymelou/cms/contentful';
+import { ContentfulService } from '@vm/cms/contentful';
 
 import { Article } from './article';
 import { Results } from './results';
@@ -12,9 +12,8 @@ import { Results } from './results';
   providedIn: 'root',
 })
 export class ArticleService {
+  private readonly contentfulService = inject(ContentfulService);
   private contentType = 'article';
-
-  constructor(private contentfulService: ContentfulService) {}
 
   get(query: { [key: string]: string }): Observable<Results<Article>> {
     return this.contentfulService.getEntries(this.contentType, query).pipe(
