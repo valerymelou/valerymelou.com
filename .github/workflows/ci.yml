@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout Code Repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: nrwl/nx-set-shas@v4
         with:

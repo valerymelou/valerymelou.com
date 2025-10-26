@@ -15,6 +15,8 @@ jobs:
       ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -84,6 +86,8 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Download build result
         uses: actions/download-artifact@v6
