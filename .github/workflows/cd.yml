@@ -14,10 +14,10 @@ jobs:
     outputs:
       ENVIRONMENT: ${{ env.VM_CONTENTFUL_ENVIRONMENT }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: 'yarn'
@@ -29,7 +29,7 @@ jobs:
       - run: npx nx run website:prerender:${{ env.VM_CONTENTFUL_ENVIRONMENT }}
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build-output-${{ env.VM_CONTENTFUL_ENVIRONMENT }}
           path: |
@@ -41,10 +41,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download build result
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: dist
           name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
@@ -62,10 +62,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download build result
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: dist
           name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
@@ -83,10 +83,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download build result
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: dist
           name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
