@@ -29,7 +29,7 @@ jobs:
       - run: yarn nx build www
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build-output-${{ env.VM_CONTENTFUL_ENVIRONMENT }}
           path: |
@@ -41,10 +41,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download build result
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: dist
           name: build-output-${{ needs.build.outputs.ENVIRONMENT }}
@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download build result
         uses: actions/download-artifact@v6
