@@ -1,0 +1,37 @@
+<section>
+  @for (project of projects; track project.title) {
+  <a
+    [href]="project.link"
+    rel="noopener"
+    target="_blank"
+    class="border-border prose dark:prose-invert block max-w-none border-b px-4 pt-4 pb-8 sm:px-6"
+  >
+    <article class="group flex flex-col gap-3">
+      <figure class="relative mt-0 mb-0 h-[200px] sm:h-[300px]">
+        <img
+          class="w-full rounded-lg object-cover object-top"
+          [ngSrc]="project.image"
+          [alt]="project.title"
+          fill
+          priority
+        />
+      </figure>
+      <h2 class="mt-0 mb-0">{{ project.title }}</h2>
+      <p class="mb-0">{{ project.description }}</p>
+      <div class="flex items-center">
+        <ul class="not-prose flex gap-2">
+          @for (tool of project.tools; track tool) {
+          <li class="bg-accent rounded-full px-3 py-1 text-sm">{{ tool }}</li>
+          }
+        </ul>
+        <div
+          class="text-blue group-hover:border-blue transition-border ml-auto flex items-center gap-2 border-b-2 border-transparent font-medium duration-300"
+        >
+          <ng-icon name="remixLink"></ng-icon>
+          <span class="text-sm">View Project</span>
+        </div>
+      </div>
+    </article>
+  </a>
+  }
+</section>

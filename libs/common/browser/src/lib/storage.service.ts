@@ -1,11 +1,11 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  private platformId = inject(PLATFORM_ID);
 
   getItem(key: string): string | null {
     return isPlatformBrowser(this.platformId)

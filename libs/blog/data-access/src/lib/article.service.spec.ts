@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { EntryCollection, EntrySkeletonType } from 'contentful';
 import { of } from 'rxjs';
 
-import { ContentfulService } from '@valerymelou/cms/contentful';
+import { ContentfulService } from '@vm/cms/contentful';
 
 import { Results } from './results';
 import { Article } from './article';
@@ -377,12 +377,12 @@ describe('ArticleService', () => {
   it('should get one article entry', () => {
     service
       .getOne(
-        'the-django-administration-site-one-of-the-reasons-why-i-love-django',
+        'the-django-administration-site-one-of-the-reasons-why-i-love-django'
       )
       .subscribe((article: Article) => {
         expect(
           article.title ===
-            'The Django administration site: One of the reasons why I love Django',
+            'The Django administration site: One of the reasons why I love Django'
         );
       });
   });

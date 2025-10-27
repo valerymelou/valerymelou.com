@@ -15,19 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@valerymelou/blog-tasks": ["libs/blog/tasks/src/index.ts"],
-      "@valerymelou/blog/article": ["libs/blog/feature-article/src/index.ts"],
-      "@valerymelou/blog/data-access": ["libs/blog/data-access/src/index.ts"],
-      "@valerymelou/blog/home": ["libs/blog/feature-home/src/index.ts"],
-      "@valerymelou/cms/contentful": ["libs/cms/contentful/src/index.ts"],
-      "@valerymelou/common/browser": ["libs/common/browser/src/index.ts"],
-      "@valerymelou/pages/about": ["libs/pages/about/src/index.ts"],
-      "@valerymelou/pages/home": ["libs/pages/home/src/index.ts"],
-      "@valerymelou/pages/projects": ["libs/pages/projects/src/index.ts"],
-      "@valerymelou/shared/layout": ["libs/shared/layout/src/index.ts"],
-      "@valerymelou/shared/seo": ["libs/shared/seo/src/index.ts"],
-      "@valerymelou/shared/theming": ["libs/shared/theming/src/index.ts"],
-      "@valerymelou/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@vm/blog/data-access": ["libs/blog/data-access/src/index.ts"],
+      "@vm/blog/feature-article": ["libs/blog/feature-article/src/index.ts"],
+      "@vm/blog/feature-home": ["libs/blog/feature-home/src/index.ts"],
+      "@vm/cms/contentful": ["libs/cms/contentful/src/index.ts"],
+      "@vm/common/browser": ["libs/common/browser/src/index.ts"],
+      "@vm/pages/home": ["libs/pages/home/src/index.ts"],
+      "@vm/pages/work": ["libs/pages/work/src/index.ts"],
+      "@vm/shared/layout": ["libs/shared/layout/src/index.ts"],
+      "@vm/shared/seo": ["libs/shared/seo/src/index.ts"],
+      "@vm/shared/theming": ["libs/shared/theming/src/index.ts"],
+      "@vm/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

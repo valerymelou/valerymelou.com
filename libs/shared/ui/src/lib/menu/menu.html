@@ -1,0 +1,10 @@
+<ng-template>
+  <div
+    (click)="closed.emit()"
+    class="dark:bg-dark bg-background border-border flex w-fit flex-col rounded-md border shadow-md"
+    (keyup)="closed.emit()"
+    tabindex="0"
+  >
+    <ng-content></ng-content>
+  </div>
+</ng-template>

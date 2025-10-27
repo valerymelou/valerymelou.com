@@ -1,107 +1,106 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
-import { StorageService, WINDOW_TOKEN } from '@valerymelou/common/browser';
+import { Injectable, DOCUMENT, inject } from '@angular/core';
+
 import { BehaviorSubject } from 'rxjs';
 
-const USE_SYSTEM_THEME_STORAGE_KEY = 'useSystemTheme';
+import { CookiesService, WINDOW_TOKEN } from '@vm/common/browser';
+
 const THEME_STORAGE_KEY = 'theme';
 const DARK_MODE_CLASS = 'dark';
+
+export type Theme = 'dark' | 'light';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private themeChanged: BehaviorSubject<string> = new BehaviorSubject('light');
+  private themeChanged: BehaviorSubject<Theme> = new BehaviorSubject<Theme>(
+    'light',
+  );
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW_TOKEN) private window: Window,
-    private storage: StorageService,
-  ) {
-    // Only listen to system's theme change if user prefers system's theme
-    if (this.shouldUseSystemTheme()) {
-      this.setUserPreference(true);
-    }
+  private document = inject(DOCUMENT);
+  private window = inject(WINDOW_TOKEN);
+  private cookiesService = inject(CookiesService);
+
+  constructor() {
+    // Initialize theme on service creation
+    this.initializeTheme();
   }
 
-  changeTheme(theme: 'dark' | 'light', system = true) {
-    if (theme === 'dark') {
-      this.addClassToDocument();
-    } else {
-      this.removeClassFromDocument();
-    }
-
-    // Indicate that the user has chosen a specific theme, not the system's theme
-    if (!system) {
-      this.setUserPreference(system);
-    }
-    this.storage.setItem(THEME_STORAGE_KEY, theme);
+  /**
+   * Changes the current theme and stores it in cookies
+   */
+  changeTheme(theme: Theme): void {
+    this.applyTheme(theme);
+    this.cookiesService.setCookie(THEME_STORAGE_KEY, theme);
     this.themeChanged.next(theme);
   }
 
-  setUserPreference(useSystemTheme: boolean) {
-    this.storage.setItem(
-      USE_SYSTEM_THEME_STORAGE_KEY,
-      useSystemTheme.toString(),
-    );
-    this.window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .removeEventListener('change', this.themeChangeListener.bind(this));
-    if (useSystemTheme) {
-      this.changeTheme(this.getPreferredTheme());
-      this.window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', this.themeChangeListener.bind(this));
-    }
-  }
-
-  resetPreferredTheme() {
-    this.removeClassFromDocument();
-    this.storage.removeItem(THEME_STORAGE_KEY);
-    this.setUserPreference(true);
-  }
-
+  /**
+   * Gets the current theme as an observable
+   */
   getTheme() {
     return this.themeChanged;
   }
 
-  getPreferredTheme(): 'dark' | 'light' {
-    const useSystemTheme =
-      this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true';
+  /**
+   * Gets the current theme value
+   */
+  getCurrentTheme(): Theme {
+    return this.themeChanged.value;
+  }
+
+  /**
+   * Resets the theme to system preference and removes stored cookie
+   */
+  resetToSystemTheme(): void {
+    const systemTheme = this.getSystemPreferredTheme();
+    this.applyTheme(systemTheme);
+    this.cookiesService.setCookie(THEME_STORAGE_KEY, systemTheme);
+    this.themeChanged.next(systemTheme);
+  }
+
+  /**
+   * Initializes the theme by checking cookies first, then system preference
+   */
+  private initializeTheme(): void {
+    const storedTheme = this.cookiesService.getCookie(
+      THEME_STORAGE_KEY,
+    ) as Theme;
+
+    let themeToUse: Theme;
+
+    if (storedTheme && (storedTheme === 'dark' || storedTheme === 'light')) {
+      // Use theme from cookies if present and valid
+      themeToUse = storedTheme;
+    } else {
+      // Fall back to system preference
+      themeToUse = this.getSystemPreferredTheme();
+      // Store the system preference for future use
+      this.cookiesService.setCookie(THEME_STORAGE_KEY, themeToUse);
+    }
+
+    this.applyTheme(themeToUse);
+    this.themeChanged.next(themeToUse);
+  }
+
+  /**
+   * Gets the system's preferred theme
+   */
+  private getSystemPreferredTheme(): Theme {
     const prefersDarkTheme = this.window.matchMedia(
       '(prefers-color-scheme: dark)',
     ).matches;
+    return prefersDarkTheme ? 'dark' : 'light';
+  }
 
-    if (useSystemTheme) {
-      return prefersDarkTheme ? 'dark' : 'light';
+  /**
+   * Applies the theme by adding/removing CSS classes
+   */
+  private applyTheme(theme: Theme): void {
+    if (theme === 'dark') {
+      this.document.documentElement.classList.add(DARK_MODE_CLASS);
+    } else {
+      this.document.documentElement.classList.remove(DARK_MODE_CLASS);
     }
-
-    const storedTheme = this.storage.getItem(THEME_STORAGE_KEY);
-
-    if (storedTheme === 'dark' || (!storedTheme && prefersDarkTheme)) {
-      return 'dark';
-    }
-
-    return 'light';
-  }
-
-  private shouldUseSystemTheme(): boolean {
-    // Check if the user has a preference set for using the system's theme
-    return (
-      this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY) === 'true' ||
-      !this.storage.getItem(USE_SYSTEM_THEME_STORAGE_KEY)
-    );
-  }
-
-  private addClassToDocument() {
-    this.document.documentElement.classList.add(DARK_MODE_CLASS);
-  }
-
-  private removeClassFromDocument() {
-    this.document.documentElement.classList.remove(DARK_MODE_CLASS);
-  }
-
-  private themeChangeListener(e: MediaQueryListEvent) {
-    this.changeTheme(e.matches ? 'dark' : 'light');
   }
 }

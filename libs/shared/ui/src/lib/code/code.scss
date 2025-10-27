@@ -1,0 +1,60 @@
+:host {
+  display: inline-block;
+  width: 100%;
+}
+
+pre {
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.inline-flex {
+  pre {
+    padding: 0 6px;
+  }
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* Line numbers for block code (scoped when has-line-numbers is present) */
+.code :is(pre.has-line-numbers, pre.has-line-numbers *) {
+  /* ensure consistent font alignment */
+  font-variant-ligatures: none;
+}
+
+.code pre.has-line-numbers code {
+  counter-reset: line;
+}
+
+.code pre.has-line-numbers code .line {
+  font-size: 14px;
+  position: relative;
+  padding-left: 2rem; /* space for numbers */
+}
+
+.code pre.has-line-numbers code .line::before {
+  counter-increment: line;
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 1rem;
+  text-align: right;
+  color: var(--muted-foreground);
+  opacity: 0.6;
+  user-select: none;
+  padding-right: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Do not show numbers for inline variant */
+.inline-flex pre.has-line-numbers code .line::before {
+  display: none;
+}
