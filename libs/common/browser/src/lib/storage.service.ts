@@ -5,7 +5,7 @@ import { inject, Injectable, PLATFORM_ID } from '@angular/core';
   providedIn: 'root',
 })
 export class StorageService {
-  private readonly platformId = inject(PLATFORM_ID);
+  private platformId = inject(PLATFORM_ID);
 
   getItem(key: string): string | null {
     return isPlatformBrowser(this.platformId)

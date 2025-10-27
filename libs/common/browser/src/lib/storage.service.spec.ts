@@ -21,7 +21,7 @@ describe('StorageService', () => {
     service.removeItem('test');
 
     expect(service.getItem('test')).toBeNull();
-  })
+  });
 
   it('should clear the storage', () => {
     service.clear();

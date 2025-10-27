@@ -4,9 +4,7 @@ import { ResolveFn } from '@angular/router';
 import { ThemeService } from './theme.service';
 
 export const themeResolver: ResolveFn<boolean> = () => {
-  const themeService = inject(ThemeService);
-  const preferredTheme = themeService.getPreferredTheme();
-  themeService.changeTheme(preferredTheme);
+  inject(ThemeService);
 
   return true;
 };

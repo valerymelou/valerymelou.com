@@ -5,40 +5,62 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 
-import { WINDOW_TOKEN } from '@vm/common/browser';
+import { WINDOW_TOKEN, CookiesService } from '@vm/common/browser';
 
 import { themeResolver } from './theme.resolver';
 import { ThemeService } from './theme.service';
 
 describe('themeResolver', () => {
   let themeService: ThemeService;
+  let cookiesService: jest.Mocked<CookiesService>;
+
   const executeResolver: ResolveFn<boolean> = (...resolverParameters) =>
     TestBed.runInInjectionContext(() => themeResolver(...resolverParameters));
 
   beforeEach(() => {
+    const cookiesServiceMock = {
+      getCookie: jest.fn(),
+      setCookie: jest.fn(),
+      removeCookie: jest.fn(),
+      getItem: jest.fn(),
+      setItem: jest.fn(),
+      removeItem: jest.fn(),
+      clear: jest.fn(),
+      getAllCookies: jest.fn(),
+    };
+
     TestBed.configureTestingModule({
-      providers: [ThemeService, { provide: WINDOW_TOKEN, useValue: window }],
+      providers: [
+        ThemeService,
+        { provide: WINDOW_TOKEN, useValue: window },
+        { provide: CookiesService, useValue: cookiesServiceMock },
+      ],
     });
+
     themeService = TestBed.inject(ThemeService);
+    cookiesService = TestBed.inject(
+      CookiesService,
+    ) as jest.Mocked<CookiesService>;
   });
 
-  it('should change the theme based on the preferred theme', () => {
-    jest.spyOn(themeService, 'getPreferredTheme').mockReturnValue('dark');
-    jest.spyOn(themeService, 'changeTheme');
+  it('should resolve and initialize theme service', () => {
+    const result = executeResolver(
+      {} as ActivatedRouteSnapshot,
+      {} as RouterStateSnapshot,
+    );
 
-    executeResolver({} as ActivatedRouteSnapshot, {} as RouterStateSnapshot);
-
-    expect(themeService.changeTheme).toHaveBeenCalledWith('dark');
-    expect(document.documentElement.classList.contains('dark')).toBe(true);
+    expect(result).toBe(true);
+    expect(themeService).toBeTruthy();
   });
 
-  it('should remove the "dark" class from documentElement when the preferred theme is not "dark"', () => {
-    jest.spyOn(themeService, 'getPreferredTheme').mockReturnValue('light');
-    jest.spyOn(themeService, 'changeTheme');
+  it('should initialize theme from system preference when no cookie exists', () => {
+    cookiesService.getCookie.mockReturnValue(null);
 
-    executeResolver({} as ActivatedRouteSnapshot, {} as RouterStateSnapshot);
+    // Create a new service instance to test initialization
+    const newService = TestBed.inject(ThemeService);
 
-    expect(themeService.changeTheme).toHaveBeenCalledWith('light');
-    expect(document.documentElement.classList.contains('dark')).toBe(false);
+    // Should default to light theme in test environment
+    expect(newService.getCurrentTheme()).toBe('light');
+    expect(cookiesService.setCookie).toHaveBeenCalledWith('theme', 'light');
   });
 });
