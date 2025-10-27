@@ -1,0 +1,33 @@
+<header
+  class="border-border bg-background/70 dark:bg-background/30 fixed top-0 right-0 left-0 z-10 flex h-16 items-center border backdrop-blur-2xl"
+>
+  <div
+    class="border-border mx-auto flex h-full w-full max-w-2xl items-center border-r border-l px-4 sm:px-6"
+  >
+    <button
+      class="flex cursor-pointer items-center gap-4 py-4 text-xl font-bold"
+      type="button"
+      (click)="goBack()"
+    >
+      @if (backButton()) {
+      <ng-icon name="radixChevronLeft" size="20" class="stroke-2"></ng-icon>
+      }
+      <span>Valery Melou</span>
+    </button>
+    <div class="ml-auto flex items-center gap-5">
+      <button
+        type="button"
+        ui-button
+        size="icon"
+        variant="ghost"
+        (click)="toggleTheme()"
+        aria-label="Toggle theme"
+      >
+        <ng-icon
+          [name]="theme === 'light' ? 'remixSunLine' : 'remixMoonLine'"
+          size="20"
+        ></ng-icon>
+      </button>
+    </div>
+  </div>
+</header>

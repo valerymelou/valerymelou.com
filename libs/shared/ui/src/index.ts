@@ -1,9 +1,5 @@
-export * from './lib/button/button.component';
-
-export * from './lib/menu/menu.component';
-
-export * from './lib/menu/menu-trigger-for.directive';
-
-export * from './lib/link/link.component';
-
-export * from './lib/code/code.component';
+export * from './lib/button';
+export * from './lib/code';
+export * from './lib/link';
+export * from './lib/menu';
+export * from './lib/skeleton';
