@@ -28,7 +28,7 @@ export class Projects {
         "I built a minimalist and intuitive application to help you plan, track and get insights on your expenses. Built with sqlite as a database to keep the data on the user's phone.",
       link: 'https://ledgerly.download/',
       tools: ['Flutter', 'SQLite'],
-      image: '/screenshots/ledgerly.png',
+      image: '/screenshots/ledgerly.webp',
     },
     {
       title: 'Lysties',
@@ -36,7 +36,7 @@ export class Projects {
         'I developed and launched a comprehensive business review website connecting users with local businesses.',
       link: 'https://lysties.com/',
       tools: ['Django', 'Angular', 'PostgreSQL', 'Docker', 'GCP'],
-      image: '/screenshots/lysties.png',
+      image: '/screenshots/lysties.webp',
     },
     {
       title: 'Mapping of organizations working on the SDGs',
@@ -44,7 +44,7 @@ export class Projects {
         'I built the frontend of the of this platform listing the organizations working on Sustainable Development Goals as identified by the Francophonie.',
       link: 'https://cartodd.francophonie.org/',
       tools: ['Angular', 'Open Layers', 'Tailwind CSS'],
-      image: '/screenshots/ifdd.png',
+      image: '/screenshots/ifdd.webp',
     },
   ];
 

@@ -19,6 +19,7 @@ import { Header } from '../header/header';
 import { Hero } from '../hero/hero';
 import { Intro } from '../intro/intro';
 import { Menu } from '../menu/menu';
+import { LAYOUT_NAV_ITEMS } from '../nav-items';
 
 @Component({
   selector: 'layout-layout',
@@ -40,6 +41,9 @@ export class Layout implements OnDestroy {
   private routerSubscription: Subscription;
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private readonly swipeThreshold = 40; // pixels
 
   constructor() {
     this.routerSubscription = this.router.events.subscribe({
@@ -62,5 +66,42 @@ export class Layout implements OnDestroy {
 
   ngOnDestroy(): void {
     this.routerSubscription.unsubscribe();
+  }
+
+  // Swipe navigation at the layout level (anywhere on screen)
+  onTouchStart(ev: TouchEvent) {
+    if (!ev.touches || ev.touches.length === 0) return;
+    const t = ev.touches[0];
+    this.touchStartX = t.clientX;
+    this.touchStartY = t.clientY;
+  }
+
+  onTouchEnd(ev: TouchEvent) {
+    if (!ev.changedTouches || ev.changedTouches.length === 0) return;
+    const t = ev.changedTouches[0];
+    const dx = t.clientX - this.touchStartX;
+    const dy = t.clientY - this.touchStartY;
+
+    if (Math.abs(dx) < this.swipeThreshold || Math.abs(dx) < Math.abs(dy)) {
+      return; // ignore short or mostly-vertical gestures
+    }
+
+    const items = LAYOUT_NAV_ITEMS;
+    const url = this.router.url || '/';
+    const current = items.findIndex((item) =>
+      item.path === '/' ? url === '/' : url.startsWith(item.path),
+    );
+    const cur = current >= 0 ? current : 0;
+
+    let next = cur;
+    if (dx < 0) {
+      next = Math.min(cur + 1, items.length - 1);
+    } else {
+      next = Math.max(cur - 1, 0);
+    }
+
+    if (next !== cur) {
+      this.router.navigateByUrl(items[next].path);
+    }
   }
 }

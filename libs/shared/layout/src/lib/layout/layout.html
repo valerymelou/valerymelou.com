@@ -1,4 +1,8 @@
-<div class="flex min-h-screen flex-col pt-16">
+<div
+  class="flex min-h-screen flex-col pt-16"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
   <layout-header [backButton]="hasChild"></layout-header>
 
   @if(!hasChild) {

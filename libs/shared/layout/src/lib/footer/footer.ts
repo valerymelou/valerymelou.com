@@ -8,12 +8,18 @@ import {
   remixLinkedinBoxFill,
   remixGithubFill,
 } from '@ng-icons/remixicon';
+import { radixEnvelopeClosed } from '@ng-icons/radix-icons';
 
 @Component({
   selector: 'layout-footer',
   imports: [Button, NgIconComponent],
   viewProviders: [
-    provideIcons({ remixTwitterXLine, remixLinkedinBoxFill, remixGithubFill }),
+    provideIcons({
+      remixTwitterXLine,
+      remixLinkedinBoxFill,
+      remixGithubFill,
+      radixEnvelopeClosed,
+    }),
   ],
   templateUrl: './footer.html',
 })
