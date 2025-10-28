@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { remixMoonLine, remixSunLine } from '@ng-icons/remixicon';
-import { radixChevronLeft } from '@ng-icons/radix-icons';
+import { radixArrowLeft } from '@ng-icons/radix-icons';
 
 import { Button } from '@vm/shared/ui';
 import { ThemeService } from '@vm/shared/theming';
@@ -15,7 +15,7 @@ import { WINDOW_TOKEN } from '@vm/common/browser';
   imports: [NgIconComponent, Button],
   viewProviders: [
     provideIcons({
-      radixChevronLeft,
+      radixArrowLeft,
       remixSunLine,
       remixMoonLine,
     }),

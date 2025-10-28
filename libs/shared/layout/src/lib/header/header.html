@@ -10,9 +10,11 @@
       (click)="goBack()"
     >
       @if (backButton()) {
-      <ng-icon name="radixChevronLeft" size="20" class="stroke-2"></ng-icon>
-      }
+      <ng-icon name="radixArrowLeft" size="20" class="stroke-2"></ng-icon>
+      <span>Article</span>
+      } @else {
       <span>Valery Melou</span>
+      }
     </button>
     <div class="ml-auto flex items-center gap-5">
       <button

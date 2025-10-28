@@ -1,6 +1,6 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 import {
@@ -38,6 +38,7 @@ import { ThemeService } from '@vm/shared/theming';
     Button,
     Menu,
     MenuTriggerFor,
+    RouterLink,
   ],
   templateUrl: './article.html',
   styles: `

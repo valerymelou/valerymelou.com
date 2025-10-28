@@ -1,29 +1,43 @@
 <article class="prose dark:prose-invert max-w-none px-4 py-4 sm:px-6">
-  <div
-    class="text-muted-foreground flex items-center gap-2 text-sm font-medium"
-  >
-    <dl class="mt-0 mb-0">
-      <dt class="sr-only">Date</dt>
-      <dd class="mt-0 mb-0 pl-0 text-nowrap">
-        <time [attr.datetime]="article.publishedAt"
-          >{{ article.publishedAt | date: 'mediumDate' }}</time
+  <div class="my-4 flex items-center">
+    <a routerLink="/" class="not-prose flex gap-4">
+      <div class="border-accent relative h-10 w-10 rounded-full border-2">
+        <img
+          ngSrc="/images/pp.webp"
+          alt="Valery's avatar"
+          fill
+          class="rounded-full object-cover"
+        />
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold">Valery Melou</span>
+        <div
+          class="text-muted-foreground flex items-center gap-2 text-sm font-medium"
         >
-      </dd>
-    </dl>
-    <span>&middot;</span>
-    <span>{{ article.readingTime }} min read</span>
-    <div class="ml-auto">
-      <button
-        ui-button
-        size="icon"
-        variant="ghost"
-        [ui-menu-trigger-for]="shareMenu"
-        xPosition="after"
-        aria-label="Share this article"
-      >
-        <ng-icon name="radixShare2" size="20"></ng-icon>
-      </button>
-    </div>
+          <dl class="mt-0 mb-0">
+            <dt class="sr-only">Date</dt>
+            <dd class="mt-0 mb-0 pl-0 text-nowrap">
+              <time [attr.datetime]="article.publishedAt"
+                >{{ article.publishedAt | date: 'mediumDate' }}</time
+              >
+            </dd>
+          </dl>
+          <span>&middot;</span>
+          <span>{{ article.readingTime }} min read</span>
+        </div>
+      </div>
+    </a>
+    <button
+      class="ml-auto"
+      ui-button
+      size="icon"
+      variant="ghost"
+      [ui-menu-trigger-for]="shareMenu"
+      xPosition="after"
+      aria-label="Share this article"
+    >
+      <ng-icon name="radixShare2" size="20"></ng-icon>
+    </button>
   </div>
   <h1 class="mt-0">{{ article.title }}</h1>
 

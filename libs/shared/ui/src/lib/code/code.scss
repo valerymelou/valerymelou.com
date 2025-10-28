@@ -11,7 +11,12 @@ pre {
 .inline-flex {
   pre {
     padding: 0 6px;
+    margin: 0;
   }
+}
+
+li p {
+  margin: 0;
 }
 
 html.dark .shiki,
