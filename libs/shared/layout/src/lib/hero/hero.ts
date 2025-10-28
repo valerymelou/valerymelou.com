@@ -7,6 +7,7 @@ import {
   remixLinkedinBoxFill,
   remixGithubFill,
 } from '@ng-icons/remixicon';
+import { radixEnvelopeClosed } from '@ng-icons/radix-icons';
 
 import { Button } from '@vm/shared/ui';
 
@@ -14,7 +15,12 @@ import { Button } from '@vm/shared/ui';
   selector: 'layout-hero',
   imports: [NgOptimizedImage, Button, NgIconComponent],
   viewProviders: [
-    provideIcons({ remixTwitterXLine, remixLinkedinBoxFill, remixGithubFill }),
+    provideIcons({
+      remixTwitterXLine,
+      remixLinkedinBoxFill,
+      remixGithubFill,
+      radixEnvelopeClosed,
+    }),
   ],
   templateUrl: './hero.html',
 })
