@@ -11,7 +11,7 @@ This is an Nx monorepo with an Angular application (`apps/www`) and several libr
 ### Prerequisites
 
 - Node.js 20+ (LTS recommended)
-- npm 9+/pnpm/yarn (examples below use `npx` and `npm`)
+- npm 9+/pnpm/yarn (examples below use `npx` and `yarn`)
 
 Optional for deployment:
 
@@ -20,7 +20,7 @@ Optional for deployment:
 ### 1) Install dependencies
 
 ```sh
-npm install
+yarn install
 ```
 
 ### 2) Configure environment variables
