@@ -166,7 +166,7 @@
     <strong
       *cfRichTextMark="MARKS.BOLD; let node = node"
       class="dark:text-white"
-      >{{ node }}</strong
+      >{{ node.value }}</strong
     >
 
     <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
