@@ -151,3 +151,12 @@
 ::view-transition-old(count) {
   animation-name: -ua-view-transition-fade-out, slide-out;
 }
+
+blog-article-embedded + blog-article-embedded {
+  margin-left: 2rem;
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+}

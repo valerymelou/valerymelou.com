@@ -23,6 +23,8 @@ import { Code, Link, Menu, MenuTriggerFor, Button } from '@vm/shared/ui';
 import { WINDOW_TOKEN } from '@vm/common/browser';
 import { ThemeService } from '@vm/shared/theming';
 
+import { ArticleEmbedded } from '../article-embedded/article-embedded';
+
 @Component({
   selector: 'blog-article',
   imports: [
@@ -33,6 +35,7 @@ import { ThemeService } from '@vm/shared/theming';
     CfRichTextNodeDirective,
     CfRichTextMarkDirective,
     CfRichTextChildrenDirective,
+    ArticleEmbedded,
     Link,
     Code,
     Button,

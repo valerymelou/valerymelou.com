@@ -1,0 +1,36 @@
+@if (article(); as article) {
+<a [routerLink]="['/blog', article.url]" class="flex flex-col no-underline">
+  @if (article.cover) {
+  <figure class="relative mt-0 mb-0 h-[200px] sm:h-[250px]">
+    <img
+      class="w-full rounded-lg object-cover"
+      [ngSrc]="article.cover.url"
+      [alt]="article.cover.description"
+      fill
+      priority
+    />
+  </figure>
+  }
+  <div>
+    <h3 class="mt-0 mb-0">{{ article.title }}</h3>
+
+    <p class="my-0">{{ article.abstract }}</p>
+  </div>
+
+  <div
+    class="text-muted-foreground flex items-center gap-2 text-sm font-medium"
+  >
+    <dl class="mt-0 mb-0">
+      <dt class="sr-only">Date</dt>
+      <dd class="mt-0 mb-0 pl-0 text-nowrap">
+        <time [attr.datetime]="article.publishedAt"
+          >{{ article.publishedAt | date: 'mediumDate' }}</time
+        >
+      </dd>
+    </dl>
+    <span>&middot;</span>
+    <span>{{ article.readingTime }} min read</span>
+  </div>
+</a>
+
+}

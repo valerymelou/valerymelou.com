@@ -63,42 +63,42 @@
   <div [cfRichTextDocument]="article.content" ngSkipHydration>
     <ng-container *cfRichTextNode="BLOCKS.HEADING_1; let node = node">
       <h1
-        class="mb-4 text-2xl leading-[3rem] font-bold tracking-tight text-black lg:text-4xl dark:text-white"
+        class="mb-4 text-2xl leading-12 font-bold tracking-tight text-black lg:text-4xl dark:text-white"
       >
         <ng-container [cfRichTextChildren]="node" />
       </h1>
     </ng-container>
     <ng-container *cfRichTextNode="BLOCKS.HEADING_2; let node = node">
       <h2
-        class="mb-4 text-xl leading-[3rem] font-bold tracking-tight text-black lg:text-2xl dark:text-white"
+        class="mb-4 text-xl leading-12 font-bold tracking-tight text-black lg:text-2xl dark:text-white"
       >
         <ng-container [cfRichTextChildren]="node" />
       </h2>
     </ng-container>
     <ng-container *cfRichTextNode="BLOCKS.HEADING_3; let node = node">
       <h3
-        class="mb-4 text-lg leading-[3rem] font-bold tracking-tight text-black lg:text-xl dark:text-white"
+        class="mb-4 text-lg leading-12 font-bold tracking-tight text-black lg:text-xl dark:text-white"
       >
         <ng-container [cfRichTextChildren]="node" />
       </h3>
     </ng-container>
     <ng-container *cfRichTextNode="BLOCKS.HEADING_4; let node = node">
       <h4
-        class="mb-4 text-base leading-[3rem] font-bold tracking-tight text-black lg:text-lg dark:text-white"
+        class="mb-4 text-base leading-12 font-bold tracking-tight text-black lg:text-lg dark:text-white"
       >
         <ng-container [cfRichTextChildren]="node" />
       </h4>
     </ng-container>
     <ng-container *cfRichTextNode="BLOCKS.HEADING_5; let node = node">
       <h5
-        class="mb-4 leading-[3rem] font-bold tracking-tight text-black dark:text-white"
+        class="mb-4 leading-12 font-bold tracking-tight text-black dark:text-white"
       >
         <ng-container [cfRichTextChildren]="node" />
       </h5>
     </ng-container>
     <ng-container *cfRichTextNode="BLOCKS.HEADING_6; let node = node">
       <h6
-        class="mb-4 leading-[3rem] font-bold tracking-tight text-black dark:text-white"
+        class="mb-4 leading-12 font-bold tracking-tight text-black dark:text-white"
       >
         <ng-container [cfRichTextChildren]="node" />
       </h6>
@@ -158,13 +158,15 @@
     </ng-container>
 
     <ng-container *cfRichTextNode="BLOCKS.EMBEDDED_ENTRY; let node = node">
-      Embedded entry
+      @switch (node.data.target.sys.contentType.sys.id) { @case ('article') {
+      <blog-article-embedded [entry]="node.data.target"></blog-article-embedded>
+      } @default { } }
     </ng-container>
 
     <strong
       *cfRichTextMark="MARKS.BOLD; let node = node"
       class="dark:text-white"
-      >{{ node.value }}</strong
+      >{{ node }}</strong
     >
 
     <ng-container *cfRichTextMark="MARKS.CODE; let node = node">
