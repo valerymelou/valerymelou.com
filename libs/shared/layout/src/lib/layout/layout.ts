@@ -43,6 +43,7 @@ export class Layout implements OnDestroy {
   private route = inject(ActivatedRoute);
   private touchStartX = 0;
   private touchStartY = 0;
+  private ignoreSwipe = false;
   private readonly swipeThreshold = 40; // pixels
 
   constructor() {
@@ -71,12 +72,21 @@ export class Layout implements OnDestroy {
   // Swipe navigation at the layout level (anywhere on screen)
   onTouchStart(ev: TouchEvent) {
     if (!ev.touches || ev.touches.length === 0) return;
+
+    const target = ev.target as HTMLElement;
+    if (target.closest('pre') || target.closest('ui-code')) {
+      this.ignoreSwipe = true;
+      return;
+    }
+    this.ignoreSwipe = false;
+
     const t = ev.touches[0];
     this.touchStartX = t.clientX;
     this.touchStartY = t.clientY;
   }
 
   onTouchEnd(ev: TouchEvent) {
+    if (this.ignoreSwipe) return;
     if (!ev.changedTouches || ev.changedTouches.length === 0) return;
     const t = ev.changedTouches[0];
     const dx = t.clientX - this.touchStartX;

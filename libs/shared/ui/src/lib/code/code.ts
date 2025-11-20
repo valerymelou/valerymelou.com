@@ -45,7 +45,7 @@ export class Code {
     'json',
     'yaml',
     'ruby',
-    'pwershell',
+    'powershell',
   ];
   private _code!: string;
   private sanitizer = inject(DomSanitizer);
