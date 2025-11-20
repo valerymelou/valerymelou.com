@@ -43,6 +43,9 @@ export class Code {
     'python',
     'rust',
     'json',
+    'yaml',
+    'ruby',
+    'pwershell',
   ];
   private _code!: string;
   private sanitizer = inject(DomSanitizer);
