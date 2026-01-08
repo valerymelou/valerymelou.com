@@ -25,7 +25,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "contentful": "^10.12.13",
-    "express": "^4.21.2",
+    "express": "^4.22.0",
     "rxjs": "~7.8.0",
     "shiki": "1.12.0",
     "zone.js": "~0.15.0"
