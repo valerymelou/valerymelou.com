@@ -23,6 +23,14 @@ import { Project } from './project';
 export class Projects {
   projects: Project[] = [
     {
+      title: 'Builderswave',
+      description:
+        'Products discovery and launch platform for builders and makers.',
+      link: 'https://builderswave.com/',
+      tools: ['Angular', 'Django', 'Docker'],
+      image: '/screenshots/builderswave.webp',
+    },
+    {
       title: 'Ledgerly',
       description:
         "I built a minimalist and intuitive application to help you plan, track and get insights on your expenses. Built with sqlite as a database to keep the data on the user's phone.",
