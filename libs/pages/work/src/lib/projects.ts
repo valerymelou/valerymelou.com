@@ -23,6 +23,13 @@ import { Project } from './project';
 export class Projects {
   projects: Project[] = [
     {
+      title: 'Vision Boursiere',
+      description: 'Financial analysis platform for the BRVM market.',
+      link: 'https://visionboursiere.com',
+      tools: ['Angular', 'Docker', 'Django', 'Gemini API'],
+      image: '/screenshots/vision-boursiere.webp',
+    },
+    {
       title: 'Builderswave',
       description:
         'Products discovery and launch platform for builders and makers.',
