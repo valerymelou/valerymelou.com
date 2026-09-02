@@ -444,10 +444,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/ssr@~20.3.0":
-  version "20.3.7"
-  resolved "https://registry.yarnpkg.com/@angular/ssr/-/ssr-20.3.7.tgz#38fcacdb43d2a34d914db47bacbfd37200a20f32"
-  integrity sha512-munpdYSgU2jDdRb5xujmaAXEpnOhFVLNO0ghqPugeDOH8ejeum3oBsHkdWK1w6rhj1PmX32/Q0DlAiuY4VlXCQ==
+"@angular/ssr@~20.3.35":
+  version "20.3.35"
+  resolved "https://registry.yarnpkg.com/@angular/ssr/-/ssr-20.3.35.tgz#cbe9125db6b63a29333fee339ad0f205e3587fdb"
+  integrity sha512-eYke+tuHfBRd1N5dmCnwGqDmZXGnE63qat/891DFFoeDYI9uSf3zzMkF5cFusAJnPuny3SMQm0M5XI2OnJo9pw==
   dependencies:
     tslib "^2.3.0"
 
