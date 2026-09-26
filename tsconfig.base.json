@@ -26,7 +26,12 @@
       "@vm/shared/seo": ["libs/shared/seo/src/index.ts"],
       "@vm/shared/theming": ["libs/shared/theming/src/index.ts"],
       "@vm/shared/ui": ["libs/shared/ui/src/index.ts"]
-    }
+    },
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "esModuleInterop": false,
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp"]
 }
