@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, ElementRef, inject } from '@angular/core';
 
 @Component({
   selector: 'a[ui-link]',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './link.html',
 })
 export class Link {

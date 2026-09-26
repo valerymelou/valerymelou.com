@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   displayName: 'blog-feature-article',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],

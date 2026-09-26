@@ -45,3 +45,7 @@ Thumbs.db
 
 .angular
 .env
+
+.claude/worktrees
+.nx/polygraph
+.nx/self-healing

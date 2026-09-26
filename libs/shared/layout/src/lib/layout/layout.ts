@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnDestroy } from '@angular/core';
 import {
   ActivatedRoute,
@@ -24,15 +24,14 @@ import { LAYOUT_NAV_ITEMS } from '../nav-items';
 @Component({
   selector: 'layout-layout',
   imports: [
-    CommonModule,
     RouterOutlet,
     Footer,
     Header,
     Hero,
     Intro,
     Menu,
-    Skeleton,
-  ],
+    Skeleton
+],
   templateUrl: './layout.html',
 })
 export class Layout implements OnDestroy {
