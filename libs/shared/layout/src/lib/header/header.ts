@@ -1,5 +1,11 @@
 import { Location } from '@angular/common';
-import { Component, inject, input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';

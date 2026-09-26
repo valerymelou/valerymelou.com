@@ -1,5 +1,11 @@
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Component, inject, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';

@@ -6,6 +6,10 @@
     "merge-lcov": "node tools/merge-lcov-files.js"
   },
   "private": true,
+  "resolutions": {
+    "@typescript-eslint/utils": "8.70.1",
+    "@typescript-eslint/type-utils": "8.70.1"
+  },
   "dependencies": {
     "@angular-devkit/build-angular": "22.1.9",
     "@angular/cdk": "22.1.8",

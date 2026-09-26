@@ -1,5 +1,9 @@
-
-import { Component, inject, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnDestroy,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   ActivatedRoute,
   Event,
@@ -23,15 +27,7 @@ import { LAYOUT_NAV_ITEMS } from '../nav-items';
 
 @Component({
   selector: 'layout-layout',
-  imports: [
-    RouterOutlet,
-    Footer,
-    Header,
-    Hero,
-    Intro,
-    Menu,
-    Skeleton
-],
+  imports: [RouterOutlet, Footer, Header, Hero, Intro, Menu, Skeleton],
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './layout.html',
 })

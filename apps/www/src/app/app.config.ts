@@ -18,7 +18,7 @@ import {
 import {
   provideClientHydration,
   withEventReplay,
-  withNoIncrementalHydration
+  withNoIncrementalHydration,
 } from '@angular/platform-browser';
 
 import { provideNgIconLoader } from '@ng-icons/core';

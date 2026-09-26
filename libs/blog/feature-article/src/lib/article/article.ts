@@ -1,5 +1,11 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { Component, ElementRef, inject, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  ViewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';

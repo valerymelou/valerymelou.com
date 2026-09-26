@@ -1,5 +1,11 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, effect, input, signal, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  effect,
+  input,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Asset, Entry, EntrySkeletonType } from 'contentful';
 

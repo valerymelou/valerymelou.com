@@ -8,6 +8,8 @@ export default [
   {
     files: ['**/*.ts'],
     rules: {
+      // Newly enabled by the angular-eslint recommended set (ESLint v9); was not enforced before the upgrade.
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
       '@angular-eslint/directive-selector': [
         'error',
         {

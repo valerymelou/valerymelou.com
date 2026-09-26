@@ -1,5 +1,9 @@
-
-import { Component, ElementRef, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'a[ui-link]',
