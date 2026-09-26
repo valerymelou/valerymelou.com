@@ -18,6 +18,7 @@ import {
 import {
   provideClientHydration,
   withEventReplay,
+  withNoIncrementalHydration
 } from '@angular/platform-browser';
 
 import { provideNgIconLoader } from '@ng-icons/core';
@@ -33,7 +34,7 @@ import {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withFetch(), withJsonpSupport()),
-    provideClientHydration(withEventReplay()),
+    provideClientHydration(withEventReplay(), withNoIncrementalHydration()),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
