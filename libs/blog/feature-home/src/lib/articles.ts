@@ -1,5 +1,5 @@
 import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { Article, Results } from '@vm/blog/data-access';
@@ -9,6 +9,7 @@ import { MetadataService } from '@vm/shared/seo';
   selector: 'blog-articles',
   imports: [DatePipe, RouterLink, NgOptimizedImage],
   templateUrl: './articles.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       view-transition-name: count;

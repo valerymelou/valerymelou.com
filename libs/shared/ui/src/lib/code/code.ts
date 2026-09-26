@@ -1,5 +1,5 @@
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Component, inject, Input, ViewEncapsulation } from '@angular/core';
+import { Component, inject, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -14,6 +14,7 @@ import { Button } from '../button';
   templateUrl: './code.html',
   styleUrls: ['./code.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   viewProviders: [provideIcons({ radixCopy, radixCheck })],
 })
 export class Code {

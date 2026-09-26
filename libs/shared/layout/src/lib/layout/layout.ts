@@ -1,5 +1,5 @@
 
-import { Component, inject, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import {
   ActivatedRoute,
   Event,
@@ -32,6 +32,7 @@ import { LAYOUT_NAV_ITEMS } from '../nav-items';
     Menu,
     Skeleton
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './layout.html',
 })
 export class Layout implements OnDestroy {

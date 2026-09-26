@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -22,6 +22,7 @@ import { Button } from '@vm/shared/ui';
       radixEnvelopeClosed,
     }),
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './hero.html',
 })
 export class Hero {}

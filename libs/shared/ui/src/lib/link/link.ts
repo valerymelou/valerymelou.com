@@ -1,9 +1,10 @@
 
-import { Component, ElementRef, inject } from '@angular/core';
+import { Component, ElementRef, inject, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'a[ui-link]',
   imports: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './link.html',
 })
 export class Link {

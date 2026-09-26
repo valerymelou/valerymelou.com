@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, effect, input, signal } from '@angular/core';
+import { Component, effect, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Asset, Entry, EntrySkeletonType } from 'contentful';
 
@@ -9,6 +9,7 @@ import { Article } from '@vm/blog/data-access';
   selector: 'blog-article-embedded',
   imports: [CommonModule, RouterLink, NgOptimizedImage],
   templateUrl: './article-embedded.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       max-width: calc(50% - 1rem);

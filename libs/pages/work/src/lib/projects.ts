@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { remixLink } from '@ng-icons/remixicon';
@@ -18,6 +18,7 @@ import { Project } from './project';
       display: block;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   viewProviders: [provideIcons({ remixLink })],
 })
 export class Projects {

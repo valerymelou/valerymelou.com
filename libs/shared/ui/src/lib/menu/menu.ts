@@ -4,11 +4,13 @@ import {
   Output,
   TemplateRef,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
   selector: 'ui-menu',
   templateUrl: './menu.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
 })
 export class Menu {

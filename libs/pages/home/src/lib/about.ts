@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { MetadataService } from '@vm/shared/seo';
@@ -7,6 +7,7 @@ import { MetadataService } from '@vm/shared/seo';
   selector: 'pages-about',
   imports: [RouterLink],
   templateUrl: './about.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       view-transition-name: count;

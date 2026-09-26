@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { Button } from '@vm/shared/ui';
@@ -21,6 +21,7 @@ import { radixEnvelopeClosed } from '@ng-icons/radix-icons';
       radixEnvelopeClosed,
     }),
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './footer.html',
 })
 export class Footer {

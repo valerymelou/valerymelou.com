@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -20,6 +20,7 @@ import { WINDOW_TOKEN } from '@vm/common/browser';
       remixMoonLine,
     }),
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './header.html',
 })
 export class Header implements OnInit {
