@@ -339,10 +339,10 @@
     tslib "^2.3.0"
     xhr2 "^0.2.0"
 
-"@angular/router@22.1.8":
-  version "22.1.8"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-22.1.8.tgz#4d055d4bf97f4a859b10e3f999327473f3d7978a"
-  integrity sha512-KKnHHpkmCgt4tS/d+iZc3UiIm3sFPnvqM4/RUW3ZsbUfrxxBvGsETCw5W0exKiEVKP0thgcYOHXlsOGgVRditQ==
+"@angular/router@22.2.0":
+  version "22.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-22.2.0.tgz#6c755266540b7aa75c784d5496ccce3bbcdebef9"
+  integrity sha512-+pxHMwWWKg+ejS1vKa+tS91CDusCIK1MOSy6fVLc89McMOY/C8tsLrh1uJaMjklejsz+3XUhJgrLOvl3ISNz6w==
   dependencies:
     tslib "^2.3.0"
 

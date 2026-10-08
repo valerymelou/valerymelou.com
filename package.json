@@ -20,7 +20,7 @@
     "@angular/platform-browser": "22.1.8",
     "@angular/platform-browser-dynamic": "22.1.8",
     "@angular/platform-server": "22.1.8",
-    "@angular/router": "22.1.8",
+    "@angular/router": "22.2.0",
     "@angular/ssr": "22.1.9",
     "@flowup/contentful-rich-text-angular-renderer": "^0.8.0",
     "@ng-icons/core": "^32.1.0",
